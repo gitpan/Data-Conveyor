@@ -1,0 +1,20 @@
+        foreach my $key (keys %$insert) {
+            try {
+                $sth->bind_param(':key', $key, SQL_VARCHAR);
+                $sth->bind_param(':value', $insert->{$key}, { ora_type => ORA_CLOB });
+                $sth->bind_param(':vc_value', $insert->{$key}, SQL_VARCHAR);
+                $sth->bind_param(':vc_ok', length($insert->{$key}) <= 2000 ? 'J' : 'N', SQL_VARCHAR);
+                $sth->execute;
+
+                printf("Trying to insert value [%s] for key [%s]\n", $insert->{$key}, $key);
+            } catch Error::Hierarchy::Internal::DBI with {
+                my $E = shift;
+
+                throw Error::Hierarchy::Internal::CustomMessage(
+                    custom_message => sprintf("Failing to insert value [%s] for key [%s]: %s",
+                            $insert->{$key}, $key, $E->error
+                ));
+            };
+        }
+
+        $sth->finish;

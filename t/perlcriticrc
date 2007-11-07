@@ -1,0 +1,8 @@
+# no strict 'refs'
+[TestingAndDebugging::ProhibitNoStrict]
+allow = refs
+
+[-BuiltinFunctions::ProhibitStringyEval]
+[-Subroutines::ProhibitSubroutinePrototypes]
+[-Variables::ProhibitConditionalDeclarations]
+

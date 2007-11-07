@@ -1,0 +1,131 @@
+package Data::Conveyor::Record;
+
+
+use overload '""' => \&as_string;
+
+sub new {
+        my $class = shift;
+        $class = ref $class || $class;
+        my $self = {};
+        $self->{$...} = $... while
+        $self->init;
+        $self;
+}
+
+
+sub init {}
+
+
+sub as_string {
+        my $self = shift;
+        ... cf. Text::Printh, using $self->{_fmt} and %$self ...
+}
+
+
+
+
+package Data::Conveyor::Service::Module;
+
+sub ticket {
+        ... $::ticket = ...
+}
+
+sub show_state {
+        ... expect args in %args ...
+        ... sql statement with $args{state}, $args{ticket} ...
+        while ($sth->fetch) {
+                push @result, Data::Conveyor::Record->new(
+                    ticket_no => ...,
+                    status    => ...,
+                    rc        => ...,
+                    nice      => ...,
+                )
+        }
+        wantarray ? @result : \@result;
+}
+
+
+sub hash {
+        ... expect args in %args ...
+        ... sql statement with $args{ticket_no} ...
+        while ($sth->fetch) {
+                push @result, Data::Conveyor::Record->new(
+                    key   => ...,
+                    value => ...
+                    _fmt  => $args{_fmt},
+                )
+        }
+        wantarray ? @result : \@result;
+}
+
+
+
+
+package Data::Conveyor::Service::Interface::TextUtil;
+
+use base 'Exporter';
+
+our @EXPORT = qw(ticket show_state hash);
+
+sub ticket {
+        ... parse args via GetOptions ...
+        Data::Conveyor::Service::Module->ticket(%args);
+}
+
+
+sub show_state {
+        ... parse args via GetOptions ...
+        ... use $args{ticket} || $::ticket
+        Data::Conveyor::Service::Module->show_state(%args);
+}
+
+
+sub hash {
+        my $ticket_no = shift;
+        Data::Conveyor::Service::Module->hash({
+            ticket_no => $ticket_no,
+            _fmt      => '%(key)30s %(value)s',
+         });
+}
+
+sub say {
+    ... like Perl6::Say ...
+}
+
+
+
+package Data::Conveyor::Service::Interface::Shell;
+
+use Data::Conveyor::Service::Interface::TextUtil 'show_state';
+
+
+sub run_show_state {
+        ... parse args via GetOptions ...
+        print Text::Table->new(show_state(...));
+}
+
+
+____________________________________________________________
+
+
+~/.regshrc
+
+use Data::Conveyor::Service::Interface::TextUtil ':all';
+
+sub nscheck {
+    ticket ...;
+    for (show_state('-g ende_nsc')) {
+            say $_->{ticket_no};
+            print for
+                 grep { $_->key =~ /nserver|remarks/ }
+                 hash $_->{ticket_no};
+    }
+}
+
+
+
+: ... ; nscheck
+
+: ... ; eval { for (show_state('-g ende_nsc')) { ... } }
+
+

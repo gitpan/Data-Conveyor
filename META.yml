@@ -1,7 +1,7 @@
 --- 
-abstract: stage-based conveyor-belt-like ticket handling system
+abstract: ~
 author: 
-  - Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
+  - "{% ELSE %}"
 build_requires: 
   Test::Compile: 0
   Test::More: 0
@@ -19,13 +19,14 @@ no_index:
     - t
 requires: 
   Class::Null: 0
-  Class::Scaffold: 0
+  Class::Scaffold: 0.03
   DBI: 0
   Data::Comparable: 0
   Data::Container: 0
   Data::Inherited: 0
   Data::Miscellany: 0
   Data::Storage: 0
+  Date::Calc: 0
   Error::Hierarchy: 0
   Hash::Flatten: 0
   IO::Pager: 0
@@ -41,4 +42,4 @@ requires:
   YAML: 0
   YAML::Active: 0
   perl: 5.6.0
-version: 0.01
+version: 0.02

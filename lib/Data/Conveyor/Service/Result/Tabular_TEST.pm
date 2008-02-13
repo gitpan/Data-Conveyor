@@ -1,29 +1,136 @@
-package Data::Conveyor::Charset::ViaHash::Digits;
+package Data::Conveyor::Service::Result::Tabular_TEST;
 
-# $Id: Digits.pm 9762 2005-07-11 13:24:12Z gr $
+# $Id: Stage_TEST.pm 11275 2006-04-26 10:53:05Z gr $
 
 use strict;
 use warnings;
+use Error::Hierarchy::Test 'throws2_ok';
+use Test::More;
 
 
 our $VERSION = '0.02';
 
 
-use base 'Data::Conveyor::Charset::ViaHash';
+use base 'Data::Conveyor::Test';
 
 
-use constant CHARACTERS => (
-    0  => 'DIGIT ZERO',
-    1  => 'DIGIT ONE',
-    2  => 'DIGIT TWO',
-    3  => 'DIGIT THREE',
-    4  => 'DIGIT FOUR',
-    5  => 'DIGIT FIVE',
-    6  => 'DIGIT SIX',
-    7  => 'DIGIT SEVEN',
-    8  => 'DIGIT EIGHT',
-    9  => 'DIGIT NINE',
-);
+use constant PLAN => 5;
+
+
+sub run {
+    my $self = shift;
+    $self->SUPER::run(@_);
+
+    $self->test_list_of_hashes_input;
+    $self->test_list_of_objects_input_ok;
+    $self->test_list_of_objects_input_no_baz;
+}
+
+
+sub test_list_of_hashes_input {
+    my $self = shift;
+
+    my $o = $self->make_real_object;
+
+    my $rows = [
+        { foo => 'row0foo', bar => 'row0bar', baz => 'row0baz' },
+        { foo => 'row1foo', bar => 'row1bar', baz => 'row1baz' },
+        { foo => 'row2foo', bar => 'row2bar', baz => 'row2baz' },
+    ];
+
+    $o->set_from_rows(
+        fields => [ qw/foo bar baz/ ],
+        rows   => $rows,
+    );
+
+    is_deeply(scalar $o->rows, [
+        [ qw/row0foo row0bar row0baz/ ],
+        [ qw/row1foo row1bar row1baz/ ],
+        [ qw/row2foo row2bar row2baz/ ],
+    ], 'list of hashes input: rows()');
+
+    is_deeply(scalar $o->result_as_list_of_hashes, $rows,
+        'list of hashes input: result_as_list_of_hashes()');
+}
+
+
+sub test_list_of_objects_input_ok {
+    my $self = shift;
+
+    my $o = $self->make_real_object;
+
+    my $rows = [
+        Data::Conveyor::Temp001->new(row => 0),
+        Data::Conveyor::Temp001->new(row => 1),
+        Data::Conveyor::Temp001->new(row => 2),
+    ];
+
+    $o->set_from_rows(
+        fields => [ qw/foo bar baz/ ],
+        rows   => $rows,
+    );
+
+    is_deeply(scalar $o->rows, [
+        [ qw/row0foo row0bar row0baz/ ],
+        [ qw/row1foo row1bar row1baz/ ],
+        [ qw/row2foo row2bar row2baz/ ],
+    ], 'list of objects input (ok): rows()');
+
+    is_deeply(scalar $o->result_as_list_of_hashes, [
+        { foo => 'row0foo', bar => 'row0bar', baz => 'row0baz' },
+        { foo => 'row1foo', bar => 'row1bar', baz => 'row1baz' },
+        { foo => 'row2foo', bar => 'row2bar', baz => 'row2baz' },
+    ], 'list of objects input (ok): result_as_list_of_hashes()');
+}
+
+
+sub test_list_of_objects_input_no_baz {
+    my $self = shift;
+
+    my $o = $self->make_real_object;
+
+    my $rows = [
+        Data::Conveyor::Temp002->new(row => 0),
+        Data::Conveyor::Temp002->new(row => 1),
+        Data::Conveyor::Temp002->new(row => 2),
+    ];
+
+    throws2_ok {
+        $o->set_from_rows(
+            fields => [ qw/foo bar baz/ ],
+            rows   => $rows,
+        );
+    } 'Error::Hierarchy::Internal::CustomMessage',
+      qr/can't set field \[baz\] from row \[Data::Conveyor::Temp002=HASH\(/,
+      "set_from_rows() using objects that can't baz()";
+}
+
+
+
+package Data::Conveyor::Temp001;
+
+use base 'Class::Accessor::Complex';
+
+__PACKAGE__
+    ->mk_new
+    ->mk_scalar_accessors(qw(row));
+
+sub foo { sprintf 'row%dfoo', $_[0]->row }
+sub bar { sprintf 'row%dbar', $_[0]->row }
+sub baz { sprintf 'row%dbaz', $_[0]->row }
+
+
+package Data::Conveyor::Temp002;
+
+use base 'Class::Accessor::Complex';
+
+__PACKAGE__
+    ->mk_new
+    ->mk_scalar_accessors(qw(row));
+
+sub foo { sprintf 'row%dfoo', $_[0]->row }
+sub bar { sprintf 'row%dbar', $_[0]->row }
+# this class can't baz()
 
 
 1;
@@ -35,11 +142,11 @@ __END__
 
 =head1 NAME
 
-Data::Conveyor::Charset::ViaHash::Digits - stage-based conveyor-belt-like ticket handling system
+Data::Conveyor::Service::Result::Tabular_TEST - stage-based conveyor-belt-like ticket handling system
 
 =head1 SYNOPSIS
 
-    Data::Conveyor::Charset::ViaHash::Digits->new;
+    Data::Conveyor::Service::Result::Tabular_TEST->new;
 
 =head1 DESCRIPTION
 
@@ -54,26 +161,26 @@ next release will have more documentation.
 
 =back
 
-Data::Conveyor::Charset::ViaHash::Digits inherits from
-L<Data::Conveyor::Charset::ViaHash>.
+Data::Conveyor::Service::Result::Tabular_TEST inherits from
+L<Data::Conveyor::Test>.
 
-The superclass L<Data::Conveyor::Charset::ViaHash> defines these methods
-and functions:
+The superclass L<Data::Conveyor::Test> defines these methods and functions:
 
-    new(), character_cache(), character_cache_clear(),
-    character_cache_delete(), character_cache_exists(),
-    character_cache_keys(), character_cache_values(),
-    clear_character_cache(), clear_valid_string_re_cache(),
-    delete_character_cache(), exists_character_cache(),
-    get_character_names(), get_character_values(), get_characters(),
-    is_valid_string(), keys_character_cache(), new_instance(),
-    valid_string_re_cache(), valid_string_re_cache_clear(),
-    values_character_cache()
+    apply_rc_ok(), apply_status_ok(), factory_gen_template_handler_ok(),
+    factory_gen_transaction_handler_ok(),
+    factory_gen_txsel_handler_iterate(), factory_gen_txsel_handler_ok(),
+    object_limit_ok(), rc_for_exception_class_ok(), stage_basics_ok(),
+    transition_ok(), transition_ok_bare()
+
+The superclass L<Class::Scaffold::Test> defines these methods and
+functions:
+
+    obj_ok(), planned_test_count()
 
 The superclass L<Class::Scaffold::Base> defines these methods and
 functions:
 
-    FIRST_CONSTRUCTOR_ARGS(), MUNGE_CONSTRUCTOR_ARGS(),
+    new(), FIRST_CONSTRUCTOR_ARGS(), MUNGE_CONSTRUCTOR_ARGS(),
     add_autoloaded_package(), init(), log()
 
 The superclass L<Data::Inherited> defines these methods and functions:
@@ -193,6 +300,11 @@ The superclass L<Tie::StdHash> defines these methods and functions:
     CLEAR(), DELETE(), EXISTS(), FETCH(), FIRSTKEY(), NEXTKEY(), SCALAR(),
     TIEHASH()
 
+The superclass L<Test::CompanionClasses::Base> defines these methods and
+functions:
+
+    clear_package(), make_real_object(), package(), package_clear()
+
 =head1 TAGS
 
 If you talk about this module in blogs, on del.icio.us or anywhere else,
@@ -200,7 +312,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Charset::ViaHash::Digits>.
+This document describes version 0.02 of L<Data::Conveyor::Service::Result::Tabular_TEST>.
 
 =head1 BUGS AND LIMITATIONS
 

@@ -16,7 +16,7 @@ use Data::Conveyor::Control::File; # object() doesn't load the class (?).
 # make_obj() Class::Value is loaded only on-demand.
 
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 
 use base 'Class::Scaffold::Environment';
@@ -517,30 +517,389 @@ sub allowed_dispatcher_stages {
 
 __END__
 
+
+
 =head1 NAME
 
-Data::Conveyor - stage-based conveyor-belt-like ticket handling system
+Data::Conveyor::Environment - stage-based conveyor-belt-like ticket handling system
 
 =head1 SYNOPSIS
 
-None yet (see below).
+    Data::Conveyor::Environment->new;
 
 =head1 DESCRIPTION
 
 None yet. This is an early release; fully functional, but undocumented. The
 next release will have more documentation.
 
+=head1 METHODS
+
+=over 4
+
+=item clear_configurator
+
+    $obj->clear_configurator;
+
+Deletes the object.
+
+=item clear_control
+
+    $obj->clear_control;
+
+Deletes the object.
+
+=item configurator
+
+    my $object = $obj->configurator;
+    $obj->configurator($object);
+    $obj->configurator(@args);
+
+If called with an argument object of type Class::Scaffold::Environment::Configurator it sets the object; further
+arguments are discarded. If called with arguments but the first argument is
+not an object of type Class::Scaffold::Environment::Configurator, a new object of type Class::Scaffold::Environment::Configurator is constructed and the
+arguments are passed to the constructor.
+
+If called without arguments, it returns the Class::Scaffold::Environment::Configurator object stored in this slot;
+if there is no such object, a new Class::Scaffold::Environment::Configurator object is constructed - no arguments
+are passed to the constructor in this case - and stored in the configurator slot
+before returning it.
+
+=item configurator_clear
+
+    $obj->configurator_clear;
+
+Deletes the object.
+
+=item control
+
+    my $object = $obj->control;
+    $obj->control($object);
+    $obj->control(@args);
+
+If called with an argument object of type Data::Conveyor::Control::File it sets the object; further
+arguments are discarded. If called with arguments but the first argument is
+not an object of type Data::Conveyor::Control::File, a new object of type Data::Conveyor::Control::File is constructed and the
+arguments are passed to the constructor.
+
+If called without arguments, it returns the Data::Conveyor::Control::File object stored in this slot;
+if there is no such object, a new Data::Conveyor::Control::File object is constructed - no arguments
+are passed to the constructor in this case - and stored in the control slot
+before returning it.
+
+=item control_clear
+
+    $obj->control_clear;
+
+Deletes the object.
+
+=item control_filename
+
+    $obj->control_filename(@args);
+    $obj->control_filename;
+
+Calls control_filename() with the given arguments on the object stored in the configurator slot.
+If there is no such object, a new Class::Scaffold::Environment::Configurator object is constructed - no arguments
+are passed to the constructor - and stored in the configurator slot before forwarding
+control_filename() onto it.
+
+=item default_object_limit
+
+    $obj->default_object_limit(@args);
+    $obj->default_object_limit;
+
+Calls default_object_limit() with the given arguments on the object stored in the configurator slot.
+If there is no such object, a new Class::Scaffold::Environment::Configurator object is constructed - no arguments
+are passed to the constructor - and stored in the configurator slot before forwarding
+default_object_limit() onto it.
+
+=item dispatcher_sleep
+
+    $obj->dispatcher_sleep(@args);
+    $obj->dispatcher_sleep;
+
+Calls dispatcher_sleep() with the given arguments on the object stored in the configurator slot.
+If there is no such object, a new Class::Scaffold::Environment::Configurator object is constructed - no arguments
+are passed to the constructor - and stored in the configurator slot before forwarding
+dispatcher_sleep() onto it.
+
+=item ignore_locks
+
+    $obj->ignore_locks(@args);
+    $obj->ignore_locks;
+
+Calls ignore_locks() with the given arguments on the object stored in the configurator slot.
+If there is no such object, a new Class::Scaffold::Environment::Configurator object is constructed - no arguments
+are passed to the constructor - and stored in the configurator slot before forwarding
+ignore_locks() onto it.
+
+=item lockpath
+
+    $obj->lockpath(@args);
+    $obj->lockpath;
+
+Calls lockpath() with the given arguments on the object stored in the configurator slot.
+If there is no such object, a new Class::Scaffold::Environment::Configurator object is constructed - no arguments
+are passed to the constructor - and stored in the configurator slot before forwarding
+lockpath() onto it.
+
+=item max_tickets_per_dispatcher
+
+    $obj->max_tickets_per_dispatcher(@args);
+    $obj->max_tickets_per_dispatcher;
+
+Calls max_tickets_per_dispatcher() with the given arguments on the object stored in the configurator slot.
+If there is no such object, a new Class::Scaffold::Environment::Configurator object is constructed - no arguments
+are passed to the constructor - and stored in the configurator slot before forwarding
+max_tickets_per_dispatcher() onto it.
+
+=item mutex_storage_args
+
+    $obj->mutex_storage_args(@args);
+    $obj->mutex_storage_args;
+
+Calls mutex_storage_args() with the given arguments on the object stored in the configurator slot.
+If there is no such object, a new Class::Scaffold::Environment::Configurator object is constructed - no arguments
+are passed to the constructor - and stored in the configurator slot before forwarding
+mutex_storage_args() onto it.
+
+=item mutex_storage_name
+
+    $obj->mutex_storage_name(@args);
+    $obj->mutex_storage_name;
+
+Calls mutex_storage_name() with the given arguments on the object stored in the configurator slot.
+If there is no such object, a new Class::Scaffold::Environment::Configurator object is constructed - no arguments
+are passed to the constructor - and stored in the configurator slot before forwarding
+mutex_storage_name() onto it.
+
+=item respect_mutex
+
+    $obj->respect_mutex(@args);
+    $obj->respect_mutex;
+
+Calls respect_mutex() with the given arguments on the object stored in the configurator slot.
+If there is no such object, a new Class::Scaffold::Environment::Configurator object is constructed - no arguments
+are passed to the constructor - and stored in the configurator slot before forwarding
+respect_mutex() onto it.
+
+=item should_send_mail
+
+    $obj->should_send_mail(@args);
+    $obj->should_send_mail;
+
+Calls should_send_mail() with the given arguments on the object stored in the configurator slot.
+If there is no such object, a new Class::Scaffold::Environment::Configurator object is constructed - no arguments
+are passed to the constructor - and stored in the configurator slot before forwarding
+should_send_mail() onto it.
+
+=item soap_path
+
+    $obj->soap_path(@args);
+    $obj->soap_path;
+
+Calls soap_path() with the given arguments on the object stored in the configurator slot.
+If there is no such object, a new Class::Scaffold::Environment::Configurator object is constructed - no arguments
+are passed to the constructor - and stored in the configurator slot before forwarding
+soap_path() onto it.
+
+=item soap_server
+
+    $obj->soap_server(@args);
+    $obj->soap_server;
+
+Calls soap_server() with the given arguments on the object stored in the configurator slot.
+If there is no such object, a new Class::Scaffold::Environment::Configurator object is constructed - no arguments
+are passed to the constructor - and stored in the configurator slot before forwarding
+soap_server() onto it.
+
+=item soap_uri
+
+    $obj->soap_uri(@args);
+    $obj->soap_uri;
+
+Calls soap_uri() with the given arguments on the object stored in the configurator slot.
+If there is no such object, a new Class::Scaffold::Environment::Configurator object is constructed - no arguments
+are passed to the constructor - and stored in the configurator slot before forwarding
+soap_uri() onto it.
+
+=item ticket_provider_clause
+
+    $obj->ticket_provider_clause(@args);
+    $obj->ticket_provider_clause;
+
+Calls ticket_provider_clause() with the given arguments on the object stored in the configurator slot.
+If there is no such object, a new Class::Scaffold::Environment::Configurator object is constructed - no arguments
+are passed to the constructor - and stored in the configurator slot before forwarding
+ticket_provider_clause() onto it.
+
+=back
+
+Data::Conveyor::Environment inherits from L<Class::Scaffold::Environment>.
+
+The superclass L<Class::Scaffold::Environment> defines these methods and
+functions:
+
+    all_storages_are_implemented(), clear_context(),
+    clear_multiplex_transaction_omit(), clear_rollback_mode(),
+    clear_storage_cache(), clear_test_mode(), commit(), context(),
+    context_clear(), core_storage(), core_storage_args(),
+    core_storage_name(), delete_multiplex_transaction_omit(),
+    delete_storage_cache(), disconnect(),
+    exists_multiplex_transaction_omit(), exists_storage_cache(),
+    gen_class_hash_accessor(), get_class_name_for(),
+    get_storage_type_for(), getenv(), isa_type(),
+    keys_multiplex_transaction_omit(), keys_storage_cache(),
+    load_cached_class_for_type(), make_delegate(), make_obj(),
+    make_storage_object(), memory_storage(), memory_storage_name(),
+    multiplex_transaction_omit(), multiplex_transaction_omit_clear(),
+    multiplex_transaction_omit_delete(),
+    multiplex_transaction_omit_exists(), multiplex_transaction_omit_keys(),
+    multiplex_transaction_omit_values(), rollback(), rollback_mode(),
+    rollback_mode_clear(), rollback_mode_set(), set_rollback_mode(),
+    setenv(), storage_cache(), storage_cache_clear(),
+    storage_cache_delete(), storage_cache_exists(), storage_cache_keys(),
+    storage_cache_values(), storage_for_type(), test_mode(),
+    test_mode_clear(), values_multiplex_transaction_omit(),
+    values_storage_cache()
+
+The superclass L<Class::Scaffold::Base> defines these methods and
+functions:
+
+    new(), FIRST_CONSTRUCTOR_ARGS(), MUNGE_CONSTRUCTOR_ARGS(),
+    add_autoloaded_package(), log()
+
+The superclass L<Data::Inherited> defines these methods and functions:
+
+    every_hash(), every_list(), flush_every_cache_by_key()
+
+The superclass L<Data::Comparable> defines these methods and functions:
+
+    comparable(), comparable_scalar(), dump_comparable(),
+    prepare_comparable(), yaml_dump_comparable()
+
+The superclass L<Class::Scaffold::Delegate::Mixin> defines these methods
+and functions:
+
+    delegate()
+
+The superclass L<Class::Scaffold::Accessor> defines these methods and
+functions:
+
+    mk_framework_object_accessors(), mk_framework_object_array_accessors(),
+    mk_readonly_accessors()
+
+The superclass L<Class::Accessor::Complex> defines these methods and
+functions:
+
+    mk_abstract_accessors(), mk_array_accessors(), mk_boolean_accessors(),
+    mk_class_array_accessors(), mk_class_hash_accessors(),
+    mk_class_scalar_accessors(), mk_concat_accessors(),
+    mk_forward_accessors(), mk_hash_accessors(), mk_integer_accessors(),
+    mk_new(), mk_object_accessors(), mk_scalar_accessors(),
+    mk_set_accessors(), mk_singleton()
+
+The superclass L<Class::Accessor> defines these methods and functions:
+
+    _carp(), _croak(), _mk_accessors(), accessor_name_for(),
+    best_practice_accessor_name_for(), best_practice_mutator_name_for(),
+    follow_best_practice(), get(), make_accessor(), make_ro_accessor(),
+    make_wo_accessor(), mk_accessors(), mk_ro_accessors(),
+    mk_wo_accessors(), mutator_name_for(), set()
+
+The superclass L<Class::Accessor::Installer> defines these methods and
+functions:
+
+    install_accessor()
+
+The superclass L<Class::Accessor::Constructor> defines these methods and
+functions:
+
+    _make_constructor(), mk_constructor(), mk_constructor_with_dirty(),
+    mk_singleton_constructor()
+
+The superclass L<Class::Accessor::FactoryTyped> defines these methods and
+functions:
+
+    clear_factory_typed_accessors(), clear_factory_typed_array_accessors(),
+    count_factory_typed_accessors(), count_factory_typed_array_accessors(),
+    factory_typed_accessors(), factory_typed_accessors_clear(),
+    factory_typed_accessors_count(), factory_typed_accessors_index(),
+    factory_typed_accessors_pop(), factory_typed_accessors_push(),
+    factory_typed_accessors_set(), factory_typed_accessors_shift(),
+    factory_typed_accessors_splice(), factory_typed_accessors_unshift(),
+    factory_typed_array_accessors(), factory_typed_array_accessors_clear(),
+    factory_typed_array_accessors_count(),
+    factory_typed_array_accessors_index(),
+    factory_typed_array_accessors_pop(),
+    factory_typed_array_accessors_push(),
+    factory_typed_array_accessors_set(),
+    factory_typed_array_accessors_shift(),
+    factory_typed_array_accessors_splice(),
+    factory_typed_array_accessors_unshift(),
+    index_factory_typed_accessors(), index_factory_typed_array_accessors(),
+    mk_factory_typed_accessors(), mk_factory_typed_array_accessors(),
+    pop_factory_typed_accessors(), pop_factory_typed_array_accessors(),
+    push_factory_typed_accessors(), push_factory_typed_array_accessors(),
+    set_factory_typed_accessors(), set_factory_typed_array_accessors(),
+    shift_factory_typed_accessors(), shift_factory_typed_array_accessors(),
+    splice_factory_typed_accessors(),
+    splice_factory_typed_array_accessors(),
+    unshift_factory_typed_accessors(),
+    unshift_factory_typed_array_accessors()
+
+The superclass L<Class::Scaffold::Factory::Type> defines these methods and
+functions:
+
+    factory_log()
+
+The superclass L<Class::Factory::Enhanced> defines these methods and
+functions:
+
+    add_factory_type(), make_object_for_type(), register_factory_type()
+
+The superclass L<Class::Factory> defines these methods and functions:
+
+    factory_error(), get_factory_class(), get_factory_type_for(),
+    get_loaded_classes(), get_loaded_types(), get_my_factory(),
+    get_my_factory_type(), get_registered_class(),
+    get_registered_classes(), get_registered_types(),
+    remove_factory_type(), unregister_factory_type()
+
+The superclass L<Class::Accessor::Constructor::Base> defines these methods
+and functions:
+
+    STORE(), clear_dirty(), clear_hygienic(), clear_unhygienic(),
+    contains_hygienic(), contains_unhygienic(), delete_hygienic(),
+    delete_unhygienic(), dirty(), dirty_clear(), dirty_set(),
+    elements_hygienic(), elements_unhygienic(), hygienic(),
+    hygienic_clear(), hygienic_contains(), hygienic_delete(),
+    hygienic_elements(), hygienic_insert(), hygienic_is_empty(),
+    hygienic_size(), insert_hygienic(), insert_unhygienic(),
+    is_empty_hygienic(), is_empty_unhygienic(), set_dirty(),
+    size_hygienic(), size_unhygienic(), unhygienic(), unhygienic_clear(),
+    unhygienic_contains(), unhygienic_delete(), unhygienic_elements(),
+    unhygienic_insert(), unhygienic_is_empty(), unhygienic_size()
+
+The superclass L<Tie::StdHash> defines these methods and functions:
+
+    CLEAR(), DELETE(), EXISTS(), FETCH(), FIRSTKEY(), NEXTKEY(), SCALAR(),
+    TIEHASH()
+
 =head1 TAGS
 
 If you talk about this module in blogs, on del.icio.us or anywhere else,
 please use the C<dataconveyor> tag.
+
+=head1 VERSION 
+                   
+This document describes version 0.02 of L<Data::Conveyor::Environment>.
 
 =head1 BUGS AND LIMITATIONS
 
 No bugs have been reported.
 
 Please report any bugs or feature requests to
-C<bug-data-conveyor@rt.cpan.org>, or through the web interface at
+C<<bug-data-conveyor@rt.cpan.org>>, or through the web interface at
 L<http://rt.cpan.org>.
 
 =head1 INSTALLATION
@@ -567,10 +926,11 @@ Heinz Ekker C<< <ek@univie.ac.at> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2007 by Marcel GrE<uuml>nauer
+Copyright 2004-2008 by Marcel GrE<uuml>nauer
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
+
 
 =cut
 

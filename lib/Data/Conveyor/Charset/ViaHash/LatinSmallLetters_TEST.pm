@@ -1,27 +1,32 @@
-package Data::Conveyor::Value::Ticket::Payload::Instruction::Command;
+package Data::Conveyor::Charset::ViaHash::LatinSmallLetters_TEST;
 
-# $Id: Command.pm 11476 2006-05-22 20:50:19Z gr $
+# $Id: LatinSmallLetters.pm 9762 2005-07-11 13:24:12Z gr $
 
-use warnings;
 use strict;
+use warnings;
+use Test::More;
 
 
 our $VERSION = '0.02';
 
 
-use base 'Data::Conveyor::Value::Enum';
+use base 'Data::Conveyor::Test';
 
 
-sub get_valid_values_list { $_[0]->delegate->IC }
+use constant PLAN => 1;
 
 
-sub send_notify_value_invalid {
-    my ($self, $value) = @_;
-    local $Error::Depth = $Error::Depth + 2;
-    $self->exception_container->record(
-        'Data::Conveyor::Exception::NoSuchInstructionCommand',
-        command => $value,
-    );
+sub run {
+    my $self = shift;
+    $self->SUPER::run(@_);
+
+    my $o1 = $self->make_real_object;
+    my $c1 = $o1->get_characters;
+
+    my $o2 = $self->make_real_object;
+    my $c2 = $o2->get_characters;
+
+    is_deeply($c1, $c2, 'characters() returns the same structure twice');
 }
 
 
@@ -34,11 +39,11 @@ __END__
 
 =head1 NAME
 
-Data::Conveyor::Value::Ticket::Payload::Instruction::Command - stage-based conveyor-belt-like ticket handling system
+Data::Conveyor::Charset::ViaHash::LatinSmallLetters_TEST - stage-based conveyor-belt-like ticket handling system
 
 =head1 SYNOPSIS
 
-    Data::Conveyor::Value::Ticket::Payload::Instruction::Command->new;
+    Data::Conveyor::Charset::ViaHash::LatinSmallLetters_TEST->new;
 
 =head1 DESCRIPTION
 
@@ -53,26 +58,47 @@ next release will have more documentation.
 
 =back
 
-Data::Conveyor::Value::Ticket::Payload::Instruction::Command inherits from
-L<Data::Conveyor::Value::Enum>.
+Data::Conveyor::Charset::ViaHash::LatinSmallLetters_TEST inherits from
+L<Data::Conveyor::Test>.
 
-The superclass L<Class::Value::Enum> defines these methods and functions:
+The superclass L<Data::Conveyor::Test> defines these methods and functions:
 
-    as_plaintext(), get_value_normalization_hashref(),
-    normalize_enum_value(), normalize_value()
+    apply_rc_ok(), apply_status_ok(), factory_gen_template_handler_ok(),
+    factory_gen_transaction_handler_ok(),
+    factory_gen_txsel_handler_iterate(), factory_gen_txsel_handler_ok(),
+    object_limit_ok(), rc_for_exception_class_ok(), stage_basics_ok(),
+    transition_ok(), transition_ok_bare()
 
-The superclass L<Class::Value> defines these methods and functions:
+The superclass L<Class::Scaffold::Test> defines these methods and
+functions:
 
-    new(), MUNGE_CONSTRUCTOR_ARGS(), check(), clear_exception_container(),
-    clear_notify_delegate(), comparable(), exception_container(),
-    exception_container_clear(), get_value(), init(), is_defined(),
-    is_valid(), is_valid_normalized_value(), is_valid_value(),
-    is_well_formed(), is_well_formed_value(), normalize(),
-    notify_delegate(), notify_delegate_clear(), run_checks(),
-    run_checks_with_exception_container(), send_notify_value_normalized(),
-    send_notify_value_not_wellformed(), set_value(), skip_checks(),
-    skip_dirtying(), skip_normalizations(), str_cmp(), stringify(),
-    throw_single_exception(), value()
+    obj_ok(), planned_test_count()
+
+The superclass L<Class::Scaffold::Base> defines these methods and
+functions:
+
+    new(), FIRST_CONSTRUCTOR_ARGS(), MUNGE_CONSTRUCTOR_ARGS(),
+    add_autoloaded_package(), init(), log()
+
+The superclass L<Data::Inherited> defines these methods and functions:
+
+    every_hash(), every_list(), flush_every_cache_by_key()
+
+The superclass L<Data::Comparable> defines these methods and functions:
+
+    comparable(), comparable_scalar(), dump_comparable(),
+    prepare_comparable(), yaml_dump_comparable()
+
+The superclass L<Class::Scaffold::Delegate::Mixin> defines these methods
+and functions:
+
+    delegate()
+
+The superclass L<Class::Scaffold::Accessor> defines these methods and
+functions:
+
+    mk_framework_object_accessors(), mk_framework_object_array_accessors(),
+    mk_readonly_accessors()
 
 The superclass L<Class::Accessor::Complex> defines these methods and
 functions:
@@ -102,60 +128,6 @@ functions:
 
     _make_constructor(), mk_constructor(), mk_constructor_with_dirty(),
     mk_singleton_constructor()
-
-The superclass L<Data::Inherited> defines these methods and functions:
-
-    every_hash(), every_list(), flush_every_cache_by_key()
-
-The superclass L<Class::Accessor::Constructor::Base> defines these methods
-and functions:
-
-    STORE(), clear_dirty(), clear_hygienic(), clear_unhygienic(),
-    contains_hygienic(), contains_unhygienic(), delete_hygienic(),
-    delete_unhygienic(), dirty(), dirty_clear(), dirty_set(),
-    elements_hygienic(), elements_unhygienic(), hygienic(),
-    hygienic_clear(), hygienic_contains(), hygienic_delete(),
-    hygienic_elements(), hygienic_insert(), hygienic_is_empty(),
-    hygienic_size(), insert_hygienic(), insert_unhygienic(),
-    is_empty_hygienic(), is_empty_unhygienic(), set_dirty(),
-    size_hygienic(), size_unhygienic(), unhygienic(), unhygienic_clear(),
-    unhygienic_contains(), unhygienic_delete(), unhygienic_elements(),
-    unhygienic_insert(), unhygienic_is_empty(), unhygienic_size()
-
-The superclass L<Tie::StdHash> defines these methods and functions:
-
-    CLEAR(), DELETE(), EXISTS(), FETCH(), FIRSTKEY(), NEXTKEY(), SCALAR(),
-    TIEHASH()
-
-The superclass L<Class::Scaffold::Storable> defines these methods and
-functions:
-
-    clear_storage_info(), clear_storage_type(), delete_storage_info(),
-    exists_storage_info(), id(), keys_storage_info(), storage(),
-    storage_info(), storage_info_clear(), storage_info_delete(),
-    storage_info_exists(), storage_info_keys(), storage_info_values(),
-    storage_type(), storage_type_clear(), values_storage_info()
-
-The superclass L<Class::Scaffold::Base> defines these methods and
-functions:
-
-    add_autoloaded_package()
-
-The superclass L<Data::Comparable> defines these methods and functions:
-
-    comparable_scalar(), dump_comparable(), prepare_comparable(),
-    yaml_dump_comparable()
-
-The superclass L<Class::Scaffold::Delegate::Mixin> defines these methods
-and functions:
-
-    delegate()
-
-The superclass L<Class::Scaffold::Accessor> defines these methods and
-functions:
-
-    mk_framework_object_accessors(), mk_framework_object_array_accessors(),
-    mk_readonly_accessors()
 
 The superclass L<Class::Accessor::FactoryTyped> defines these methods and
 functions:
@@ -205,6 +177,31 @@ The superclass L<Class::Factory> defines these methods and functions:
     get_registered_classes(), get_registered_types(),
     remove_factory_type(), unregister_factory_type()
 
+The superclass L<Class::Accessor::Constructor::Base> defines these methods
+and functions:
+
+    STORE(), clear_dirty(), clear_hygienic(), clear_unhygienic(),
+    contains_hygienic(), contains_unhygienic(), delete_hygienic(),
+    delete_unhygienic(), dirty(), dirty_clear(), dirty_set(),
+    elements_hygienic(), elements_unhygienic(), hygienic(),
+    hygienic_clear(), hygienic_contains(), hygienic_delete(),
+    hygienic_elements(), hygienic_insert(), hygienic_is_empty(),
+    hygienic_size(), insert_hygienic(), insert_unhygienic(),
+    is_empty_hygienic(), is_empty_unhygienic(), set_dirty(),
+    size_hygienic(), size_unhygienic(), unhygienic(), unhygienic_clear(),
+    unhygienic_contains(), unhygienic_delete(), unhygienic_elements(),
+    unhygienic_insert(), unhygienic_is_empty(), unhygienic_size()
+
+The superclass L<Tie::StdHash> defines these methods and functions:
+
+    CLEAR(), DELETE(), EXISTS(), FETCH(), FIRSTKEY(), NEXTKEY(), SCALAR(),
+    TIEHASH()
+
+The superclass L<Test::CompanionClasses::Base> defines these methods and
+functions:
+
+    clear_package(), make_real_object(), package(), package_clear()
+
 =head1 TAGS
 
 If you talk about this module in blogs, on del.icio.us or anywhere else,
@@ -212,7 +209,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Value::Ticket::Payload::Instruction::Command>.
+This document describes version 0.02 of L<Data::Conveyor::Charset::ViaHash::LatinSmallLetters_TEST>.
 
 =head1 BUGS AND LIMITATIONS
 

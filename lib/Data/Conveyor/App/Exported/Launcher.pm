@@ -9,7 +9,7 @@ use IO::Handle;
 use FindBin '$Bin';
 
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 
 use base 'Exporter';
@@ -71,30 +71,51 @@ exit;
 
 __END__
 
+
+
 =head1 NAME
 
-Data::Conveyor - stage-based conveyor-belt-like ticket handling system
+Data::Conveyor::App::Exported::Launcher - stage-based conveyor-belt-like ticket handling system
 
 =head1 SYNOPSIS
 
-None yet (see below).
+    Data::Conveyor::App::Exported::Launcher->new;
 
 =head1 DESCRIPTION
 
 None yet. This is an early release; fully functional, but undocumented. The
 next release will have more documentation.
 
+=head1 METHODS
+
+=over 4
+
+
+
+=back
+
+Data::Conveyor::App::Exported::Launcher inherits from L<Exporter>.
+
+The superclass L<Exporter> defines these methods and functions:
+
+    as_heavy(), export(), export_fail(), export_ok_tags(), export_tags(),
+    export_to_level(), import(), require_version()
+
 =head1 TAGS
 
 If you talk about this module in blogs, on del.icio.us or anywhere else,
 please use the C<dataconveyor> tag.
+
+=head1 VERSION 
+                   
+This document describes version 0.02 of L<Data::Conveyor::App::Exported::Launcher>.
 
 =head1 BUGS AND LIMITATIONS
 
 No bugs have been reported.
 
 Please report any bugs or feature requests to
-C<bug-data-conveyor@rt.cpan.org>, or through the web interface at
+C<<bug-data-conveyor@rt.cpan.org>>, or through the web interface at
 L<http://rt.cpan.org>.
 
 =head1 INSTALLATION
@@ -121,10 +142,11 @@ Heinz Ekker C<< <ek@univie.ac.at> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2007 by Marcel GrE<uuml>nauer
+Copyright 2004-2008 by Marcel GrE<uuml>nauer
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
+
 
 =cut
 

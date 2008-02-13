@@ -1,6 +1,8 @@
 Changes
 etc/SMOKEconf.yaml
+inc/Module/AutoInstall.pm
 inc/Module/Install.pm
+inc/Module/Install/AutoInstall.pm
 inc/Module/Install/Base.pm
 inc/Module/Install/Can.pm
 inc/Module/Install/Fetch.pm
@@ -8,6 +10,7 @@ inc/Module/Install/Include.pm
 inc/Module/Install/Makefile.pm
 inc/Module/Install/Metadata.pm
 inc/Module/Install/StandardTests.pm
+inc/Module/Install/Template.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 inc/Test/Compile.pm
@@ -31,6 +34,7 @@ lib/Data/Conveyor/Charset/ViaHash/ASCIIPunctuation.pm
 lib/Data/Conveyor/Charset/ViaHash/Digits.pm
 lib/Data/Conveyor/Charset/ViaHash/LatinCapitalLetters.pm
 lib/Data/Conveyor/Charset/ViaHash/LatinSmallLetters.pm
+lib/Data/Conveyor/Charset/ViaHash/LatinSmallLetters_TEST.pm
 lib/Data/Conveyor/Control.pm
 lib/Data/Conveyor/Control/File.pm
 lib/Data/Conveyor/Delegate/Stage.pm
@@ -79,6 +83,7 @@ lib/Data/Conveyor/Service/Result.pm
 lib/Data/Conveyor/Service/Result/Container.pm
 lib/Data/Conveyor/Service/Result/Scalar.pm
 lib/Data/Conveyor/Service/Result/Tabular.pm
+lib/Data/Conveyor/Service/Result/Tabular_TEST.pm
 lib/Data/Conveyor/Service/Util.pm
 lib/Data/Conveyor/Stage.pm
 lib/Data/Conveyor/Stage/SingleTicket.pm

@@ -13,7 +13,7 @@ use Pod::Text;
 use IO::Pager;   # not used really, just determines a pager at BEGIN time
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 # It's ok to inherit from Data::Conveyor::Service::Interface as well; new()
@@ -1021,7 +1021,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Service::Interface::Shell>.
+This document describes version 0.03 of L<Data::Conveyor::Service::Interface::Shell>.
 
 =head1 BUGS AND LIMITATIONS
 

@@ -11,7 +11,7 @@ use warnings;
 use Error ':try';
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Data::Conveyor::Service';
@@ -650,7 +650,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Service::Methods>.
+This document describes version 0.03 of L<Data::Conveyor::Service::Methods>.
 
 =head1 BUGS AND LIMITATIONS
 

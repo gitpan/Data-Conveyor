@@ -10,13 +10,14 @@ use Class::Scaffold::Util 'const';
 use Class::Scaffold::Factory::Type;
 use Class::Value;
 use Data::Conveyor::Control::File; # object() doesn't load the class (?).
+use Hook::Modular;
 
 # Bring in Class::Value right now, so $Class::Value::SkipChecks can be set
 # without it being overwritten, since with framework_object and
 # make_obj() Class::Value is loaded only on-demand.
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Class::Scaffold::Environment';
@@ -47,6 +48,7 @@ __PACKAGE__->mk_object_accessors(
             default_object_limit
             control_filename
             ticket_provider_clause
+            modular_config
         / ]
     },
 );
@@ -512,6 +514,17 @@ sub allowed_dispatcher_stages {
 }
 
 
+# ----------------------------------------------------------------------
+# plugins
+
+sub plugin_handler {
+    my $self = shift;
+    $self->{plugin_handler} ||= Hook::Modular->new(config =>
+        defined $self->modular_config ? $self->modular_config : {}
+    );
+}
+
+
 1;
 
 
@@ -651,6 +664,16 @@ Calls max_tickets_per_dispatcher() with the given arguments on the object stored
 If there is no such object, a new Class::Scaffold::Environment::Configurator object is constructed - no arguments
 are passed to the constructor - and stored in the configurator slot before forwarding
 max_tickets_per_dispatcher() onto it.
+
+=item modular_config
+
+    $obj->modular_config(@args);
+    $obj->modular_config;
+
+Calls modular_config() with the given arguments on the object stored in the configurator slot.
+If there is no such object, a new Class::Scaffold::Environment::Configurator object is constructed - no arguments
+are passed to the constructor - and stored in the configurator slot before forwarding
+modular_config() onto it.
 
 =item mutex_storage_args
 
@@ -892,7 +915,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Environment>.
+This document describes version 0.03 of L<Data::Conveyor::Environment>.
 
 =head1 BUGS AND LIMITATIONS
 

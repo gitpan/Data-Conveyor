@@ -13,7 +13,7 @@ use strict;
 use Error::Hierarchy::Util 'assert_defined';
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Data::Conveyor::Stage';
@@ -300,7 +300,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Stage::SingleTicket>.
+This document describes version 0.03 of L<Data::Conveyor::Stage::SingleTicket>.
 
 =head1 BUGS AND LIMITATIONS
 

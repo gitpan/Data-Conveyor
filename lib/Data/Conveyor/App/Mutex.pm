@@ -6,7 +6,7 @@ use Error::Hierarchy::Util 'assert_defined';
 use Data::Conveyor::Mutex;
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Class::Scaffold::App::CommandLine';
@@ -245,7 +245,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::App::Mutex>.
+This document describes version 0.03 of L<Data::Conveyor::App::Mutex>.
 
 =head1 BUGS AND LIMITATIONS
 

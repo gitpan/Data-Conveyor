@@ -7,7 +7,7 @@ use strict;
 use Fcntl ':flock';
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use constant PREFIX => '.lock.';
@@ -211,7 +211,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Lock>.
+This document describes version 0.03 of L<Data::Conveyor::Lock>.
 
 =head1 BUGS AND LIMITATIONS
 

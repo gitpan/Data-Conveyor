@@ -4,6 +4,14 @@ global:
 releases:
   - author: 'Marcel Gruenauer <marcel@cpan.org>'
     changes:
+      - set the version to 0.03
+      - added plugin mechanism
+      - 'Data::Conveyor::Charset::ViaHash is no longer a singleton, but avoids re-converting already converted characters'
+    date: 2008-03-26T16:50:19Z
+    tags: []
+    version: 0.03
+  - author: 'Marcel Gruenauer <marcel@cpan.org>'
+    changes:
       - Converted Changes file to YAML style
       - Data::Conveyor::Charset::ViaHash is now a singleton to make repeated instantions work; also added tests to verify that
       - '.shipit: added Twitter step'

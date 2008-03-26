@@ -8,7 +8,7 @@ use Error::Hierarchy::Internal::DBI::STH;
 use Error ':try';
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Data::Conveyor::Storage';
@@ -238,7 +238,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Storage::DBI>.
+This document describes version 0.03 of L<Data::Conveyor::Storage::DBI>.
 
 =head1 BUGS AND LIMITATIONS
 

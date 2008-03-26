@@ -7,7 +7,7 @@ use warnings;
 # section.
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 1;
@@ -47,7 +47,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor>.
+This document describes version 0.03 of L<Data::Conveyor>.
 
 =head1 BUGS AND LIMITATIONS
 

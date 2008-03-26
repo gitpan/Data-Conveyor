@@ -6,7 +6,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Data::Conveyor::Exception::Ticket';
@@ -224,7 +224,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Exception::Ticket::NoSuchId>.
+This document describes version 0.03 of L<Data::Conveyor::Exception::Ticket::NoSuchId>.
 
 =head1 BUGS AND LIMITATIONS
 

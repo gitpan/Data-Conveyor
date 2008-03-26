@@ -16,6 +16,7 @@ requires 'Date::Calc';
 requires 'DBI';
 requires 'Error::Hierarchy';
 requires 'Hash::Flatten';
+requires 'Hook::Modular';
 requires 'IO::Pager';
 requires 'Pod::PlainText';
 requires 'String::FlexMatch';

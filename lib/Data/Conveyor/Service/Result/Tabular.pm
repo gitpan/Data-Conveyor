@@ -8,7 +8,7 @@ use Text::Table;
 use Data::Miscellany 'trim';
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Data::Conveyor::Service::Result';
@@ -585,7 +585,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Service::Result::Tabular>.
+This document describes version 0.03 of L<Data::Conveyor::Service::Result::Tabular>.
 
 =head1 BUGS AND LIMITATIONS
 

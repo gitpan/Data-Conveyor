@@ -7,7 +7,7 @@ use warnings;
 use Date::Calc qw/Today_and_Now Decode_Date_US/;
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Class::Value';
@@ -141,7 +141,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Value::Ticket::Number>.
+This document describes version 0.03 of L<Data::Conveyor::Value::Ticket::Number>.
 
 =head1 BUGS AND LIMITATIONS
 

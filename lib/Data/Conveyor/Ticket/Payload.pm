@@ -10,7 +10,7 @@ use strict;
 use Error::Hierarchy::Util 'assert_defined';
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base qw(
@@ -484,7 +484,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Ticket::Payload>.
+This document describes version 0.03 of L<Data::Conveyor::Ticket::Payload>.
 
 =head1 BUGS AND LIMITATIONS
 

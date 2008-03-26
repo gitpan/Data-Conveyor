@@ -13,7 +13,7 @@ use Error ':try';
 use Error::Hierarchy::Util 'assert_nonempty_arrayref';
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 sub svc_check_arguments {
@@ -96,7 +96,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Service::Util>.
+This document describes version 0.03 of L<Data::Conveyor::Service::Util>.
 
 =head1 BUGS AND LIMITATIONS
 

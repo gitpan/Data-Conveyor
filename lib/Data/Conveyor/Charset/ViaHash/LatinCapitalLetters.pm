@@ -6,7 +6,7 @@ use strict;
 use warnings;
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Data::Conveyor::Charset::ViaHash';
@@ -82,9 +82,8 @@ and functions:
     clear_character_cache(), clear_valid_string_re_cache(),
     delete_character_cache(), exists_character_cache(),
     get_character_names(), get_character_values(), get_characters(),
-    is_valid_string(), keys_character_cache(), new_instance(),
-    valid_string_re_cache(), valid_string_re_cache_clear(),
-    values_character_cache()
+    is_valid_string(), keys_character_cache(), valid_string_re_cache(),
+    valid_string_re_cache_clear(), values_character_cache()
 
 The superclass L<Class::Scaffold::Base> defines these methods and
 functions:
@@ -216,7 +215,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Charset::ViaHash::LatinCapitalLetters>.
+This document describes version 0.03 of L<Data::Conveyor::Charset::ViaHash::LatinCapitalLetters>.
 
 =head1 BUGS AND LIMITATIONS
 

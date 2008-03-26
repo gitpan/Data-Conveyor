@@ -7,7 +7,7 @@ use strict;
 use YAML::Active qw/assert_hashref hash_activate yaml_NULL/;
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Class::Scaffold::YAML::Active';
@@ -201,7 +201,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::YAML::Active::WriteTicket>.
+This document describes version 0.03 of L<Data::Conveyor::YAML::Active::WriteTicket>.
 
 =head1 BUGS AND LIMITATIONS
 

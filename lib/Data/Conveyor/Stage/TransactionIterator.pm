@@ -10,7 +10,7 @@ use Error::Hierarchy;
 use Error ':try';
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Data::Conveyor::Stage::SingleTicket';
@@ -52,6 +52,11 @@ sub main {
 
     return if $self->done;
 
+    $self->delegate->plugin_handler->run_hook(
+        $self->ticket->stage->name . '.start',
+        { stage => $self },
+    );
+
     my @extra_tx;
     our $factory ||= $self->delegate->make_obj('transaction_factory');
     my $factory_method = $self->factory_method;
@@ -62,6 +67,17 @@ sub main {
                 tx     => $payload_tx,
                 ticket => $self->ticket,
                 stage  => $self,
+            );
+
+            $self->delegate->plugin_handler->run_hook(
+                sprintf('%s.%s.%s',
+                    $self->ticket->stage->name,
+                    $payload_tx->transaction->object_type,
+                    $payload_tx->transaction->command),
+                {
+                    transaction_handler => $transaction_handler,
+                    stage               => $self,
+                }
             );
 
             $transaction_handler->run;
@@ -103,6 +119,12 @@ sub main {
     }
 
     $self->ticket->payload->add_transaction($_) for @extra_tx;
+
+    $self->delegate->plugin_handler->run_hook(
+        $self->ticket->stage->name . '.end',
+        { stage => $self },
+    );
+
 }
 
 
@@ -342,7 +364,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Stage::TransactionIterator>.
+This document describes version 0.03 of L<Data::Conveyor::Stage::TransactionIterator>.
 
 =head1 BUGS AND LIMITATIONS
 

@@ -9,7 +9,7 @@ use warnings;
 use Data::Miscellany qw/set_push flex_grep/;
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Class::Scaffold::Exception::Container';
@@ -326,7 +326,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Exception::Container>.
+This document describes version 0.03 of L<Data::Conveyor::Exception::Container>.
 
 =head1 BUGS AND LIMITATIONS
 

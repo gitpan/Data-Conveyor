@@ -6,7 +6,7 @@ use strict;
 use warnings;
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 # More specific superclass first. For example, Data::Storage defines a null
@@ -218,7 +218,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Storage::DBI::Postgres>.
+This document describes version 0.03 of L<Data::Conveyor::Storage::DBI::Postgres>.
 
 =head1 BUGS AND LIMITATIONS
 

@@ -7,7 +7,7 @@ use strict;
 use Class::Scaffold::Exception::Util 'assert_object_type';
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Class::Scaffold::Storable';
@@ -206,7 +206,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Ticket::Facets>.
+This document describes version 0.03 of L<Data::Conveyor::Ticket::Facets>.
 
 =head1 BUGS AND LIMITATIONS
 

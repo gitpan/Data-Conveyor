@@ -7,14 +7,14 @@ use warnings;
 use charnames ':full';
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Data::Conveyor::Charset';
 
 
 __PACKAGE__
-    ->mk_singleton_constructor(qw(new))
+    ->mk_constructor(qw(new))
     ->mk_hash_accessors(qw(character_cache))
     ->mk_scalar_accessors(qw(valid_string_re_cache));
 
@@ -35,6 +35,7 @@ sub get_characters {
         # a name).
 
         for (values %$characters) {
+            next if utf8::is_utf8($_);  # don't convert the already converted
             if (/^0x(.*)$/) {
                 $_ = sprintf '%c' => hex($1);
             } else {
@@ -113,13 +114,11 @@ next release will have more documentation.
     my $obj = Data::Conveyor::Charset::ViaHash->new;
     my $obj = Data::Conveyor::Charset::ViaHash->new(%args);
 
-Creates and returns a new object. The object will be a singleton, so repeated
-calls to the constructor will always return the same object. The constructor
-will accept as arguments a list of pairs, from component name to initial
-value. For each pair, the named component is initialized by calling the
-method of the same name with the given value. If called with a single hash
-reference, it is dereferenced and its key/value pairs are set as described
-before.
+Creates and returns a new object. The constructor will accept as arguments a
+list of pairs, from component name to initial value. For each pair, the named
+component is initialized by calling the method of the same name with the given
+value. If called with a single hash reference, it is dereferenced and its
+key/value pairs are set as described before.
 
 =item character_cache
 
@@ -207,17 +206,6 @@ false value otherwise.
     my @keys = $obj->keys_character_cache;
 
 Returns a list of all hash keys in no particular order.
-
-=item new_instance
-
-    my $obj = Data::Conveyor::Charset::ViaHash->new_instance;
-    my $obj = Data::Conveyor::Charset::ViaHash->new_instance(%args);
-
-Creates and returns a new object. The constructor will accept as arguments a
-list of pairs, from component name to initial value. For each pair, the named
-component is initialized by calling the method of the same name with the given
-value. If called with a single hash reference, it is dereferenced and its
-key/value pairs are set as described before.
 
 =item valid_string_re_cache
 
@@ -373,7 +361,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Charset::ViaHash>.
+This document describes version 0.03 of L<Data::Conveyor::Charset::ViaHash>.
 
 =head1 BUGS AND LIMITATIONS
 

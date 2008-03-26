@@ -6,7 +6,7 @@ use strict;
 use warnings;
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Data::Conveyor::Test';
@@ -223,7 +223,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Value::Ticket::Status_TEST>.
+This document describes version 0.03 of L<Data::Conveyor::Value::Ticket::Status_TEST>.
 
 =head1 BUGS AND LIMITATIONS
 

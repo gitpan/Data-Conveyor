@@ -73,6 +73,7 @@ lib/Data/Conveyor/Manual/Instructions.pod
 lib/Data/Conveyor/Manual/NewStage.pod
 lib/Data/Conveyor/Monitor.pm
 lib/Data/Conveyor/Mutex.pm
+lib/Data/Conveyor/Plugin.pm
 lib/Data/Conveyor/Service.pm
 lib/Data/Conveyor/Service/Interface.pm
 lib/Data/Conveyor/Service/Interface/Script.pm

@@ -6,7 +6,7 @@ use strict;
 use warnings;
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base qw(Class::Scaffold::Delegate::Mixin Class::Scaffold::Accessor);
@@ -380,7 +380,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Control>.
+This document describes version 0.03 of L<Data::Conveyor::Control>.
 
 =head1 BUGS AND LIMITATIONS
 

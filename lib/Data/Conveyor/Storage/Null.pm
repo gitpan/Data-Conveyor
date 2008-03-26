@@ -6,7 +6,7 @@ use strict;
 use warnings;
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base qw(
@@ -113,6 +113,36 @@ functions:
 
     install_accessor()
 
+The superclass L<Class::Accessor::Constructor> defines these methods and
+functions:
+
+    _make_constructor(), mk_constructor(), mk_constructor_with_dirty(),
+    mk_singleton_constructor()
+
+The superclass L<Data::Inherited> defines these methods and functions:
+
+    every_hash(), every_list(), flush_every_cache_by_key()
+
+The superclass L<Class::Accessor::Constructor::Base> defines these methods
+and functions:
+
+    STORE(), clear_dirty(), clear_hygienic(), clear_unhygienic(),
+    contains_hygienic(), contains_unhygienic(), delete_hygienic(),
+    delete_unhygienic(), dirty(), dirty_clear(), dirty_set(),
+    elements_hygienic(), elements_unhygienic(), hygienic(),
+    hygienic_clear(), hygienic_contains(), hygienic_delete(),
+    hygienic_elements(), hygienic_insert(), hygienic_is_empty(),
+    hygienic_size(), insert_hygienic(), insert_unhygienic(),
+    is_empty_hygienic(), is_empty_unhygienic(), set_dirty(),
+    size_hygienic(), size_unhygienic(), unhygienic(), unhygienic_clear(),
+    unhygienic_contains(), unhygienic_delete(), unhygienic_elements(),
+    unhygienic_insert(), unhygienic_is_empty(), unhygienic_size()
+
+The superclass L<Tie::StdHash> defines these methods and functions:
+
+    CLEAR(), DELETE(), EXISTS(), FETCH(), FIRSTKEY(), NEXTKEY(), SCALAR(),
+    TIEHASH()
+
 =head1 TAGS
 
 If you talk about this module in blogs, on del.icio.us or anywhere else,
@@ -120,7 +150,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Storage::Null>.
+This document describes version 0.03 of L<Data::Conveyor::Storage::Null>.
 
 =head1 BUGS AND LIMITATIONS
 

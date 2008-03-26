@@ -6,7 +6,7 @@ use strict;
 use warnings;
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 # Inherit from Class::Scaffold::Storable because get_valid_values_list is
@@ -208,7 +208,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Value::Enum>.
+This document describes version 0.03 of L<Data::Conveyor::Value::Enum>.
 
 =head1 BUGS AND LIMITATIONS
 

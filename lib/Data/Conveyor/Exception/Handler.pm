@@ -7,7 +7,7 @@ use strict;
 use Data::Miscellany 'class_map';
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Class::Scaffold::Storable';
@@ -22,12 +22,11 @@ sub RC_FOR_EXCEPTION_CLASS_HASH {
     local $_ = $_[0]->delegate;
     (
         # fallback
-        UNIVERSAL                               => $_->RC_INTERNAL_ERROR,
-
-        'Error::Hierarchy::Internal'            => $_->RC_INTERNAL_ERROR,
-        'Class::Value::Exception'               => $_->RC_ERROR,
+        UNIVERSAL                              => $_->RC_INTERNAL_ERROR,
+        'Error::Hierarchy::Internal'           => $_->RC_INTERNAL_ERROR,
+        'Class::Value::Exception'              => $_->RC_ERROR,
         'Class::Scaffold::Exception::Business' => $_->RC_ERROR,
-        'Data::Conveyor::Exception::Ticket'     => $_->RC_INTERNAL_ERROR,
+        'Data::Conveyor::Exception::Ticket'    => $_->RC_INTERNAL_ERROR,
         'Data::Conveyor::Exception::Ticket::MissingLock' => $_->RC_ERROR,
     )
 }
@@ -36,14 +35,31 @@ sub RC_FOR_EXCEPTION_CLASS_HASH {
 sub STATUS_FOR_EXCEPTION_CLASS_HASH {
     local $_ = $_[0]->delegate;
     (
-        UNIVERSAL                               => $_->TS_ERROR,    # fallback
-
-        'Error::Hierarchy::Internal'            => $_->TS_ERROR,
-        'Class::Value::Exception'               => $_->TS_RUNNING,
+        UNIVERSAL                              => $_->TS_ERROR,    # fallback
+        'Error::Hierarchy::Internal'           => $_->TS_ERROR,
+        'Class::Value::Exception'              => $_->TS_RUNNING,
         'Class::Scaffold::Exception::Business' => $_->TS_RUNNING,
-        'Data::Conveyor::Exception::Ticket'     => $_->TS_ERROR,
+        'Data::Conveyor::Exception::Ticket'    => $_->TS_ERROR,
         'Data::Conveyor::Exception::Ticket::MissingLock' => $_->TS_RUNNING,
     )
+}
+
+
+# Like every_hash() but also collect results from a hook. So the hash merging
+# doesn't just happen vertically across the class hierarchy but also across
+# plugins, which could be viewed as aspect-like crosscutting concerns.
+
+sub every_hash_with_hook {
+    my ($self, $hash_name, $hook, $args) = @_;
+    my %hash = $self->every_hash($hash_name);
+    for my $result ($self->delegate->plugin_handler->run_hook($hook, $args)) {
+
+        # result is expected to be a hashref like the one returned by
+        # every_hash()
+
+        %hash = (%hash, %$result);
+    }
+    wantarray ? %hash : \%hash;
 }
 
 
@@ -51,7 +67,10 @@ sub errcode_for_exception_class {
     my ($self, $class) = @_;
     class_map(
         $class,
-        scalar $self->every_hash('ERRCODE_FOR_EXCEPTION_CLASS_HASH')
+        scalar $self->every_hash_with_hook(
+            'ERRCODE_FOR_EXCEPTION_CLASS_HASH',
+            'exception.errcode_for_class',
+        )
     );
 }
 
@@ -66,7 +85,10 @@ sub rc_for_exception_class {
     $self->delegate->make_obj('value_ticket_rc', 
         class_map(
             $exception,
-            scalar $self->every_hash('RC_FOR_EXCEPTION_CLASS_HASH')
+            scalar $self->every_hash_with_hook(
+                'RC_FOR_EXCEPTION_CLASS_HASH',
+                'exception.rc_for_class',
+            )
         )
     );
 }
@@ -82,7 +104,10 @@ sub status_for_exception_class {
     $self->delegate->make_obj('value_ticket_status', 
         class_map(
             $exception,
-            scalar $self->every_hash('STATUS_FOR_EXCEPTION_CLASS_HASH')
+            scalar $self->every_hash_with_hook(
+                'STATUS_FOR_EXCEPTION_CLASS_HASH',
+                'exception.status_for_class',
+            )
         )
     );
 }
@@ -258,7 +283,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Exception::Handler>.
+This document describes version 0.03 of L<Data::Conveyor::Exception::Handler>.
 
 =head1 BUGS AND LIMITATIONS
 

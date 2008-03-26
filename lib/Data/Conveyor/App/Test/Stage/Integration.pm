@@ -8,7 +8,7 @@ use Test::More;
 use Test::Builder;
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Data::Conveyor::App::Test::Stage';
@@ -603,7 +603,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::App::Test::Stage::Integration>.
+This document describes version 0.03 of L<Data::Conveyor::App::Test::Stage::Integration>.
 
 =head1 BUGS AND LIMITATIONS
 

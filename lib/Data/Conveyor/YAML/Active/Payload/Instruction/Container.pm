@@ -8,7 +8,7 @@ use YAML::Active qw/assert_arrayref array_activate/;
 use YAML;
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 # FIXME cleanup: this seems to generate an array reference. later on, somebody
@@ -282,7 +282,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::YAML::Active::Payload::Instruction::Container>.
+This document describes version 0.03 of L<Data::Conveyor::YAML::Active::Payload::Instruction::Container>.
 
 =head1 BUGS AND LIMITATIONS
 

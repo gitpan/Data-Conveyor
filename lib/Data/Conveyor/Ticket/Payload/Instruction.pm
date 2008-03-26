@@ -6,7 +6,7 @@ use strict;
 use Class::Value;
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Class::Scaffold::Storable';
@@ -245,7 +245,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::Ticket::Payload::Instruction>.
+This document describes version 0.03 of L<Data::Conveyor::Ticket::Payload::Instruction>.
 
 =head1 BUGS AND LIMITATIONS
 

@@ -8,7 +8,7 @@ use Test::More;
 use Data::Dumper;
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Data::Conveyor::App::Test::Stage';
@@ -247,7 +247,7 @@ please use the C<dataconveyor> tag.
 
 =head1 VERSION 
                    
-This document describes version 0.02 of L<Data::Conveyor::App::Test::Stage::TxSelector>.
+This document describes version 0.03 of L<Data::Conveyor::App::Test::Stage::TxSelector>.
 
 =head1 BUGS AND LIMITATIONS
 

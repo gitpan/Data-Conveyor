@@ -1,23 +1,25 @@
---- 
-abstract: ~
-author: 
-  - "{% ELSE %}"
-build_requires: 
+---
+abstract: 'stage-based conveyor-belt-like ticket handling system'
+author:
+  - 'Florian Helmberger C<< <fh@univie.ac.at> >>'
+build_requires:
   Test::Compile: 0
-  Test::More: 0
-  UNIVERSAL::require: 0
+  Test::More: 0.70
 distribution_type: module
-generated_by: Module::Install version 0.68
+generated_by: 'Module::Install version 0.76'
 license: perl
-meta-spec: 
-  url: http://module-build.sourceforge.net/META-spec-v1.3.html
-  version: 1.3
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
 name: Data-Conveyor
-no_index: 
-  directory: 
+no_index:
+  directory:
     - inc
     - t
-requires: 
+recommends:
+  Test::Pod: 0
+  Test::Pod::Coverage: 0
+requires:
   Class::Null: 0
   Class::Scaffold: 0.03
   DBI: 0
@@ -43,4 +45,6 @@ requires:
   YAML: 0
   YAML::Active: 0
   perl: 5.6.0
-version: 0.03
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.05

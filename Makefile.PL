@@ -30,22 +30,12 @@ requires 'Time::HiRes';
 requires 'YAML';
 requires 'YAML::Active';
 
-build_requires 'Test::More' => '0.70';
+recommends 'Test::Pod';
+recommends 'Test::Pod::Coverage';
 
-process_templates(
-    first_year    => 2004,
-    rest_from     => "$ENV{HOME}/.mitlib/standard_pod",
-    start_tag     => '{%',
-    end_tag       => '%}',
-    other_authors => [
-        'Florian Helmberger C<< <fh@univie.ac.at> >>',
-        'Achim Adam C<< <ac@univie.ac.at> >>',
-        'Mark Hofstetter C<< <mh@univie.ac.at> >>',
-        'Heinz Ekker C<< <ek@univie.ac.at> >>',
-    ],
-);
+test_requires 'Test::More' => '0.70';
+test_requires 'Test::Compile';
 
-use_standard_tests(without => 'pod_coverage');
 auto_install;
 auto_include;
 WriteAll;

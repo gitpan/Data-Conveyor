@@ -6,7 +6,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.03';
+our $VERSION = '0.05';
 
 
 use base 'Error::Hierarchy::Internal';
@@ -154,21 +154,11 @@ functions:
 
     install_accessor()
 
-=head1 TAGS
-
-If you talk about this module in blogs, on del.icio.us or anywhere else,
-please use the C<dataconveyor> tag.
-
-=head1 VERSION 
-                   
-This document describes version 0.03 of L<Data::Conveyor::Exception::Internal::NoSuchTemplateHandler>.
-
 =head1 BUGS AND LIMITATIONS
 
 No bugs have been reported.
 
-Please report any bugs or feature requests to
-C<<bug-data-conveyor@rt.cpan.org>>, or through the web interface at
+Please report any bugs or feature requests through the web interface at
 L<http://rt.cpan.org>.
 
 =head1 INSTALLATION
@@ -183,8 +173,6 @@ site near you. Or see <http://www.perl.com/CPAN/authors/id/M/MA/MARCEL/>.
 
 =head1 AUTHORS
 
-Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
-
 Florian Helmberger C<< <fh@univie.ac.at> >>
 
 Achim Adam C<< <ac@univie.ac.at> >>
@@ -193,9 +181,11 @@ Mark Hofstetter C<< <mh@univie.ac.at> >>
 
 Heinz Ekker C<< <ek@univie.ac.at> >>
 
+Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
+
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2008 by Marcel GrE<uuml>nauer
+Copyright 2004-2008 by the authors.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

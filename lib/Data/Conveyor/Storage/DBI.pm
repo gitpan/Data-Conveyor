@@ -8,7 +8,7 @@ use Error::Hierarchy::Internal::DBI::STH;
 use Error ':try';
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Data::Conveyor::Storage';
@@ -77,13 +77,13 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_idcache
+=item C<clear_idcache>
 
     $obj->clear_idcache;
 
 Clears the value.
 
-=item idcache
+=item C<idcache>
 
     my $value = $obj->idcache;
     $obj->idcache($value);
@@ -91,7 +91,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item idcache_clear
+=item C<idcache_clear>
 
     $obj->idcache_clear;
 

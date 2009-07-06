@@ -6,7 +6,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::Exception::Business';
@@ -45,25 +45,25 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_command
+=item C<clear_command>
 
     $obj->clear_command;
 
 Clears the value.
 
-=item clear_object_type
+=item C<clear_object_type>
 
     $obj->clear_object_type;
 
 Clears the value.
 
-=item clear_ticket_type
+=item C<clear_ticket_type>
 
     $obj->clear_ticket_type;
 
 Clears the value.
 
-=item command
+=item C<command>
 
     my $value = $obj->command;
     $obj->command($value);
@@ -71,13 +71,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item command_clear
+=item C<command_clear>
 
     $obj->command_clear;
 
 Clears the value.
 
-=item object_type
+=item C<object_type>
 
     my $value = $obj->object_type;
     $obj->object_type($value);
@@ -85,13 +85,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item object_type_clear
+=item C<object_type_clear>
 
     $obj->object_type_clear;
 
 Clears the value.
 
-=item ticket_type
+=item C<ticket_type>
 
     my $value = $obj->ticket_type;
     $obj->ticket_type($value);
@@ -99,7 +99,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item ticket_type_clear
+=item C<ticket_type_clear>
 
     $obj->ticket_type_clear;
 

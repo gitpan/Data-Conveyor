@@ -7,7 +7,7 @@ use warnings;
 use charnames ':full';
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Data::Conveyor::Charset';
@@ -109,7 +109,7 @@ next release will have more documentation.
 
 =over 4
 
-=item new
+=item C<new>
 
     my $obj = Data::Conveyor::Charset::ViaHash->new;
     my $obj = Data::Conveyor::Charset::ViaHash->new(%args);
@@ -120,7 +120,7 @@ component is initialized by calling the method of the same name with the given
 value. If called with a single hash reference, it is dereferenced and its
 key/value pairs are set as described before.
 
-=item character_cache
+=item C<character_cache>
 
     my %hash     = $obj->character_cache;
     my $hash_ref = $obj->character_cache;
@@ -145,69 +145,69 @@ If called with exactly one hash reference, it updates the hash with the given
 key/value pairs, then returns the hash in list context, or a reference to the
 hash in scalar context.
 
-=item character_cache_clear
+=item C<character_cache_clear>
 
     $obj->character_cache_clear;
 
 Deletes all keys and values from the hash.
 
-=item character_cache_delete
+=item C<character_cache_delete>
 
     $obj->character_cache_delete(@keys);
 
 Takes a list of keys and deletes those keys from the hash.
 
-=item character_cache_exists
+=item C<character_cache_exists>
 
     if ($obj->character_cache_exists($key)) { ... }
 
 Takes a key and returns a true value if the key exists in the hash, and a
 false value otherwise.
 
-=item character_cache_keys
+=item C<character_cache_keys>
 
     my @keys = $obj->character_cache_keys;
 
 Returns a list of all hash keys in no particular order.
 
-=item character_cache_values
+=item C<character_cache_values>
 
     my @values = $obj->character_cache_values;
 
 Returns a list of all hash values in no particular order.
 
-=item clear_character_cache
+=item C<clear_character_cache>
 
     $obj->clear_character_cache;
 
 Deletes all keys and values from the hash.
 
-=item clear_valid_string_re_cache
+=item C<clear_valid_string_re_cache>
 
     $obj->clear_valid_string_re_cache;
 
 Clears the value.
 
-=item delete_character_cache
+=item C<delete_character_cache>
 
     $obj->delete_character_cache(@keys);
 
 Takes a list of keys and deletes those keys from the hash.
 
-=item exists_character_cache
+=item C<exists_character_cache>
 
     if ($obj->exists_character_cache($key)) { ... }
 
 Takes a key and returns a true value if the key exists in the hash, and a
 false value otherwise.
 
-=item keys_character_cache
+=item C<keys_character_cache>
 
     my @keys = $obj->keys_character_cache;
 
 Returns a list of all hash keys in no particular order.
 
-=item valid_string_re_cache
+=item C<valid_string_re_cache>
 
     my $value = $obj->valid_string_re_cache;
     $obj->valid_string_re_cache($value);
@@ -215,13 +215,13 @@ Returns a list of all hash keys in no particular order.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item valid_string_re_cache_clear
+=item C<valid_string_re_cache_clear>
 
     $obj->valid_string_re_cache_clear;
 
 Clears the value.
 
-=item values_character_cache
+=item C<values_character_cache>
 
     my @values = $obj->values_character_cache;
 

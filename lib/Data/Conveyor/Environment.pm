@@ -17,7 +17,7 @@ use Hook::Modular;
 # make_obj() Class::Value is loaded only on-demand.
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::Environment';
@@ -49,6 +49,14 @@ __PACKAGE__->mk_object_accessors(
             control_filename
             ticket_provider_clause
             modular_config
+            storage_init_location
+
+            sif_web_host
+            sif_web_port
+            sif_web_root
+            sif_web_error_log
+            sif_web_access_log
+            sif_web_debug
         / ]
     },
 );
@@ -397,6 +405,12 @@ Class::Scaffold::Factory::Type->register_factory_type(
     service_result_container     => 'Data::Conveyor::Service::Result::Container',
     service_result_scalar        => 'Data::Conveyor::Service::Result::Scalar',
     service_result_tabular       => 'Data::Conveyor::Service::Result::Tabular',
+    sif_http_engine_serversimple => 'Data::Conveyor::Service::Interface::Webserver::ServerSimple',
+    sif_http_engine_test         => 'Data::Conveyor::Service::Interface::Webserver::Test',
+    sif_http_engine_handler      => 'Data::Conveyor::Service::Interface::Webserver::Handler',
+    sif_http_engine_util         => 'Data::Conveyor::Service::Interface::Webserver::Util',
+    sif_http_engine_log          => 'Data::Conveyor::Service::Interface::Webserver::Log',
+    sif_http_engine_rpc          => 'Data::Conveyor::Service::Interface::Webserver::RPC',
     template_factory             => 'Data::Conveyor::Template::Factory',
     test_ticket                  => 'Data::Conveyor::Test::Ticket',
     ticket                       => 'Data::Conveyor::Ticket',
@@ -549,19 +563,19 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_configurator
+=item C<clear_configurator>
 
     $obj->clear_configurator;
 
 Deletes the object.
 
-=item clear_control
+=item C<clear_control>
 
     $obj->clear_control;
 
 Deletes the object.
 
-=item configurator
+=item C<configurator>
 
     my $object = $obj->configurator;
     $obj->configurator($object);
@@ -577,13 +591,13 @@ if there is no such object, a new Class::Scaffold::Environment::Configurator obj
 are passed to the constructor in this case - and stored in the configurator slot
 before returning it.
 
-=item configurator_clear
+=item C<configurator_clear>
 
     $obj->configurator_clear;
 
 Deletes the object.
 
-=item control
+=item C<control>
 
     my $object = $obj->control;
     $obj->control($object);
@@ -599,13 +613,13 @@ if there is no such object, a new Data::Conveyor::Control::File object is constr
 are passed to the constructor in this case - and stored in the control slot
 before returning it.
 
-=item control_clear
+=item C<control_clear>
 
     $obj->control_clear;
 
 Deletes the object.
 
-=item control_filename
+=item C<control_filename>
 
     $obj->control_filename(@args);
     $obj->control_filename;
@@ -615,7 +629,7 @@ If there is no such object, a new Class::Scaffold::Environment::Configurator obj
 are passed to the constructor - and stored in the configurator slot before forwarding
 control_filename() onto it.
 
-=item default_object_limit
+=item C<default_object_limit>
 
     $obj->default_object_limit(@args);
     $obj->default_object_limit;
@@ -625,7 +639,7 @@ If there is no such object, a new Class::Scaffold::Environment::Configurator obj
 are passed to the constructor - and stored in the configurator slot before forwarding
 default_object_limit() onto it.
 
-=item dispatcher_sleep
+=item C<dispatcher_sleep>
 
     $obj->dispatcher_sleep(@args);
     $obj->dispatcher_sleep;
@@ -635,7 +649,7 @@ If there is no such object, a new Class::Scaffold::Environment::Configurator obj
 are passed to the constructor - and stored in the configurator slot before forwarding
 dispatcher_sleep() onto it.
 
-=item ignore_locks
+=item C<ignore_locks>
 
     $obj->ignore_locks(@args);
     $obj->ignore_locks;
@@ -645,7 +659,7 @@ If there is no such object, a new Class::Scaffold::Environment::Configurator obj
 are passed to the constructor - and stored in the configurator slot before forwarding
 ignore_locks() onto it.
 
-=item lockpath
+=item C<lockpath>
 
     $obj->lockpath(@args);
     $obj->lockpath;
@@ -655,7 +669,7 @@ If there is no such object, a new Class::Scaffold::Environment::Configurator obj
 are passed to the constructor - and stored in the configurator slot before forwarding
 lockpath() onto it.
 
-=item max_tickets_per_dispatcher
+=item C<max_tickets_per_dispatcher>
 
     $obj->max_tickets_per_dispatcher(@args);
     $obj->max_tickets_per_dispatcher;
@@ -665,7 +679,7 @@ If there is no such object, a new Class::Scaffold::Environment::Configurator obj
 are passed to the constructor - and stored in the configurator slot before forwarding
 max_tickets_per_dispatcher() onto it.
 
-=item modular_config
+=item C<modular_config>
 
     $obj->modular_config(@args);
     $obj->modular_config;
@@ -675,7 +689,7 @@ If there is no such object, a new Class::Scaffold::Environment::Configurator obj
 are passed to the constructor - and stored in the configurator slot before forwarding
 modular_config() onto it.
 
-=item mutex_storage_args
+=item C<mutex_storage_args>
 
     $obj->mutex_storage_args(@args);
     $obj->mutex_storage_args;
@@ -685,7 +699,7 @@ If there is no such object, a new Class::Scaffold::Environment::Configurator obj
 are passed to the constructor - and stored in the configurator slot before forwarding
 mutex_storage_args() onto it.
 
-=item mutex_storage_name
+=item C<mutex_storage_name>
 
     $obj->mutex_storage_name(@args);
     $obj->mutex_storage_name;
@@ -695,7 +709,7 @@ If there is no such object, a new Class::Scaffold::Environment::Configurator obj
 are passed to the constructor - and stored in the configurator slot before forwarding
 mutex_storage_name() onto it.
 
-=item respect_mutex
+=item C<respect_mutex>
 
     $obj->respect_mutex(@args);
     $obj->respect_mutex;
@@ -705,7 +719,7 @@ If there is no such object, a new Class::Scaffold::Environment::Configurator obj
 are passed to the constructor - and stored in the configurator slot before forwarding
 respect_mutex() onto it.
 
-=item should_send_mail
+=item C<should_send_mail>
 
     $obj->should_send_mail(@args);
     $obj->should_send_mail;
@@ -715,7 +729,7 @@ If there is no such object, a new Class::Scaffold::Environment::Configurator obj
 are passed to the constructor - and stored in the configurator slot before forwarding
 should_send_mail() onto it.
 
-=item soap_path
+=item C<soap_path>
 
     $obj->soap_path(@args);
     $obj->soap_path;
@@ -725,7 +739,7 @@ If there is no such object, a new Class::Scaffold::Environment::Configurator obj
 are passed to the constructor - and stored in the configurator slot before forwarding
 soap_path() onto it.
 
-=item soap_server
+=item C<soap_server>
 
     $obj->soap_server(@args);
     $obj->soap_server;
@@ -735,7 +749,7 @@ If there is no such object, a new Class::Scaffold::Environment::Configurator obj
 are passed to the constructor - and stored in the configurator slot before forwarding
 soap_server() onto it.
 
-=item soap_uri
+=item C<soap_uri>
 
     $obj->soap_uri(@args);
     $obj->soap_uri;
@@ -745,7 +759,7 @@ If there is no such object, a new Class::Scaffold::Environment::Configurator obj
 are passed to the constructor - and stored in the configurator slot before forwarding
 soap_uri() onto it.
 
-=item ticket_provider_clause
+=item C<ticket_provider_clause>
 
     $obj->ticket_provider_clause(@args);
     $obj->ticket_provider_clause;

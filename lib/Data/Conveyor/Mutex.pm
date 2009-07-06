@@ -12,7 +12,7 @@ use Error ':try';
 # across databases.
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::Storable';
@@ -234,7 +234,7 @@ next release will have more documentation.
 
 =over 4
 
-=item application
+=item C<application>
 
     my $value = $obj->application;
     $obj->application($value);
@@ -242,61 +242,61 @@ next release will have more documentation.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item application_clear
+=item C<application_clear>
 
     $obj->application_clear;
 
 Clears the value.
 
-=item clear_application
+=item C<clear_application>
 
     $obj->clear_application;
 
 Clears the value.
 
-=item clear_dbinst
+=item C<clear_dbinst>
 
     $obj->clear_dbinst;
 
 Clears the value.
 
-=item clear_group_exlock
+=item C<clear_group_exlock>
 
     $obj->clear_group_exlock;
 
 Clears the value.
 
-=item clear_hostname
+=item C<clear_hostname>
 
     $obj->clear_hostname;
 
 Clears the value.
 
-=item clear_max_parallel
+=item C<clear_max_parallel>
 
     $obj->clear_max_parallel;
 
 Clears the value.
 
-=item clear_mutex_config_id
+=item C<clear_mutex_config_id>
 
     $obj->clear_mutex_config_id;
 
 Clears the value.
 
-=item clear_pid
+=item C<clear_pid>
 
     $obj->clear_pid;
 
 Clears the value.
 
-=item clear_program_name
+=item C<clear_program_name>
 
     $obj->clear_program_name;
 
 Clears the value.
 
-=item dbinst
+=item C<dbinst>
 
     my $value = $obj->dbinst;
     $obj->dbinst($value);
@@ -304,13 +304,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item dbinst_clear
+=item C<dbinst_clear>
 
     $obj->dbinst_clear;
 
 Clears the value.
 
-=item group_exlock
+=item C<group_exlock>
 
     my $value = $obj->group_exlock;
     $obj->group_exlock($value);
@@ -318,13 +318,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item group_exlock_clear
+=item C<group_exlock_clear>
 
     $obj->group_exlock_clear;
 
 Clears the value.
 
-=item hostname
+=item C<hostname>
 
     my $value = $obj->hostname;
     $obj->hostname($value);
@@ -332,13 +332,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item hostname_clear
+=item C<hostname_clear>
 
     $obj->hostname_clear;
 
 Clears the value.
 
-=item max_parallel
+=item C<max_parallel>
 
     my $value = $obj->max_parallel;
     $obj->max_parallel($value);
@@ -346,13 +346,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item max_parallel_clear
+=item C<max_parallel_clear>
 
     $obj->max_parallel_clear;
 
 Clears the value.
 
-=item mutex_config_id
+=item C<mutex_config_id>
 
     my $value = $obj->mutex_config_id;
     $obj->mutex_config_id($value);
@@ -360,13 +360,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item mutex_config_id_clear
+=item C<mutex_config_id_clear>
 
     $obj->mutex_config_id_clear;
 
 Clears the value.
 
-=item pid
+=item C<pid>
 
     my $value = $obj->pid;
     $obj->pid($value);
@@ -374,13 +374,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item pid_clear
+=item C<pid_clear>
 
     $obj->pid_clear;
 
 Clears the value.
 
-=item program_name
+=item C<program_name>
 
     my $value = $obj->program_name;
     $obj->program_name($value);
@@ -388,7 +388,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item program_name_clear
+=item C<program_name_clear>
 
     $obj->program_name_clear;
 

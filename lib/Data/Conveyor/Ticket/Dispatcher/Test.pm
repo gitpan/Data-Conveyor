@@ -6,7 +6,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Data::Conveyor::Ticket::Dispatcher';
@@ -62,7 +62,7 @@ next release will have more documentation.
 
 =over 4
 
-=item callback
+=item C<callback>
 
     my $value = $obj->callback;
     $obj->callback($value);
@@ -70,13 +70,13 @@ next release will have more documentation.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item callback_clear
+=item C<callback_clear>
 
     $obj->callback_clear;
 
 Clears the value.
 
-=item clear_callback
+=item C<clear_callback>
 
     $obj->clear_callback;
 

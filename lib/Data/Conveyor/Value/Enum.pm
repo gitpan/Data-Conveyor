@@ -6,7 +6,7 @@ use strict;
 use warnings;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 # Inherit from Class::Scaffold::Storable because get_valid_values_list is

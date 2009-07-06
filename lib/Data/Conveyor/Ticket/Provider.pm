@@ -6,7 +6,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::Storable';
@@ -154,7 +154,7 @@ next release will have more documentation.
 
 =over 4
 
-=item accepted_stages
+=item C<accepted_stages>
 
     my @values    = $obj->accepted_stages;
     my $array_ref = $obj->accepted_stages;
@@ -166,19 +166,19 @@ array in list context, or a reference to the array in scalar context. If
 called with arguments, it expands array references found therein and sets the
 values.
 
-=item accepted_stages_clear
+=item C<accepted_stages_clear>
 
     $obj->accepted_stages_clear;
 
 Deletes all elements from the array.
 
-=item accepted_stages_count
+=item C<accepted_stages_count>
 
     my $count = $obj->accepted_stages_count;
 
 Returns the number of elements in the array.
 
-=item accepted_stages_index
+=item C<accepted_stages_index>
 
     my $element   = $obj->accepted_stages_index(3);
     my @elements  = $obj->accepted_stages_index(@indices);
@@ -189,19 +189,19 @@ If only one index is given, the corresponding array element is returned. If
 several indices are given, the result is returned as an array in list context
 or as an array reference in scalar context.
 
-=item accepted_stages_pop
+=item C<accepted_stages_pop>
 
     my $value = $obj->accepted_stages_pop;
 
 Pops the last element off the array, returning it.
 
-=item accepted_stages_push
+=item C<accepted_stages_push>
 
     $obj->accepted_stages_push(@values);
 
 Pushes elements onto the end of the array.
 
-=item accepted_stages_set
+=item C<accepted_stages_set>
 
     $obj->accepted_stages_set(1 => $x, 5 => $y);
 
@@ -209,13 +209,13 @@ Takes a list of index/value pairs and for each pair it sets the array element
 at the indicated index to the indicated value. Returns the number of elements
 that have been set.
 
-=item accepted_stages_shift
+=item C<accepted_stages_shift>
 
     my $value = $obj->accepted_stages_shift;
 
 Shifts the first element off the array, returning it.
 
-=item accepted_stages_splice
+=item C<accepted_stages_splice>
 
     $obj->accepted_stages_splice(2, 1, $x, $y);
     $obj->accepted_stages_splice(-1);
@@ -235,13 +235,13 @@ offset and the length are omitted, removes everything. If the offset is past
 the end of the array, it issues a warning, and splices at the end of the
 array.
 
-=item accepted_stages_unshift
+=item C<accepted_stages_unshift>
 
     $obj->accepted_stages_unshift(@values);
 
 Unshifts elements onto the beginning of the array.
 
-=item clause
+=item C<clause>
 
     my $value = $obj->clause;
     $obj->clause($value);
@@ -249,73 +249,73 @@ Unshifts elements onto the beginning of the array.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item clause_clear
+=item C<clause_clear>
 
     $obj->clause_clear;
 
 Clears the value.
 
-=item clear_accepted_stages
+=item C<clear_accepted_stages>
 
     $obj->clear_accepted_stages;
 
 Deletes all elements from the array.
 
-=item clear_clause
+=item C<clear_clause>
 
     $obj->clear_clause;
 
 Clears the value.
 
-=item clear_handle
+=item C<clear_handle>
 
     $obj->clear_handle;
 
 Clears the value.
 
-=item clear_lagmax
+=item C<clear_lagmax>
 
     $obj->clear_lagmax;
 
 Clears the value.
 
-=item clear_prefetch
+=item C<clear_prefetch>
 
     $obj->clear_prefetch;
 
 Clears the value.
 
-=item clear_stack
+=item C<clear_stack>
 
     $obj->clear_stack;
 
 Deletes all elements from the array.
 
-=item clear_supported
+=item C<clear_supported>
 
     $obj->clear_supported;
 
 Clears the value.
 
-=item clear_timestamp
+=item C<clear_timestamp>
 
     $obj->clear_timestamp;
 
 Clears the value.
 
-=item count_accepted_stages
+=item C<count_accepted_stages>
 
     my $count = $obj->count_accepted_stages;
 
 Returns the number of elements in the array.
 
-=item count_stack
+=item C<count_stack>
 
     my $count = $obj->count_stack;
 
 Returns the number of elements in the array.
 
-=item handle
+=item C<handle>
 
     my $value = $obj->handle;
     $obj->handle($value);
@@ -323,13 +323,13 @@ Returns the number of elements in the array.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item handle_clear
+=item C<handle_clear>
 
     $obj->handle_clear;
 
 Clears the value.
 
-=item index_accepted_stages
+=item C<index_accepted_stages>
 
     my $element   = $obj->index_accepted_stages(3);
     my @elements  = $obj->index_accepted_stages(@indices);
@@ -340,7 +340,7 @@ If only one index is given, the corresponding array element is returned. If
 several indices are given, the result is returned as an array in list context
 or as an array reference in scalar context.
 
-=item index_stack
+=item C<index_stack>
 
     my $element   = $obj->index_stack(3);
     my @elements  = $obj->index_stack(@indices);
@@ -351,7 +351,7 @@ If only one index is given, the corresponding array element is returned. If
 several indices are given, the result is returned as an array in list context
 or as an array reference in scalar context.
 
-=item lagmax
+=item C<lagmax>
 
     my $value = $obj->lagmax;
     $obj->lagmax($value);
@@ -359,25 +359,25 @@ or as an array reference in scalar context.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item lagmax_clear
+=item C<lagmax_clear>
 
     $obj->lagmax_clear;
 
 Clears the value.
 
-=item pop_accepted_stages
+=item C<pop_accepted_stages>
 
     my $value = $obj->pop_accepted_stages;
 
 Pops the last element off the array, returning it.
 
-=item pop_stack
+=item C<pop_stack>
 
     my $value = $obj->pop_stack;
 
 Pops the last element off the array, returning it.
 
-=item prefetch
+=item C<prefetch>
 
     my $value = $obj->prefetch;
     $obj->prefetch($value);
@@ -385,25 +385,25 @@ Pops the last element off the array, returning it.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item prefetch_clear
+=item C<prefetch_clear>
 
     $obj->prefetch_clear;
 
 Clears the value.
 
-=item push_accepted_stages
+=item C<push_accepted_stages>
 
     $obj->push_accepted_stages(@values);
 
 Pushes elements onto the end of the array.
 
-=item push_stack
+=item C<push_stack>
 
     $obj->push_stack(@values);
 
 Pushes elements onto the end of the array.
 
-=item set_accepted_stages
+=item C<set_accepted_stages>
 
     $obj->set_accepted_stages(1 => $x, 5 => $y);
 
@@ -411,7 +411,7 @@ Takes a list of index/value pairs and for each pair it sets the array element
 at the indicated index to the indicated value. Returns the number of elements
 that have been set.
 
-=item set_stack
+=item C<set_stack>
 
     $obj->set_stack(1 => $x, 5 => $y);
 
@@ -419,19 +419,19 @@ Takes a list of index/value pairs and for each pair it sets the array element
 at the indicated index to the indicated value. Returns the number of elements
 that have been set.
 
-=item shift_accepted_stages
+=item C<shift_accepted_stages>
 
     my $value = $obj->shift_accepted_stages;
 
 Shifts the first element off the array, returning it.
 
-=item shift_stack
+=item C<shift_stack>
 
     my $value = $obj->shift_stack;
 
 Shifts the first element off the array, returning it.
 
-=item splice_accepted_stages
+=item C<splice_accepted_stages>
 
     $obj->splice_accepted_stages(2, 1, $x, $y);
     $obj->splice_accepted_stages(-1);
@@ -451,7 +451,7 @@ offset and the length are omitted, removes everything. If the offset is past
 the end of the array, it issues a warning, and splices at the end of the
 array.
 
-=item splice_stack
+=item C<splice_stack>
 
     $obj->splice_stack(2, 1, $x, $y);
     $obj->splice_stack(-1);
@@ -471,7 +471,7 @@ offset and the length are omitted, removes everything. If the offset is past
 the end of the array, it issues a warning, and splices at the end of the
 array.
 
-=item stack
+=item C<stack>
 
     my @values    = $obj->stack;
     my $array_ref = $obj->stack;
@@ -483,19 +483,19 @@ array in list context, or a reference to the array in scalar context. If
 called with arguments, it expands array references found therein and sets the
 values.
 
-=item stack_clear
+=item C<stack_clear>
 
     $obj->stack_clear;
 
 Deletes all elements from the array.
 
-=item stack_count
+=item C<stack_count>
 
     my $count = $obj->stack_count;
 
 Returns the number of elements in the array.
 
-=item stack_index
+=item C<stack_index>
 
     my $element   = $obj->stack_index(3);
     my @elements  = $obj->stack_index(@indices);
@@ -506,19 +506,19 @@ If only one index is given, the corresponding array element is returned. If
 several indices are given, the result is returned as an array in list context
 or as an array reference in scalar context.
 
-=item stack_pop
+=item C<stack_pop>
 
     my $value = $obj->stack_pop;
 
 Pops the last element off the array, returning it.
 
-=item stack_push
+=item C<stack_push>
 
     $obj->stack_push(@values);
 
 Pushes elements onto the end of the array.
 
-=item stack_set
+=item C<stack_set>
 
     $obj->stack_set(1 => $x, 5 => $y);
 
@@ -526,13 +526,13 @@ Takes a list of index/value pairs and for each pair it sets the array element
 at the indicated index to the indicated value. Returns the number of elements
 that have been set.
 
-=item stack_shift
+=item C<stack_shift>
 
     my $value = $obj->stack_shift;
 
 Shifts the first element off the array, returning it.
 
-=item stack_splice
+=item C<stack_splice>
 
     $obj->stack_splice(2, 1, $x, $y);
     $obj->stack_splice(-1);
@@ -552,13 +552,13 @@ offset and the length are omitted, removes everything. If the offset is past
 the end of the array, it issues a warning, and splices at the end of the
 array.
 
-=item stack_unshift
+=item C<stack_unshift>
 
     $obj->stack_unshift(@values);
 
 Unshifts elements onto the beginning of the array.
 
-=item supported
+=item C<supported>
 
     my $value = $obj->supported;
     $obj->supported($value);
@@ -566,13 +566,13 @@ Unshifts elements onto the beginning of the array.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item supported_clear
+=item C<supported_clear>
 
     $obj->supported_clear;
 
 Clears the value.
 
-=item timestamp
+=item C<timestamp>
 
     my $value = $obj->timestamp;
     $obj->timestamp($value);
@@ -580,19 +580,19 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item timestamp_clear
+=item C<timestamp_clear>
 
     $obj->timestamp_clear;
 
 Clears the value.
 
-=item unshift_accepted_stages
+=item C<unshift_accepted_stages>
 
     $obj->unshift_accepted_stages(@values);
 
 Unshifts elements onto the beginning of the array.
 
-=item unshift_stack
+=item C<unshift_stack>
 
     $obj->unshift_stack(@values);
 

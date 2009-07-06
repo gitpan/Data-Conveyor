@@ -8,7 +8,7 @@ use strict;
 use Error::Hierarchy::Util 'assert_defined';
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::Factory';

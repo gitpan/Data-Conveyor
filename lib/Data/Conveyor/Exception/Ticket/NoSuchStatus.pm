@@ -6,7 +6,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base qw(
@@ -46,13 +46,13 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_status
+=item C<clear_status>
 
     $obj->clear_status;
 
 Clears the value.
 
-=item status
+=item C<status>
 
     my $value = $obj->status;
     $obj->status($value);
@@ -60,7 +60,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item status_clear
+=item C<status_clear>
 
     $obj->status_clear;
 

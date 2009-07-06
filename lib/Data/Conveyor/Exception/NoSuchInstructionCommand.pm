@@ -6,7 +6,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base qw(
@@ -46,13 +46,13 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_command
+=item C<clear_command>
 
     $obj->clear_command;
 
 Clears the value.
 
-=item command
+=item C<command>
 
     my $value = $obj->command;
     $obj->command($value);
@@ -60,7 +60,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item command_clear
+=item C<command_clear>
 
     $obj->command_clear;
 

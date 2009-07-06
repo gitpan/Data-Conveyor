@@ -10,7 +10,7 @@ use strict;
 use Error::Hierarchy::Util 'assert_defined';
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::Storable';
@@ -91,31 +91,31 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_extra_tx_list
+=item C<clear_extra_tx_list>
 
     $obj->clear_extra_tx_list;
 
 Deletes all elements from the array.
 
-=item clear_stage
+=item C<clear_stage>
 
     $obj->clear_stage;
 
 Clears the value.
 
-=item clear_tx
+=item C<clear_tx>
 
     $obj->clear_tx;
 
 Clears the value.
 
-=item count_extra_tx_list
+=item C<count_extra_tx_list>
 
     my $count = $obj->count_extra_tx_list;
 
 Returns the number of elements in the array.
 
-=item extra_tx_list
+=item C<extra_tx_list>
 
     my @values    = $obj->extra_tx_list;
     my $array_ref = $obj->extra_tx_list;
@@ -127,19 +127,19 @@ array in list context, or a reference to the array in scalar context. If
 called with arguments, it expands array references found therein and sets the
 values.
 
-=item extra_tx_list_clear
+=item C<extra_tx_list_clear>
 
     $obj->extra_tx_list_clear;
 
 Deletes all elements from the array.
 
-=item extra_tx_list_count
+=item C<extra_tx_list_count>
 
     my $count = $obj->extra_tx_list_count;
 
 Returns the number of elements in the array.
 
-=item extra_tx_list_index
+=item C<extra_tx_list_index>
 
     my $element   = $obj->extra_tx_list_index(3);
     my @elements  = $obj->extra_tx_list_index(@indices);
@@ -150,19 +150,19 @@ If only one index is given, the corresponding array element is returned. If
 several indices are given, the result is returned as an array in list context
 or as an array reference in scalar context.
 
-=item extra_tx_list_pop
+=item C<extra_tx_list_pop>
 
     my $value = $obj->extra_tx_list_pop;
 
 Pops the last element off the array, returning it.
 
-=item extra_tx_list_push
+=item C<extra_tx_list_push>
 
     $obj->extra_tx_list_push(@values);
 
 Pushes elements onto the end of the array.
 
-=item extra_tx_list_set
+=item C<extra_tx_list_set>
 
     $obj->extra_tx_list_set(1 => $x, 5 => $y);
 
@@ -170,13 +170,13 @@ Takes a list of index/value pairs and for each pair it sets the array element
 at the indicated index to the indicated value. Returns the number of elements
 that have been set.
 
-=item extra_tx_list_shift
+=item C<extra_tx_list_shift>
 
     my $value = $obj->extra_tx_list_shift;
 
 Shifts the first element off the array, returning it.
 
-=item extra_tx_list_splice
+=item C<extra_tx_list_splice>
 
     $obj->extra_tx_list_splice(2, 1, $x, $y);
     $obj->extra_tx_list_splice(-1);
@@ -196,13 +196,13 @@ offset and the length are omitted, removes everything. If the offset is past
 the end of the array, it issues a warning, and splices at the end of the
 array.
 
-=item extra_tx_list_unshift
+=item C<extra_tx_list_unshift>
 
     $obj->extra_tx_list_unshift(@values);
 
 Unshifts elements onto the beginning of the array.
 
-=item index_extra_tx_list
+=item C<index_extra_tx_list>
 
     my $element   = $obj->index_extra_tx_list(3);
     my @elements  = $obj->index_extra_tx_list(@indices);
@@ -213,19 +213,19 @@ If only one index is given, the corresponding array element is returned. If
 several indices are given, the result is returned as an array in list context
 or as an array reference in scalar context.
 
-=item pop_extra_tx_list
+=item C<pop_extra_tx_list>
 
     my $value = $obj->pop_extra_tx_list;
 
 Pops the last element off the array, returning it.
 
-=item push_extra_tx_list
+=item C<push_extra_tx_list>
 
     $obj->push_extra_tx_list(@values);
 
 Pushes elements onto the end of the array.
 
-=item set_extra_tx_list
+=item C<set_extra_tx_list>
 
     $obj->set_extra_tx_list(1 => $x, 5 => $y);
 
@@ -233,13 +233,13 @@ Takes a list of index/value pairs and for each pair it sets the array element
 at the indicated index to the indicated value. Returns the number of elements
 that have been set.
 
-=item shift_extra_tx_list
+=item C<shift_extra_tx_list>
 
     my $value = $obj->shift_extra_tx_list;
 
 Shifts the first element off the array, returning it.
 
-=item splice_extra_tx_list
+=item C<splice_extra_tx_list>
 
     $obj->splice_extra_tx_list(2, 1, $x, $y);
     $obj->splice_extra_tx_list(-1);
@@ -259,7 +259,7 @@ offset and the length are omitted, removes everything. If the offset is past
 the end of the array, it issues a warning, and splices at the end of the
 array.
 
-=item stage
+=item C<stage>
 
     my $value = $obj->stage;
     $obj->stage($value);
@@ -267,13 +267,13 @@ array.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item stage_clear
+=item C<stage_clear>
 
     $obj->stage_clear;
 
 Clears the value.
 
-=item tx
+=item C<tx>
 
     my $value = $obj->tx;
     $obj->tx($value);
@@ -281,13 +281,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item tx_clear
+=item C<tx_clear>
 
     $obj->tx_clear;
 
 Clears the value.
 
-=item unshift_extra_tx_list
+=item C<unshift_extra_tx_list>
 
     $obj->unshift_extra_tx_list(@values);
 

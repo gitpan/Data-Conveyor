@@ -8,7 +8,7 @@ use Error::Hierarchy::Util 'assert_defined';
 use Class::Scaffold::Exception::Util 'assert_object_type';
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::Base';

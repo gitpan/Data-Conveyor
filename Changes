@@ -1,5 +1,11 @@
 Revision history for Perl extension Data-Conveyor
 
+0.06 Mon Jul  6 13:31:02 CEST 2009 (Marcel Gruenauer <marcel@cpan.org>)
+     - added HTTP::Engine-based webserver
+     - added extra tests (xt/)
+     - added requirements to Makefile.PL
+     - doc fixes
+
 0.05  Mon Oct 20 23:11:43 CEST 2008 (Marcel Gruenauer <marcel@cpan.org>)
      - Changed dist style and Changes back to standard. People didn't like it -
        the nail that sticks out gets hammered down.

@@ -6,7 +6,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Error::Hierarchy::Internal';
@@ -59,19 +59,19 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_handler_type
+=item C<clear_handler_type>
 
     $obj->clear_handler_type;
 
 Clears the value.
 
-=item clear_ticket_type
+=item C<clear_ticket_type>
 
     $obj->clear_ticket_type;
 
 Clears the value.
 
-=item handler_type
+=item C<handler_type>
 
     my $value = $obj->handler_type;
     $obj->handler_type($value);
@@ -79,13 +79,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item handler_type_clear
+=item C<handler_type_clear>
 
     $obj->handler_type_clear;
 
 Clears the value.
 
-=item ticket_type
+=item C<ticket_type>
 
     my $value = $obj->ticket_type;
     $obj->ticket_type($value);
@@ -93,7 +93,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item ticket_type_clear
+=item C<ticket_type_clear>
 
     $obj->ticket_type_clear;
 

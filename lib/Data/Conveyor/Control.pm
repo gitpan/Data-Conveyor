@@ -6,7 +6,7 @@ use strict;
 use warnings;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base qw(Class::Scaffold::Delegate::Mixin Class::Scaffold::Accessor);
@@ -52,7 +52,7 @@ next release will have more documentation.
 
 =over 4
 
-=item instance
+=item C<instance>
 
     my $obj = Data::Conveyor::Control->instance;
     my $obj = Data::Conveyor::Control->instance(%args);
@@ -65,7 +65,7 @@ method of the same name with the given value. If called with a single hash
 reference, it is dereferenced and its key/value pairs are set as described
 before.
 
-=item new
+=item C<new>
 
     my $obj = Data::Conveyor::Control->new;
     my $obj = Data::Conveyor::Control->new(%args);
@@ -78,7 +78,7 @@ method of the same name with the given value. If called with a single hash
 reference, it is dereferenced and its key/value pairs are set as described
 before.
 
-=item allowed_stages
+=item C<allowed_stages>
 
     my %hash     = $obj->allowed_stages;
     my $hash_ref = $obj->allowed_stages;
@@ -103,76 +103,76 @@ If called with exactly one hash reference, it updates the hash with the given
 key/value pairs, then returns the hash in list context, or a reference to the
 hash in scalar context.
 
-=item allowed_stages_clear
+=item C<allowed_stages_clear>
 
     $obj->allowed_stages_clear;
 
 Deletes all keys and values from the hash.
 
-=item allowed_stages_delete
+=item C<allowed_stages_delete>
 
     $obj->allowed_stages_delete(@keys);
 
 Takes a list of keys and deletes those keys from the hash.
 
-=item allowed_stages_exists
+=item C<allowed_stages_exists>
 
     if ($obj->allowed_stages_exists($key)) { ... }
 
 Takes a key and returns a true value if the key exists in the hash, and a
 false value otherwise.
 
-=item allowed_stages_keys
+=item C<allowed_stages_keys>
 
     my @keys = $obj->allowed_stages_keys;
 
 Returns a list of all hash keys in no particular order.
 
-=item allowed_stages_values
+=item C<allowed_stages_values>
 
     my @values = $obj->allowed_stages_values;
 
 Returns a list of all hash values in no particular order.
 
-=item clear_allowed_stages
+=item C<clear_allowed_stages>
 
     $obj->clear_allowed_stages;
 
 Deletes all keys and values from the hash.
 
-=item clear_ignore_ticket_no
+=item C<clear_ignore_ticket_no>
 
     $obj->clear_ignore_ticket_no;
 
 Deletes all keys and values from the hash.
 
-=item delete_allowed_stages
+=item C<delete_allowed_stages>
 
     $obj->delete_allowed_stages(@keys);
 
 Takes a list of keys and deletes those keys from the hash.
 
-=item delete_ignore_ticket_no
+=item C<delete_ignore_ticket_no>
 
     $obj->delete_ignore_ticket_no(@keys);
 
 Takes a list of keys and deletes those keys from the hash.
 
-=item exists_allowed_stages
+=item C<exists_allowed_stages>
 
     if ($obj->exists_allowed_stages($key)) { ... }
 
 Takes a key and returns a true value if the key exists in the hash, and a
 false value otherwise.
 
-=item exists_ignore_ticket_no
+=item C<exists_ignore_ticket_no>
 
     if ($obj->exists_ignore_ticket_no($key)) { ... }
 
 Takes a key and returns a true value if the key exists in the hash, and a
 false value otherwise.
 
-=item ignore_ticket_no
+=item C<ignore_ticket_no>
 
     my %hash     = $obj->ignore_ticket_no;
     my $hash_ref = $obj->ignore_ticket_no;
@@ -197,38 +197,38 @@ If called with exactly one hash reference, it updates the hash with the given
 key/value pairs, then returns the hash in list context, or a reference to the
 hash in scalar context.
 
-=item ignore_ticket_no_clear
+=item C<ignore_ticket_no_clear>
 
     $obj->ignore_ticket_no_clear;
 
 Deletes all keys and values from the hash.
 
-=item ignore_ticket_no_delete
+=item C<ignore_ticket_no_delete>
 
     $obj->ignore_ticket_no_delete(@keys);
 
 Takes a list of keys and deletes those keys from the hash.
 
-=item ignore_ticket_no_exists
+=item C<ignore_ticket_no_exists>
 
     if ($obj->ignore_ticket_no_exists($key)) { ... }
 
 Takes a key and returns a true value if the key exists in the hash, and a
 false value otherwise.
 
-=item ignore_ticket_no_keys
+=item C<ignore_ticket_no_keys>
 
     my @keys = $obj->ignore_ticket_no_keys;
 
 Returns a list of all hash keys in no particular order.
 
-=item ignore_ticket_no_values
+=item C<ignore_ticket_no_values>
 
     my @values = $obj->ignore_ticket_no_values;
 
 Returns a list of all hash values in no particular order.
 
-=item instance_instance
+=item C<instance_instance>
 
     my $obj = Data::Conveyor::Control->instance_instance;
     my $obj = Data::Conveyor::Control->instance_instance(%args);
@@ -239,19 +239,19 @@ component is initialized by calling the method of the same name with the given
 value. If called with a single hash reference, it is dereferenced and its
 key/value pairs are set as described before.
 
-=item keys_allowed_stages
+=item C<keys_allowed_stages>
 
     my @keys = $obj->keys_allowed_stages;
 
 Returns a list of all hash keys in no particular order.
 
-=item keys_ignore_ticket_no
+=item C<keys_ignore_ticket_no>
 
     my @keys = $obj->keys_ignore_ticket_no;
 
 Returns a list of all hash keys in no particular order.
 
-=item new_instance
+=item C<new_instance>
 
     my $obj = Data::Conveyor::Control->new_instance;
     my $obj = Data::Conveyor::Control->new_instance(%args);
@@ -262,13 +262,13 @@ component is initialized by calling the method of the same name with the given
 value. If called with a single hash reference, it is dereferenced and its
 key/value pairs are set as described before.
 
-=item values_allowed_stages
+=item C<values_allowed_stages>
 
     my @values = $obj->values_allowed_stages;
 
 Returns a list of all hash values in no particular order.
 
-=item values_ignore_ticket_no
+=item C<values_ignore_ticket_no>
 
     my @values = $obj->values_ignore_ticket_no;
 

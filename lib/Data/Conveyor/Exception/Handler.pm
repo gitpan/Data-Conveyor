@@ -7,7 +7,7 @@ use strict;
 use Data::Miscellany 'class_map';
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::Storable';

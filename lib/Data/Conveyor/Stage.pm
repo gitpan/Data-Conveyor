@@ -12,7 +12,7 @@ use strict;
 use Error::Hierarchy::Util 'assert_defined';
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::Storable';
@@ -63,13 +63,13 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_will_shift_ticket
+=item C<clear_will_shift_ticket>
 
     $obj->clear_will_shift_ticket;
 
 Clears the value.
 
-=item will_shift_ticket
+=item C<will_shift_ticket>
 
     my $value = $obj->will_shift_ticket;
     $obj->will_shift_ticket($value);
@@ -77,7 +77,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item will_shift_ticket_clear
+=item C<will_shift_ticket_clear>
 
     $obj->will_shift_ticket_clear;
 

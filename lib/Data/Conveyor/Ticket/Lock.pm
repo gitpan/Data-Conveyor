@@ -8,7 +8,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::Storable';
@@ -50,19 +50,19 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_got
+=item C<clear_got>
 
     $obj->clear_got;
 
 Clears the boolean value by setting it to 0.
 
-=item clear_object_id
+=item C<clear_object_id>
 
     $obj->clear_object_id;
 
 Clears the value.
 
-=item got
+=item C<got>
 
     $obj->got($value);
     my $value = $obj->got;
@@ -71,19 +71,19 @@ If called without an argument, returns the boolean value (0 or 1). If called
 with an argument, it normalizes it to the boolean value. That is, the values
 0, undef and the empty string become 0; everything else becomes 1.
 
-=item got_clear
+=item C<got_clear>
 
     $obj->got_clear;
 
 Clears the boolean value by setting it to 0.
 
-=item got_set
+=item C<got_set>
 
     $obj->got_set;
 
 Sets the boolean value to 1.
 
-=item object_id
+=item C<object_id>
 
     my $value = $obj->object_id;
     $obj->object_id($value);
@@ -91,13 +91,13 @@ Sets the boolean value to 1.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item object_id_clear
+=item C<object_id_clear>
 
     $obj->object_id_clear;
 
 Clears the value.
 
-=item set_got
+=item C<set_got>
 
     $obj->set_got;
 

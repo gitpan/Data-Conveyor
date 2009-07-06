@@ -6,7 +6,7 @@ use strict;
 use warnings;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 # For now, just subclass Hook::Modular::Plugin, but this class is useful if we
@@ -80,8 +80,6 @@ sub exception_status_for_class {
 
 __END__
 
-
-
 =head1 NAME
 
 Data::Conveyor::Plugin - stage-based conveyor-belt-like ticket handling system
@@ -135,7 +133,7 @@ Named arguments passed to the hook:
 
 =over 4
 
-=item stage
+=item C<stage>
 
 The stage object.
 
@@ -153,7 +151,7 @@ Named arguments passed to the hook:
 
 =over 4
 
-=item stage
+=item C<stage>
 
 The stage object.
 
@@ -173,36 +171,37 @@ Named arguments passed to the hook:
 
 =over 4
 
-=item transaction_handler
+=item C<transaction_handler>
 
 The transaction handler object. It has the current transaction and the current
 ticket as attributes.
 
-=item stage
+=item C<stage>
 
 The stage object.
 
 =back
 
-=item exception.errcode_for_class
+=item C<exception.errcode_for_class>
 
 This hook is run by C<Data::Conveyor::Exception::Handler> when determining the
-appropriate errcode for an exception. Not only are the
+appropriate error code for an exception. Not only are the
 C<ERRCODE_FOR_EXCEPTION_CLASS_HASH> definitions traversed across the class
 hierarchy, but plugins are also given the chance to define their mappings. The
-hook is expected to return a hashref of class-to-errcode mappings that is then
-merged with the results gathered from C<ERRCODE_FOR_EXCEPTION_CLASS_HASH>.
+hook is expected to return a hashref of class-to-error-code mappings that is
+then merged with the results gathered from
+C<ERRCODE_FOR_EXCEPTION_CLASS_HASH>.
 
 However, C<Data::Conveyor::Plugin> defines this hook itself so that you can
 use the familiar C<ERRCODE_FOR_EXCEPTION_CLASS_HASH> mechanism in your
 plugins.
 
-=item exception.rc_for_class
+=item C<exception.rc_for_class>
 
 Like C<exception.errcode_for_class>, but applies to
-C<RC_FOR_EXCEPTION_CLASS_HASH> and rc determination, respectively.
+C<RC_FOR_EXCEPTION_CLASS_HASH> and return code determination, respectively.
 
-=item exception.status_for_class
+=item C<exception.status_for_class>
 
 Like C<exception.errcode_for_class>, but applies to
 C<STATUS_FOR_EXCEPTION_CLASS_HASH> and status determination, respectively.

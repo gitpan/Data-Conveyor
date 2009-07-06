@@ -8,7 +8,7 @@ use Text::Table;
 use Data::Miscellany 'trim';
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Data::Conveyor::Service::Result';
@@ -111,31 +111,31 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_headers
+=item C<clear_headers>
 
     $obj->clear_headers;
 
 Deletes all elements from the array.
 
-=item clear_rows
+=item C<clear_rows>
 
     $obj->clear_rows;
 
 Deletes all elements from the array.
 
-=item count_headers
+=item C<count_headers>
 
     my $count = $obj->count_headers;
 
 Returns the number of elements in the array.
 
-=item count_rows
+=item C<count_rows>
 
     my $count = $obj->count_rows;
 
 Returns the number of elements in the array.
 
-=item headers
+=item C<headers>
 
     my @values    = $obj->headers;
     my $array_ref = $obj->headers;
@@ -147,19 +147,19 @@ array in list context, or a reference to the array in scalar context. If
 called with arguments, it expands array references found therein and sets the
 values.
 
-=item headers_clear
+=item C<headers_clear>
 
     $obj->headers_clear;
 
 Deletes all elements from the array.
 
-=item headers_count
+=item C<headers_count>
 
     my $count = $obj->headers_count;
 
 Returns the number of elements in the array.
 
-=item headers_index
+=item C<headers_index>
 
     my $element   = $obj->headers_index(3);
     my @elements  = $obj->headers_index(@indices);
@@ -170,19 +170,19 @@ If only one index is given, the corresponding array element is returned. If
 several indices are given, the result is returned as an array in list context
 or as an array reference in scalar context.
 
-=item headers_pop
+=item C<headers_pop>
 
     my $value = $obj->headers_pop;
 
 Pops the last element off the array, returning it.
 
-=item headers_push
+=item C<headers_push>
 
     $obj->headers_push(@values);
 
 Pushes elements onto the end of the array.
 
-=item headers_set
+=item C<headers_set>
 
     $obj->headers_set(1 => $x, 5 => $y);
 
@@ -190,13 +190,13 @@ Takes a list of index/value pairs and for each pair it sets the array element
 at the indicated index to the indicated value. Returns the number of elements
 that have been set.
 
-=item headers_shift
+=item C<headers_shift>
 
     my $value = $obj->headers_shift;
 
 Shifts the first element off the array, returning it.
 
-=item headers_splice
+=item C<headers_splice>
 
     $obj->headers_splice(2, 1, $x, $y);
     $obj->headers_splice(-1);
@@ -216,13 +216,13 @@ offset and the length are omitted, removes everything. If the offset is past
 the end of the array, it issues a warning, and splices at the end of the
 array.
 
-=item headers_unshift
+=item C<headers_unshift>
 
     $obj->headers_unshift(@values);
 
 Unshifts elements onto the beginning of the array.
 
-=item index_headers
+=item C<index_headers>
 
     my $element   = $obj->index_headers(3);
     my @elements  = $obj->index_headers(@indices);
@@ -233,7 +233,7 @@ If only one index is given, the corresponding array element is returned. If
 several indices are given, the result is returned as an array in list context
 or as an array reference in scalar context.
 
-=item index_rows
+=item C<index_rows>
 
     my $element   = $obj->index_rows(3);
     my @elements  = $obj->index_rows(@indices);
@@ -244,31 +244,31 @@ If only one index is given, the corresponding array element is returned. If
 several indices are given, the result is returned as an array in list context
 or as an array reference in scalar context.
 
-=item pop_headers
+=item C<pop_headers>
 
     my $value = $obj->pop_headers;
 
 Pops the last element off the array, returning it.
 
-=item pop_rows
+=item C<pop_rows>
 
     my $value = $obj->pop_rows;
 
 Pops the last element off the array, returning it.
 
-=item push_headers
+=item C<push_headers>
 
     $obj->push_headers(@values);
 
 Pushes elements onto the end of the array.
 
-=item push_rows
+=item C<push_rows>
 
     $obj->push_rows(@values);
 
 Pushes elements onto the end of the array.
 
-=item rows
+=item C<rows>
 
     my @values    = $obj->rows;
     my $array_ref = $obj->rows;
@@ -280,19 +280,19 @@ array in list context, or a reference to the array in scalar context. If
 called with arguments, it expands array references found therein and sets the
 values.
 
-=item rows_clear
+=item C<rows_clear>
 
     $obj->rows_clear;
 
 Deletes all elements from the array.
 
-=item rows_count
+=item C<rows_count>
 
     my $count = $obj->rows_count;
 
 Returns the number of elements in the array.
 
-=item rows_index
+=item C<rows_index>
 
     my $element   = $obj->rows_index(3);
     my @elements  = $obj->rows_index(@indices);
@@ -303,19 +303,19 @@ If only one index is given, the corresponding array element is returned. If
 several indices are given, the result is returned as an array in list context
 or as an array reference in scalar context.
 
-=item rows_pop
+=item C<rows_pop>
 
     my $value = $obj->rows_pop;
 
 Pops the last element off the array, returning it.
 
-=item rows_push
+=item C<rows_push>
 
     $obj->rows_push(@values);
 
 Pushes elements onto the end of the array.
 
-=item rows_set
+=item C<rows_set>
 
     $obj->rows_set(1 => $x, 5 => $y);
 
@@ -323,13 +323,13 @@ Takes a list of index/value pairs and for each pair it sets the array element
 at the indicated index to the indicated value. Returns the number of elements
 that have been set.
 
-=item rows_shift
+=item C<rows_shift>
 
     my $value = $obj->rows_shift;
 
 Shifts the first element off the array, returning it.
 
-=item rows_splice
+=item C<rows_splice>
 
     $obj->rows_splice(2, 1, $x, $y);
     $obj->rows_splice(-1);
@@ -349,13 +349,13 @@ offset and the length are omitted, removes everything. If the offset is past
 the end of the array, it issues a warning, and splices at the end of the
 array.
 
-=item rows_unshift
+=item C<rows_unshift>
 
     $obj->rows_unshift(@values);
 
 Unshifts elements onto the beginning of the array.
 
-=item set_headers
+=item C<set_headers>
 
     $obj->set_headers(1 => $x, 5 => $y);
 
@@ -363,7 +363,7 @@ Takes a list of index/value pairs and for each pair it sets the array element
 at the indicated index to the indicated value. Returns the number of elements
 that have been set.
 
-=item set_rows
+=item C<set_rows>
 
     $obj->set_rows(1 => $x, 5 => $y);
 
@@ -371,19 +371,19 @@ Takes a list of index/value pairs and for each pair it sets the array element
 at the indicated index to the indicated value. Returns the number of elements
 that have been set.
 
-=item shift_headers
+=item C<shift_headers>
 
     my $value = $obj->shift_headers;
 
 Shifts the first element off the array, returning it.
 
-=item shift_rows
+=item C<shift_rows>
 
     my $value = $obj->shift_rows;
 
 Shifts the first element off the array, returning it.
 
-=item splice_headers
+=item C<splice_headers>
 
     $obj->splice_headers(2, 1, $x, $y);
     $obj->splice_headers(-1);
@@ -403,7 +403,7 @@ offset and the length are omitted, removes everything. If the offset is past
 the end of the array, it issues a warning, and splices at the end of the
 array.
 
-=item splice_rows
+=item C<splice_rows>
 
     $obj->splice_rows(2, 1, $x, $y);
     $obj->splice_rows(-1);
@@ -423,13 +423,13 @@ offset and the length are omitted, removes everything. If the offset is past
 the end of the array, it issues a warning, and splices at the end of the
 array.
 
-=item unshift_headers
+=item C<unshift_headers>
 
     $obj->unshift_headers(@values);
 
 Unshifts elements onto the beginning of the array.
 
-=item unshift_rows
+=item C<unshift_rows>
 
     $obj->unshift_rows(@values);
 

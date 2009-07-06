@@ -6,7 +6,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base qw(
@@ -46,13 +46,13 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_lock_type
+=item C<clear_lock_type>
 
     $obj->clear_lock_type;
 
 Clears the value.
 
-=item lock_type
+=item C<lock_type>
 
     my $value = $obj->lock_type;
     $obj->lock_type($value);
@@ -60,7 +60,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item lock_type_clear
+=item C<lock_type_clear>
 
     $obj->lock_type_clear;
 

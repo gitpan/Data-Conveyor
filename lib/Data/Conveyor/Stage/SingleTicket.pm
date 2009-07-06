@@ -13,7 +13,7 @@ use strict;
 use Error::Hierarchy::Util 'assert_defined';
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Data::Conveyor::Stage';
@@ -112,19 +112,19 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_expected_stage
+=item C<clear_expected_stage>
 
     $obj->clear_expected_stage;
 
 Clears the value.
 
-=item clear_log_max_level_previous
+=item C<clear_log_max_level_previous>
 
     $obj->clear_log_max_level_previous;
 
 Clears the value.
 
-=item expected_stage
+=item C<expected_stage>
 
     my $value = $obj->expected_stage;
     $obj->expected_stage($value);
@@ -132,13 +132,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item expected_stage_clear
+=item C<expected_stage_clear>
 
     $obj->expected_stage_clear;
 
 Clears the value.
 
-=item log_max_level_previous
+=item C<log_max_level_previous>
 
     my $value = $obj->log_max_level_previous;
     $obj->log_max_level_previous($value);
@@ -146,7 +146,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item log_max_level_previous_clear
+=item C<log_max_level_previous_clear>
 
     $obj->log_max_level_previous_clear;
 

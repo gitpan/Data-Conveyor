@@ -6,7 +6,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::Exception::Business';
@@ -43,13 +43,13 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_template
+=item C<clear_template>
 
     $obj->clear_template;
 
 Clears the value.
 
-=item template
+=item C<template>
 
     my $value = $obj->template;
     $obj->template($value);
@@ -57,7 +57,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item template_clear
+=item C<template_clear>
 
     $obj->template_clear;
 

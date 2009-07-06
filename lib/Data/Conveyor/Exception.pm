@@ -4,7 +4,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::Exception';
@@ -37,19 +37,19 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_objectid_ref
+=item C<clear_objectid_ref>
 
     $obj->clear_objectid_ref;
 
 Clears the value.
 
-=item clear_tx
+=item C<clear_tx>
 
     $obj->clear_tx;
 
 Clears the value.
 
-=item objectid_ref
+=item C<objectid_ref>
 
     my $value = $obj->objectid_ref;
     $obj->objectid_ref($value);
@@ -57,13 +57,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item objectid_ref_clear
+=item C<objectid_ref_clear>
 
     $obj->objectid_ref_clear;
 
 Clears the value.
 
-=item tx
+=item C<tx>
 
     my $value = $obj->tx;
     $obj->tx($value);
@@ -71,7 +71,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item tx_clear
+=item C<tx_clear>
 
     $obj->tx_clear;
 

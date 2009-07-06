@@ -13,7 +13,7 @@ use Hash::Flatten;
 use Class::Value::Exception::NotWellFormedValue;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::Storable';
@@ -530,13 +530,13 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_received_date
+=item C<clear_received_date>
 
     $obj->clear_received_date;
 
 Clears the value.
 
-=item received_date
+=item C<received_date>
 
     my $value = $obj->received_date;
     $obj->received_date($value);
@@ -544,7 +544,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item received_date_clear
+=item C<received_date_clear>
 
     $obj->received_date_clear;
 

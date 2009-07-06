@@ -8,7 +8,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::Storable';
@@ -46,13 +46,13 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_payload_item
+=item C<clear_payload_item>
 
     $obj->clear_payload_item;
 
 Clears the value.
 
-=item payload_item
+=item C<payload_item>
 
     my $value = $obj->payload_item;
     $obj->payload_item($value);
@@ -60,7 +60,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item payload_item_clear
+=item C<payload_item_clear>
 
     $obj->payload_item_clear;
 

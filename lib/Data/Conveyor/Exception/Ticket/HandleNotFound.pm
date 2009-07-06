@@ -6,7 +6,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Data::Conveyor::Exception::Ticket';
@@ -43,13 +43,13 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_handle
+=item C<clear_handle>
 
     $obj->clear_handle;
 
 Clears the value.
 
-=item handle
+=item C<handle>
 
     my $value = $obj->handle;
     $obj->handle($value);
@@ -57,7 +57,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item handle_clear
+=item C<handle_clear>
 
     $obj->handle_clear;
 

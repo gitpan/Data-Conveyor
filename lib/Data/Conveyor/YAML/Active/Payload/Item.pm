@@ -6,7 +6,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::YAML::Active::Hash';
@@ -106,7 +106,7 @@ value. If called with a single argument, it sets the value.
 
 Clears the value.
 
-=item clear___payload_item
+=item C<clear___payload_item>
 
     $obj->clear___payload_item;
 

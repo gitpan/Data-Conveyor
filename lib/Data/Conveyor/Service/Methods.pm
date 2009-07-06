@@ -11,7 +11,7 @@ use warnings;
 use Error ':try';
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Data::Conveyor::Service';
@@ -326,8 +326,6 @@ sub AUTOLOAD {
 
 __END__
 
-
-
 =head1 NAME
 
 Data::Conveyor::Service::Methods - service method definitions
@@ -348,16 +346,7 @@ Data::Conveyor::Service::Methods - service method definitions
              "+domain|d=s  Domain name.",
              "?limit|l=s   Limit number of rows returned.",
          ),
-         description => <<EODESC,
- Show tickets for a domain.
- 
- This function respects the limit option and shows the most recent tickets for
- the domain.
- 
- If the domain name starts with ':', you can use enhanced UTF-8 notation (see
- the eutf2ace command) as well as HTML entities.
- EODESC
- 
+         description => "...",
          examples => [
              { domain => 'foo.at' },
              { domain => 'xn--brse-5qa.at' },
@@ -365,9 +354,9 @@ Data::Conveyor::Service::Methods - service method definitions
              { domain => ':b&ouml;rse.at' },
          ],
      };
+   }
      
-     1;
-
+   1;
 
 =head1 DESCRIPTION
 
@@ -401,7 +390,7 @@ the name using the C<method> key within the specification hash.
 
 As you can see from the description, it shows tickets regarding a certain
 domain - the service method is intended to be used within a domain registry.
-The method takes two paramaeters.
+The method takes two parameters.
 
 The first one specifies the domain name. It is mandatory, indicated by the
 plus sign at the beginning of the parameter specification. For service

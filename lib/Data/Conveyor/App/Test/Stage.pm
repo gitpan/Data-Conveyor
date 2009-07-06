@@ -8,7 +8,7 @@ use Test::More;
 use Data::Dumper;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::App::Test::YAMLDriven';
@@ -399,31 +399,31 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_expected_stage_const
+=item C<clear_expected_stage_const>
 
     $obj->clear_expected_stage_const;
 
 Clears the value.
 
-=item clear_stage
+=item C<clear_stage>
 
     $obj->clear_stage;
 
 Clears the value.
 
-=item clear_ticket
+=item C<clear_ticket>
 
     $obj->clear_ticket;
 
 Clears the value.
 
-=item clear_ticket_no
+=item C<clear_ticket_no>
 
     $obj->clear_ticket_no;
 
 Clears the value.
 
-=item expected_stage_const
+=item C<expected_stage_const>
 
     my $value = $obj->expected_stage_const;
     $obj->expected_stage_const($value);
@@ -431,13 +431,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item expected_stage_const_clear
+=item C<expected_stage_const_clear>
 
     $obj->expected_stage_const_clear;
 
 Clears the value.
 
-=item stage
+=item C<stage>
 
     my $value = $obj->stage;
     $obj->stage($value);
@@ -445,13 +445,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item stage_clear
+=item C<stage_clear>
 
     $obj->stage_clear;
 
 Clears the value.
 
-=item ticket
+=item C<ticket>
 
     my $value = $obj->ticket;
     $obj->ticket($value);
@@ -459,13 +459,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item ticket_clear
+=item C<ticket_clear>
 
     $obj->ticket_clear;
 
 Clears the value.
 
-=item ticket_no
+=item C<ticket_no>
 
     my $value = $obj->ticket_no;
     $obj->ticket_no($value);
@@ -473,7 +473,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item ticket_no_clear
+=item C<ticket_no_clear>
 
     $obj->ticket_no_clear;
 

@@ -8,7 +8,7 @@ use Error::Hierarchy::Util 'assert_defined';
 use Class::Scaffold::Exception::Util 'assert_object_type';
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base qw(
@@ -16,6 +16,8 @@ use base qw(
     Data::Conveyor::Storage
 );
 
+
+use constant TRANSITION_TABLE => '';
 
 sub parse_table {
     my ($self, $table) = @_;
@@ -45,11 +47,26 @@ sub parse_table {
 }
 
 
+# This method parses and caches the transition table. This method is called
+# from get_next_stage(), so the transition table is built on-demand. It is not
+# built during the storage's init() because parse_table() calls
+# make_obj('value_ticket_stage'), and if the 'value_ticket_stage' object is
+# also handled by the memory storage, it would cause a deep recursion.
+
+sub assert_transition_cache {
+    my $self = shift;
+    our $transition_cache;
+    return if (ref $transition_cache eq 'HASH') && (keys %$transition_cache);
+    $self->parse_table($self->TRANSITION_TABLE);
+}
+
+
 sub get_next_stage {
     my ($self, $stage, $rc) = @_;
 
     assert_object_type $stage, 'value_ticket_stage';
     assert_defined $rc, 'called without return code';
+    $self->assert_transition_cache;
 
     my $state  = sprintf '%s-%s' => $stage, $rc;
     # return undef if the transition is not defined.

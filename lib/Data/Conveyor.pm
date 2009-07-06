@@ -7,7 +7,7 @@ use warnings;
 # section.
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 1;
@@ -19,7 +19,7 @@ __END__
 
 =head1 NAME
 
-Data::Conveyor - stage-based conveyor-belt-like ticket handling system
+Data::Conveyor - Stage-based conveyor-belt-like ticket handling system
 
 =head1 SYNOPSIS
 

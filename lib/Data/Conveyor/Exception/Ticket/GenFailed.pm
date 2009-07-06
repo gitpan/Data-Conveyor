@@ -6,7 +6,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Data::Conveyor::Exception::Ticket';
@@ -45,13 +45,13 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_ticket_no
+=item C<clear_ticket_no>
 
     $obj->clear_ticket_no;
 
 Clears the value.
 
-=item ticket_no
+=item C<ticket_no>
 
     my $value = $obj->ticket_no;
     $obj->ticket_no($value);
@@ -59,7 +59,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item ticket_no_clear
+=item C<ticket_no_clear>
 
     $obj->ticket_no_clear;
 

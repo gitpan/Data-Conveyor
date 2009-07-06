@@ -6,7 +6,7 @@ use strict;
 use warnings;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::Storable';
@@ -79,19 +79,19 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_poll_delegate
+=item C<clear_poll_delegate>
 
     $obj->clear_poll_delegate;
 
 Clears the value.
 
-=item clear_transactional_authority
+=item C<clear_transactional_authority>
 
     $obj->clear_transactional_authority;
 
 Clears the boolean value by setting it to 0.
 
-=item poll_delegate
+=item C<poll_delegate>
 
     my $value = $obj->poll_delegate;
     $obj->poll_delegate($value);
@@ -99,19 +99,19 @@ Clears the boolean value by setting it to 0.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item poll_delegate_clear
+=item C<poll_delegate_clear>
 
     $obj->poll_delegate_clear;
 
 Clears the value.
 
-=item set_transactional_authority
+=item C<set_transactional_authority>
 
     $obj->set_transactional_authority;
 
 Sets the boolean value to 1.
 
-=item transactional_authority
+=item C<transactional_authority>
 
     $obj->transactional_authority($value);
     my $value = $obj->transactional_authority;
@@ -120,13 +120,13 @@ If called without an argument, returns the boolean value (0 or 1). If called
 with an argument, it normalizes it to the boolean value. That is, the values
 0, undef and the empty string become 0; everything else becomes 1.
 
-=item transactional_authority_clear
+=item C<transactional_authority_clear>
 
     $obj->transactional_authority_clear;
 
 Clears the boolean value by setting it to 0.
 
-=item transactional_authority_set
+=item C<transactional_authority_set>
 
     $obj->transactional_authority_set;
 

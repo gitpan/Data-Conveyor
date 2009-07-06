@@ -6,7 +6,7 @@ use Error::Hierarchy::Util 'assert_defined';
 use Data::Conveyor::Mutex;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::App::CommandLine';
@@ -69,13 +69,13 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_mutex_key
+=item C<clear_mutex_key>
 
     $obj->clear_mutex_key;
 
 Clears the value.
 
-=item mutex_key
+=item C<mutex_key>
 
     my $value = $obj->mutex_key;
     $obj->mutex_key($value);
@@ -83,7 +83,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item mutex_key_clear
+=item C<mutex_key_clear>
 
     $obj->mutex_key_clear;
 

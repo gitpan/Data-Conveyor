@@ -7,7 +7,7 @@ use warnings;
 use Error::Hierarchy::Test 'throws2_ok';
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Data::Conveyor::Test';

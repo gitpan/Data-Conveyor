@@ -6,7 +6,7 @@ use strict;
 use Class::Value;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::Storable';
@@ -73,13 +73,13 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_value
+=item C<clear_value>
 
     $obj->clear_value;
 
 Deletes the object.
 
-=item value
+=item C<value>
 
     my $object = $obj->value;
     $obj->value($object);
@@ -95,7 +95,7 @@ if there is no such object, a new Class::Value object is constructed - no argume
 are passed to the constructor in this case - and stored in the value slot
 before returning it.
 
-=item value_clear
+=item C<value_clear>
 
     $obj->value_clear;
 

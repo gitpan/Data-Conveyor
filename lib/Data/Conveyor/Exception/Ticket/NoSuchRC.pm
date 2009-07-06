@@ -6,7 +6,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base qw(
@@ -46,13 +46,13 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_rc
+=item C<clear_rc>
 
     $obj->clear_rc;
 
 Clears the value.
 
-=item rc
+=item C<rc>
 
     my $value = $obj->rc;
     $obj->rc($value);
@@ -60,7 +60,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item rc_clear
+=item C<rc_clear>
 
     $obj->rc_clear;
 

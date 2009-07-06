@@ -7,7 +7,7 @@ use strict;
 use YAML::Active qw/assert_hashref hash_activate/;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::YAML::Active';

@@ -8,7 +8,7 @@ use Test::More;
 use Test::Builder;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Data::Conveyor::App::Test::Stage';
@@ -199,37 +199,37 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_dispatcher
+=item C<clear_dispatcher>
 
     $obj->clear_dispatcher;
 
 Clears the value.
 
-=item clear_expect_list
+=item C<clear_expect_list>
 
     $obj->clear_expect_list;
 
 Deletes all elements from the array.
 
-=item clear_failed_tests
+=item C<clear_failed_tests>
 
     $obj->clear_failed_tests;
 
 Clears the value.
 
-=item clear_next_open_stage
+=item C<clear_next_open_stage>
 
     $obj->clear_next_open_stage;
 
 Clears the value.
 
-=item count_expect_list
+=item C<count_expect_list>
 
     my $count = $obj->count_expect_list;
 
 Returns the number of elements in the array.
 
-=item dispatcher
+=item C<dispatcher>
 
     my $value = $obj->dispatcher;
     $obj->dispatcher($value);
@@ -237,13 +237,13 @@ Returns the number of elements in the array.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item dispatcher_clear
+=item C<dispatcher_clear>
 
     $obj->dispatcher_clear;
 
 Clears the value.
 
-=item expect_list
+=item C<expect_list>
 
     my @values    = $obj->expect_list;
     my $array_ref = $obj->expect_list;
@@ -255,19 +255,19 @@ array in list context, or a reference to the array in scalar context. If
 called with arguments, it expands array references found therein and sets the
 values.
 
-=item expect_list_clear
+=item C<expect_list_clear>
 
     $obj->expect_list_clear;
 
 Deletes all elements from the array.
 
-=item expect_list_count
+=item C<expect_list_count>
 
     my $count = $obj->expect_list_count;
 
 Returns the number of elements in the array.
 
-=item expect_list_index
+=item C<expect_list_index>
 
     my $element   = $obj->expect_list_index(3);
     my @elements  = $obj->expect_list_index(@indices);
@@ -278,19 +278,19 @@ If only one index is given, the corresponding array element is returned. If
 several indices are given, the result is returned as an array in list context
 or as an array reference in scalar context.
 
-=item expect_list_pop
+=item C<expect_list_pop>
 
     my $value = $obj->expect_list_pop;
 
 Pops the last element off the array, returning it.
 
-=item expect_list_push
+=item C<expect_list_push>
 
     $obj->expect_list_push(@values);
 
 Pushes elements onto the end of the array.
 
-=item expect_list_set
+=item C<expect_list_set>
 
     $obj->expect_list_set(1 => $x, 5 => $y);
 
@@ -298,13 +298,13 @@ Takes a list of index/value pairs and for each pair it sets the array element
 at the indicated index to the indicated value. Returns the number of elements
 that have been set.
 
-=item expect_list_shift
+=item C<expect_list_shift>
 
     my $value = $obj->expect_list_shift;
 
 Shifts the first element off the array, returning it.
 
-=item expect_list_splice
+=item C<expect_list_splice>
 
     $obj->expect_list_splice(2, 1, $x, $y);
     $obj->expect_list_splice(-1);
@@ -324,13 +324,13 @@ offset and the length are omitted, removes everything. If the offset is past
 the end of the array, it issues a warning, and splices at the end of the
 array.
 
-=item expect_list_unshift
+=item C<expect_list_unshift>
 
     $obj->expect_list_unshift(@values);
 
 Unshifts elements onto the beginning of the array.
 
-=item failed_tests
+=item C<failed_tests>
 
     my $value = $obj->failed_tests;
     $obj->failed_tests($value);
@@ -338,13 +338,13 @@ Unshifts elements onto the beginning of the array.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item failed_tests_clear
+=item C<failed_tests_clear>
 
     $obj->failed_tests_clear;
 
 Clears the value.
 
-=item index_expect_list
+=item C<index_expect_list>
 
     my $element   = $obj->index_expect_list(3);
     my @elements  = $obj->index_expect_list(@indices);
@@ -355,7 +355,7 @@ If only one index is given, the corresponding array element is returned. If
 several indices are given, the result is returned as an array in list context
 or as an array reference in scalar context.
 
-=item next_open_stage
+=item C<next_open_stage>
 
     my $value = $obj->next_open_stage;
     $obj->next_open_stage($value);
@@ -363,25 +363,25 @@ or as an array reference in scalar context.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item next_open_stage_clear
+=item C<next_open_stage_clear>
 
     $obj->next_open_stage_clear;
 
 Clears the value.
 
-=item pop_expect_list
+=item C<pop_expect_list>
 
     my $value = $obj->pop_expect_list;
 
 Pops the last element off the array, returning it.
 
-=item push_expect_list
+=item C<push_expect_list>
 
     $obj->push_expect_list(@values);
 
 Pushes elements onto the end of the array.
 
-=item set_expect_list
+=item C<set_expect_list>
 
     $obj->set_expect_list(1 => $x, 5 => $y);
 
@@ -389,13 +389,13 @@ Takes a list of index/value pairs and for each pair it sets the array element
 at the indicated index to the indicated value. Returns the number of elements
 that have been set.
 
-=item shift_expect_list
+=item C<shift_expect_list>
 
     my $value = $obj->shift_expect_list;
 
 Shifts the first element off the array, returning it.
 
-=item splice_expect_list
+=item C<splice_expect_list>
 
     $obj->splice_expect_list(2, 1, $x, $y);
     $obj->splice_expect_list(-1);
@@ -415,7 +415,7 @@ offset and the length are omitted, removes everything. If the offset is past
 the end of the array, it issues a warning, and splices at the end of the
 array.
 
-=item unshift_expect_list
+=item C<unshift_expect_list>
 
     $obj->unshift_expect_list(@values);
 

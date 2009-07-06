@@ -6,7 +6,7 @@ use strict;
 use warnings;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Data::Conveyor::Control';
@@ -110,13 +110,13 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_filename
+=item C<clear_filename>
 
     $obj->clear_filename;
 
 Clears the value.
 
-=item filename
+=item C<filename>
 
     my $value = $obj->filename;
     $obj->filename($value);
@@ -124,7 +124,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item filename_clear
+=item C<filename_clear>
 
     $obj->filename_clear;
 

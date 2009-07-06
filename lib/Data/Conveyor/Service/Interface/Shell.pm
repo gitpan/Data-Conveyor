@@ -13,7 +13,7 @@ use Pod::Text;
 use IO::Pager;   # not used really, just determines a pager at BEGIN time
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 # It's ok to inherit from Data::Conveyor::Service::Interface as well; new()
@@ -239,15 +239,7 @@ sub get_param_help_for_method {
 
         $help .= "=item $item\n\n$description\n\n";
     }
-    return <<EOHELP;
-
-=over 4
-
-$help
-
-=back
-
-EOHELP
+    return "\n\n=over 4\n\n$help\n\n=back\n\n";
 }
 
 
@@ -551,7 +543,7 @@ next release will have more documentation.
 
 =over 4
 
-=item base
+=item C<base>
 
     my $value = $obj->base;
     $obj->base($value);
@@ -559,86 +551,86 @@ next release will have more documentation.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item base_clear
+=item C<base_clear>
 
     $obj->base_clear;
 
 Clears the value.
 
-=item clear_base
+=item C<clear_base>
 
     $obj->clear_base;
 
 Clears the value.
 
-=item clear_hostname
+=item C<clear_hostname>
 
     $obj->clear_hostname;
 
 Clears the value.
 
-=item clear_limit
+=item C<clear_limit>
 
     $obj->clear_limit;
 
 Clears the value.
 
-=item clear_log
+=item C<clear_log>
 
     $obj->clear_log;
 
 Clears the value.
 
-=item clear_name
+=item C<clear_name>
 
     $obj->clear_name;
 
 Clears the value.
 
-=item clear_pager
+=item C<clear_pager>
 
     $obj->clear_pager;
 
 Clears the value.
 
-=item clear_prompt_spec
+=item C<clear_prompt_spec>
 
     $obj->clear_prompt_spec;
 
 Clears the value.
 
-=item clear_sth
+=item C<clear_sth>
 
     $obj->clear_sth;
 
 Deletes all keys and values from the hash.
 
-=item clear_ticket_no
+=item C<clear_ticket_no>
 
     $obj->clear_ticket_no;
 
 Clears the value.
 
-=item dec_num
+=item C<dec_num>
 
     $obj->dec_num;
 
 Decreases the value by 1.
 
-=item delete_sth
+=item C<delete_sth>
 
     $obj->delete_sth(@keys);
 
 Takes a list of keys and deletes those keys from the hash.
 
-=item exists_sth
+=item C<exists_sth>
 
     if ($obj->exists_sth($key)) { ... }
 
 Takes a key and returns a true value if the key exists in the hash, and a
 false value otherwise.
 
-=item hostname
+=item C<hostname>
 
     my $value = $obj->hostname;
     $obj->hostname($value);
@@ -646,25 +638,25 @@ false value otherwise.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item hostname_clear
+=item C<hostname_clear>
 
     $obj->hostname_clear;
 
 Clears the value.
 
-=item inc_num
+=item C<inc_num>
 
     $obj->inc_num;
 
 Increases the value by 1.
 
-=item keys_sth
+=item C<keys_sth>
 
     my @keys = $obj->keys_sth;
 
 Returns a list of all hash keys in no particular order.
 
-=item limit
+=item C<limit>
 
     my $value = $obj->limit;
     $obj->limit($value);
@@ -672,13 +664,13 @@ Returns a list of all hash keys in no particular order.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item limit_clear
+=item C<limit_clear>
 
     $obj->limit_clear;
 
 Clears the value.
 
-=item log
+=item C<log>
 
     my $value = $obj->log;
     $obj->log($value);
@@ -686,13 +678,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item log_clear
+=item C<log_clear>
 
     $obj->log_clear;
 
 Clears the value.
 
-=item name
+=item C<name>
 
     my $value = $obj->name;
     $obj->name($value);
@@ -700,13 +692,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item name_clear
+=item C<name_clear>
 
     $obj->name_clear;
 
 Clears the value.
 
-=item num
+=item C<num>
 
     $obj->num($value);
     my $value = $obj->num;
@@ -715,25 +707,25 @@ A basic getter/setter method. If called without an argument, it returns the
 value, or 0 if there is no previous value. If called with a single argument,
 it sets the value.
 
-=item num_dec
+=item C<num_dec>
 
     $obj->num_dec;
 
 Decreases the value by 1.
 
-=item num_inc
+=item C<num_inc>
 
     $obj->num_inc;
 
 Increases the value by 1.
 
-=item num_reset
+=item C<num_reset>
 
     $obj->num_reset;
 
 Resets the value to 0.
 
-=item pager
+=item C<pager>
 
     my $value = $obj->pager;
     $obj->pager($value);
@@ -741,13 +733,13 @@ Resets the value to 0.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item pager_clear
+=item C<pager_clear>
 
     $obj->pager_clear;
 
 Clears the value.
 
-=item prompt_spec
+=item C<prompt_spec>
 
     my $value = $obj->prompt_spec;
     $obj->prompt_spec($value);
@@ -755,19 +747,19 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item prompt_spec_clear
+=item C<prompt_spec_clear>
 
     $obj->prompt_spec_clear;
 
 Clears the value.
 
-=item reset_num
+=item C<reset_num>
 
     $obj->reset_num;
 
 Resets the value to 0.
 
-=item sth
+=item C<sth>
 
     my %hash     = $obj->sth;
     my $hash_ref = $obj->sth;
@@ -792,38 +784,38 @@ If called with exactly one hash reference, it updates the hash with the given
 key/value pairs, then returns the hash in list context, or a reference to the
 hash in scalar context.
 
-=item sth_clear
+=item C<sth_clear>
 
     $obj->sth_clear;
 
 Deletes all keys and values from the hash.
 
-=item sth_delete
+=item C<sth_delete>
 
     $obj->sth_delete(@keys);
 
 Takes a list of keys and deletes those keys from the hash.
 
-=item sth_exists
+=item C<sth_exists>
 
     if ($obj->sth_exists($key)) { ... }
 
 Takes a key and returns a true value if the key exists in the hash, and a
 false value otherwise.
 
-=item sth_keys
+=item C<sth_keys>
 
     my @keys = $obj->sth_keys;
 
 Returns a list of all hash keys in no particular order.
 
-=item sth_values
+=item C<sth_values>
 
     my @values = $obj->sth_values;
 
 Returns a list of all hash values in no particular order.
 
-=item ticket_no
+=item C<ticket_no>
 
     my $value = $obj->ticket_no;
     $obj->ticket_no($value);
@@ -831,13 +823,13 @@ Returns a list of all hash values in no particular order.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item ticket_no_clear
+=item C<ticket_no_clear>
 
     $obj->ticket_no_clear;
 
 Clears the value.
 
-=item values_sth
+=item C<values_sth>
 
     my @values = $obj->values_sth;
 

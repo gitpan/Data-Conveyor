@@ -8,7 +8,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::Storable';
@@ -110,13 +110,13 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_implicit
+=item C<clear_implicit>
 
     $obj->clear_implicit;
 
 Clears the boolean value by setting it to 0.
 
-=item implicit
+=item C<implicit>
 
     $obj->implicit($value);
     my $value = $obj->implicit;
@@ -125,19 +125,19 @@ If called without an argument, returns the boolean value (0 or 1). If called
 with an argument, it normalizes it to the boolean value. That is, the values
 0, undef and the empty string become 0; everything else becomes 1.
 
-=item implicit_clear
+=item C<implicit_clear>
 
     $obj->implicit_clear;
 
 Clears the boolean value by setting it to 0.
 
-=item implicit_set
+=item C<implicit_set>
 
     $obj->implicit_set;
 
 Sets the boolean value to 1.
 
-=item set_implicit
+=item C<set_implicit>
 
     $obj->set_implicit;
 

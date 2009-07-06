@@ -6,7 +6,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base qw(
@@ -46,13 +46,13 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_origin
+=item C<clear_origin>
 
     $obj->clear_origin;
 
 Clears the value.
 
-=item origin
+=item C<origin>
 
     my $value = $obj->origin;
     $obj->origin($value);
@@ -60,7 +60,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item origin_clear
+=item C<origin_clear>
 
     $obj->origin_clear;
 

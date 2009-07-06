@@ -11,7 +11,7 @@ use warnings;
 use YAML;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Data::Conveyor::Service::Result';
@@ -70,19 +70,19 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_result
+=item C<clear_result>
 
     $obj->clear_result;
 
 Deletes all elements from the array.
 
-=item count_result
+=item C<count_result>
 
     my $count = $obj->count_result;
 
 Returns the number of elements in the array.
 
-=item index_result
+=item C<index_result>
 
     my $element   = $obj->index_result(3);
     my @elements  = $obj->index_result(@indices);
@@ -93,19 +93,19 @@ If only one index is given, the corresponding array element is returned. If
 several indices are given, the result is returned as an array in list context
 or as an array reference in scalar context.
 
-=item pop_result
+=item C<pop_result>
 
     my $value = $obj->pop_result;
 
 Pops the last element off the array, returning it.
 
-=item push_result
+=item C<push_result>
 
     $obj->push_result(@values);
 
 Pushes elements onto the end of the array.
 
-=item result
+=item C<result>
 
     my @values    = $obj->result;
     my $array_ref = $obj->result;
@@ -117,19 +117,19 @@ array in list context, or a reference to the array in scalar context. If
 called with arguments, it expands array references found therein and sets the
 values.
 
-=item result_clear
+=item C<result_clear>
 
     $obj->result_clear;
 
 Deletes all elements from the array.
 
-=item result_count
+=item C<result_count>
 
     my $count = $obj->result_count;
 
 Returns the number of elements in the array.
 
-=item result_index
+=item C<result_index>
 
     my $element   = $obj->result_index(3);
     my @elements  = $obj->result_index(@indices);
@@ -140,19 +140,19 @@ If only one index is given, the corresponding array element is returned. If
 several indices are given, the result is returned as an array in list context
 or as an array reference in scalar context.
 
-=item result_pop
+=item C<result_pop>
 
     my $value = $obj->result_pop;
 
 Pops the last element off the array, returning it.
 
-=item result_push
+=item C<result_push>
 
     $obj->result_push(@values);
 
 Pushes elements onto the end of the array.
 
-=item result_set
+=item C<result_set>
 
     $obj->result_set(1 => $x, 5 => $y);
 
@@ -160,13 +160,13 @@ Takes a list of index/value pairs and for each pair it sets the array element
 at the indicated index to the indicated value. Returns the number of elements
 that have been set.
 
-=item result_shift
+=item C<result_shift>
 
     my $value = $obj->result_shift;
 
 Shifts the first element off the array, returning it.
 
-=item result_splice
+=item C<result_splice>
 
     $obj->result_splice(2, 1, $x, $y);
     $obj->result_splice(-1);
@@ -186,13 +186,13 @@ offset and the length are omitted, removes everything. If the offset is past
 the end of the array, it issues a warning, and splices at the end of the
 array.
 
-=item result_unshift
+=item C<result_unshift>
 
     $obj->result_unshift(@values);
 
 Unshifts elements onto the beginning of the array.
 
-=item set_result
+=item C<set_result>
 
     $obj->set_result(1 => $x, 5 => $y);
 
@@ -200,13 +200,13 @@ Takes a list of index/value pairs and for each pair it sets the array element
 at the indicated index to the indicated value. Returns the number of elements
 that have been set.
 
-=item shift_result
+=item C<shift_result>
 
     my $value = $obj->shift_result;
 
 Shifts the first element off the array, returning it.
 
-=item splice_result
+=item C<splice_result>
 
     $obj->splice_result(2, 1, $x, $y);
     $obj->splice_result(-1);
@@ -226,7 +226,7 @@ offset and the length are omitted, removes everything. If the offset is past
 the end of the array, it issues a warning, and splices at the end of the
 array.
 
-=item unshift_result
+=item C<unshift_result>
 
     $obj->unshift_result(@values);
 

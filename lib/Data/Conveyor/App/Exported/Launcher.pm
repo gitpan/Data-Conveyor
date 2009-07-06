@@ -9,7 +9,7 @@ use IO::Handle;
 use FindBin '$Bin';
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Exporter';
@@ -48,8 +48,7 @@ sub start {
     # though, we just bloat and finally end up without the lock.
 
     if ($lockclass->get_lock) {
-        exec $^X, @executable;
-        die "exec @executable failed.";
+        exec $^X, @executable or die "exec @executable failed.";
     }
 }
 

@@ -7,7 +7,7 @@ use warnings;
 use YAML;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use overload
@@ -64,19 +64,19 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_exception
+=item C<clear_exception>
 
     $obj->clear_exception;
 
 Clears the value.
 
-=item clear_result
+=item C<clear_result>
 
     $obj->clear_result;
 
 Clears the value.
 
-=item exception
+=item C<exception>
 
     my $value = $obj->exception;
     $obj->exception($value);
@@ -84,13 +84,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item exception_clear
+=item C<exception_clear>
 
     $obj->exception_clear;
 
 Clears the value.
 
-=item result
+=item C<result>
 
     my $value = $obj->result;
     $obj->result($value);
@@ -98,7 +98,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item result_clear
+=item C<result_clear>
 
     $obj->result_clear;
 

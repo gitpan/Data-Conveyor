@@ -6,7 +6,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Data::Conveyor::Ticket::Payload::Item';
@@ -72,13 +72,13 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_log_level
+=item C<clear_log_level>
 
     $obj->clear_log_level;
 
 Clears the value.
 
-=item log_level
+=item C<log_level>
 
     my $value = $obj->log_level;
     $obj->log_level($value);
@@ -86,7 +86,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item log_level_clear
+=item C<log_level_clear>
 
     $obj->log_level_clear;
 

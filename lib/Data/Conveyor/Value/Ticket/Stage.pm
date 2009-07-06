@@ -6,7 +6,7 @@ use strict;
 use warnings;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 # we need a delegate and therefore need the proper subclasses
@@ -139,19 +139,19 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_name
+=item C<clear_name>
 
     $obj->clear_name;
 
 Clears the value.
 
-=item clear_position
+=item C<clear_position>
 
     $obj->clear_position;
 
 Clears the value.
 
-=item name
+=item C<name>
 
     my $value = $obj->name;
     $obj->name($value);
@@ -159,13 +159,13 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item name_clear
+=item C<name_clear>
 
     $obj->name_clear;
 
 Clears the value.
 
-=item position
+=item C<position>
 
     my $value = $obj->position;
     $obj->position($value);
@@ -173,7 +173,7 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item position_clear
+=item C<position_clear>
 
     $obj->position_clear;
 

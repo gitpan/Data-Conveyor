@@ -8,7 +8,7 @@ use Time::HiRes 'usleep';
 use Data::Conveyor::Lock::Dispatcher;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Class::Scaffold::App::CommandLine';
@@ -180,43 +180,43 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_dispatcher_sleep
+=item C<clear_dispatcher_sleep>
 
     $obj->clear_dispatcher_sleep;
 
 Clears the value.
 
-=item clear_done
+=item C<clear_done>
 
     $obj->clear_done;
 
 Clears the value.
 
-=item clear_lockhandler
+=item C<clear_lockhandler>
 
     $obj->clear_lockhandler;
 
 Clears the value.
 
-=item clear_lockpath
+=item C<clear_lockpath>
 
     $obj->clear_lockpath;
 
 Clears the value.
 
-=item clear_stage_class
+=item C<clear_stage_class>
 
     $obj->clear_stage_class;
 
 Clears the value.
 
-=item dec_ticket_count
+=item C<dec_ticket_count>
 
     $obj->dec_ticket_count;
 
 Decreases the value by 1.
 
-=item dispatcher_sleep
+=item C<dispatcher_sleep>
 
     my $value = $obj->dispatcher_sleep;
     $obj->dispatcher_sleep($value);
@@ -224,13 +224,13 @@ Decreases the value by 1.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item dispatcher_sleep_clear
+=item C<dispatcher_sleep_clear>
 
     $obj->dispatcher_sleep_clear;
 
 Clears the value.
 
-=item done
+=item C<done>
 
     my $value = $obj->done;
     $obj->done($value);
@@ -238,19 +238,19 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item done_clear
+=item C<done_clear>
 
     $obj->done_clear;
 
 Clears the value.
 
-=item inc_ticket_count
+=item C<inc_ticket_count>
 
     $obj->inc_ticket_count;
 
 Increases the value by 1.
 
-=item lockhandler
+=item C<lockhandler>
 
     my $value = $obj->lockhandler;
     $obj->lockhandler($value);
@@ -258,13 +258,13 @@ Increases the value by 1.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item lockhandler_clear
+=item C<lockhandler_clear>
 
     $obj->lockhandler_clear;
 
 Clears the value.
 
-=item lockpath
+=item C<lockpath>
 
     my $value = $obj->lockpath;
     $obj->lockpath($value);
@@ -272,19 +272,19 @@ Clears the value.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item lockpath_clear
+=item C<lockpath_clear>
 
     $obj->lockpath_clear;
 
 Clears the value.
 
-=item reset_ticket_count
+=item C<reset_ticket_count>
 
     $obj->reset_ticket_count;
 
 Resets the value to 0.
 
-=item stage_class
+=item C<stage_class>
 
     my $value = $obj->stage_class;
     $obj->stage_class($value);
@@ -292,13 +292,13 @@ Resets the value to 0.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item stage_class_clear
+=item C<stage_class_clear>
 
     $obj->stage_class_clear;
 
 Clears the value.
 
-=item ticket_count
+=item C<ticket_count>
 
     $obj->ticket_count($value);
     my $value = $obj->ticket_count;
@@ -307,19 +307,19 @@ A basic getter/setter method. If called without an argument, it returns the
 value, or 0 if there is no previous value. If called with a single argument,
 it sets the value.
 
-=item ticket_count_dec
+=item C<ticket_count_dec>
 
     $obj->ticket_count_dec;
 
 Decreases the value by 1.
 
-=item ticket_count_inc
+=item C<ticket_count_inc>
 
     $obj->ticket_count_inc;
 
 Increases the value by 1.
 
-=item ticket_count_reset
+=item C<ticket_count_reset>
 
     $obj->ticket_count_reset;
 

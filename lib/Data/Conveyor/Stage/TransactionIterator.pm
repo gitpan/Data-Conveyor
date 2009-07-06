@@ -10,7 +10,7 @@ use Error::Hierarchy;
 use Error ':try';
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Data::Conveyor::Stage::SingleTicket';
@@ -152,19 +152,19 @@ next release will have more documentation.
 
 =over 4
 
-=item clear_done
+=item C<clear_done>
 
     $obj->clear_done;
 
 Clears the boolean value by setting it to 0.
 
-=item clear_factory_method
+=item C<clear_factory_method>
 
     $obj->clear_factory_method;
 
 Clears the value.
 
-=item done
+=item C<done>
 
     $obj->done($value);
     my $value = $obj->done;
@@ -173,19 +173,19 @@ If called without an argument, returns the boolean value (0 or 1). If called
 with an argument, it normalizes it to the boolean value. That is, the values
 0, undef and the empty string become 0; everything else becomes 1.
 
-=item done_clear
+=item C<done_clear>
 
     $obj->done_clear;
 
 Clears the boolean value by setting it to 0.
 
-=item done_set
+=item C<done_set>
 
     $obj->done_set;
 
 Sets the boolean value to 1.
 
-=item factory_method
+=item C<factory_method>
 
     my $value = $obj->factory_method;
     $obj->factory_method($value);
@@ -193,13 +193,13 @@ Sets the boolean value to 1.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item factory_method_clear
+=item C<factory_method_clear>
 
     $obj->factory_method_clear;
 
 Clears the value.
 
-=item set_done
+=item C<set_done>
 
     $obj->set_done;
 

@@ -8,7 +8,7 @@ use Error ':try';
 use Error::Hierarchy::Util 'assert_nonempty_arrayref';
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use base 'Data::Conveyor::Service';
@@ -48,7 +48,7 @@ next release will have more documentation.
 
 =over 4
 
-=item args
+=item C<args>
 
     my %hash     = $obj->args;
     my $hash_ref = $obj->args;
@@ -73,69 +73,69 @@ If called with exactly one hash reference, it updates the hash with the given
 key/value pairs, then returns the hash in list context, or a reference to the
 hash in scalar context.
 
-=item args_clear
+=item C<args_clear>
 
     $obj->args_clear;
 
 Deletes all keys and values from the hash.
 
-=item args_delete
+=item C<args_delete>
 
     $obj->args_delete(@keys);
 
 Takes a list of keys and deletes those keys from the hash.
 
-=item args_exists
+=item C<args_exists>
 
     if ($obj->args_exists($key)) { ... }
 
 Takes a key and returns a true value if the key exists in the hash, and a
 false value otherwise.
 
-=item args_keys
+=item C<args_keys>
 
     my @keys = $obj->args_keys;
 
 Returns a list of all hash keys in no particular order.
 
-=item args_values
+=item C<args_values>
 
     my @values = $obj->args_values;
 
 Returns a list of all hash values in no particular order.
 
-=item clear_args
+=item C<clear_args>
 
     $obj->clear_args;
 
 Deletes all keys and values from the hash.
 
-=item clear_svc
+=item C<clear_svc>
 
     $obj->clear_svc;
 
 Clears the value.
 
-=item delete_args
+=item C<delete_args>
 
     $obj->delete_args(@keys);
 
 Takes a list of keys and deletes those keys from the hash.
 
-=item exists_args
+=item C<exists_args>
 
     if ($obj->exists_args($key)) { ... }
 
 Takes a key and returns a true value if the key exists in the hash, and a
 false value otherwise.
 
-=item keys_args
+=item C<keys_args>
 
     my @keys = $obj->keys_args;
 
 Returns a list of all hash keys in no particular order.
 
-=item svc
+=item C<svc>
 
     my $value = $obj->svc;
     $obj->svc($value);
@@ -143,13 +143,13 @@ Returns a list of all hash keys in no particular order.
 A basic getter/setter method. If called without an argument, it returns the
 value. If called with a single argument, it sets the value.
 
-=item svc_clear
+=item C<svc_clear>
 
     $obj->svc_clear;
 
 Clears the value.
 
-=item values_args
+=item C<values_args>
 
     my @values = $obj->values_args;
 

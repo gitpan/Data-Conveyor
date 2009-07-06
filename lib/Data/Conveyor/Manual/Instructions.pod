@@ -6,7 +6,7 @@ Partial updates to business objects have necessitated instruction objects. The
 parser takes the request (EPP frame or mail) and creates the payload. For
 example, if the request specifies that a person's organization should be set
 the parser creates a person payload item object and sets the person handle on
-the data subobject. It then creates an instruction container for that person
+the data sub-object. It then creates an instruction container for that person
 payload item object and, using the instruction factory, adds a "change
 organization" instruction object to the container.
 
@@ -32,7 +32,7 @@ storage, make sure that none of the business objects' value objects are dirty.
 Each business object has a clear_dirty method (by way of inheriting from
 Class::Scaffold::HierarchicalDirty) which clears the dirty flag of all its
 constituent value objects. That way each object that has value objects (or has
-subobjects which eventually have value objects) will have a kind of virtual
+sub-objects which eventually have value objects) will have a kind of virtual
 dirty flag which is connected to said value objects. Therefore:
 
     $ticket->payload->clear_dirty;
@@ -50,11 +50,11 @@ other hand, you can change a person's organization without having to specify
 other fields. When carrying out the instructions, a business objects also needs
 to enforce those instruction sets and, if necessary, throw an exception.
 
-The transaction selector (txsel) for NICAT is also somewhat simplified. When
-trying to determine whether there is a person.set-owner transaction, it only
-has to ask the instruction container whether there is a change to the person's
-name. Previously it had to read the old person object and check whether there
-was a change.
+The transaction selector (C<txsel>) for C<NICAT> is also somewhat simplified.
+When trying to determine whether there is a person.set-owner transaction, it
+only has to ask the instruction container whether there is a change to the
+person's name. Previously it had to read the old person object and check
+whether there was a change.
 
 The instruction mechanism still needs to work with other registries that don't
 allow partial updates of objects; in this case, have a "clear" instruction

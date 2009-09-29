@@ -8,16 +8,14 @@ package Data::Conveyor::Ticket::Payload;
 use warnings;
 use strict;
 use Error::Hierarchy::Util 'assert_defined';
+use once;
 
-
-our $VERSION = '0.06';
-
+our $VERSION = '0.07';
 
 use base qw(
     Class::Scaffold::Storable
     Class::Scaffold::HierarchicalDirty
 );
-
 
 __PACKAGE__
     ->mk_framework_object_accessors(payload_common => 'common')
@@ -25,8 +23,6 @@ __PACKAGE__
         payload_transaction => 'transactions',
         payload_lock        => 'locks',
     );
-
-
 
 # Generate add_* methods for each payload item. The method can be called in
 # various ways:
@@ -74,22 +70,21 @@ sub init {
     my $self = shift;
     $self->SUPER::init(@_);
 
-    our $did_generate_methods;
-    return if $did_generate_methods++;
+    ONCE {
+        for my $object_type ($self->delegate->OT) {
 
-    for my $object_type ($self->delegate->OT) {
+            my $add_method          = sprintf("add_%s", $object_type);
+            my $add_unique_method   = sprintf("add_unique_%s", $object_type);
+            my $payload_object_type = sprintf("payload_%s", $object_type);
+            my $push_method         = sprintf("%ss_push", $object_type);
+            my $set_push_method     = sprintf("%ss_set_push", $object_type);
 
-        my $add_method          = sprintf("add_%s", $object_type);
-        my $add_unique_method   = sprintf("add_unique_%s", $object_type);
-        my $payload_object_type = sprintf("payload_%s", $object_type);
-        my $push_method         = sprintf("%ss_push", $object_type);
-        my $set_push_method     = sprintf("%ss_set_push", $object_type);
-
-        $self->generate_add_method($object_type, $add_method,
-            $payload_object_type, $push_method);
-        $self->generate_add_method($object_type, $add_unique_method,
-            $payload_object_type, $set_push_method);
-    }
+            $self->generate_add_method($object_type, $add_method,
+                $payload_object_type, $push_method);
+            $self->generate_add_method($object_type, $add_unique_method,
+                $payload_object_type, $set_push_method);
+        }
+    };
 }
 
 
@@ -508,7 +503,7 @@ Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2008 by the authors.
+Copyright 2004-2009 by the authors.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

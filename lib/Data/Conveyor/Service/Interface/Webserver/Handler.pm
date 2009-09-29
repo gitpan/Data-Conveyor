@@ -11,7 +11,7 @@ use HTTP::Date;
 use URI::Escape;
 use HTTP::Engine::FirePHP;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 use base 'Class::Scaffold::Base';
 

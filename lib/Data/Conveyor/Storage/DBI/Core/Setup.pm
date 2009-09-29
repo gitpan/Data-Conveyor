@@ -1,7 +1,5 @@
 package Data::Conveyor::Storage::DBI::Core::Setup;
 
-# $Id$
-
 # Utility storage methods encapsulating statements that all or most
 # applications based on Data-Conveyor are going to need. They presume a
 # certain database layout, so if you use these conventions, these methods will
@@ -12,7 +10,7 @@ use strict;
 use warnings;
 use DBI ':sql_types';
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 sub add_lookup_items {
     my ($self, $table_name, $table_prefix, @items) = @_;

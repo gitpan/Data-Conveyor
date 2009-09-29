@@ -8,7 +8,7 @@ use Error::Hierarchy::Internal::DBI::STH;
 use Error ':try';
 
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 
 use base 'Data::Conveyor::Storage';
@@ -50,6 +50,33 @@ sub ticket_insert {
         $self->ticket_handle_exception($_[0], $ticket)
     };
     $ticket;
+}
+
+
+sub cached_statement {
+    my ($self, $args) = @_;
+
+    # The result will be an aarray of hashrefs; one element per returned row;
+    # each row has a column hash.
+
+    # To compute $argstr, dereference as an array, not a hash, because hash
+    # sort order is not defined.
+
+    my $argstr = join $;, %{ $args->{args} };
+    return $self->cache->{ $args->{name} }{$argstr} ||= do {
+        my (@result, %row);
+        my $sth = $self->prepare_named($args->{name} => $args->{SQL});
+        while (my ($key, $type) = each %{ $args->{param} || {}}) {
+            $sth->bind_param(":$key", $args->{args}{$key}, $type);
+        }
+        $sth->execute;
+        $sth->bind_columns(map { \$row{$_} } @{ $args->{fields} });
+        while ($sth->fetch) {
+            push @result => \%row;
+        }
+        $sth->finish;
+        \@result;
+    }
 }
 
 
@@ -262,7 +289,7 @@ Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2008 by the authors.
+Copyright 2004-2009 by the authors.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

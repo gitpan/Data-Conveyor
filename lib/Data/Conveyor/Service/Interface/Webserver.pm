@@ -4,13 +4,12 @@ use strict;
 use warnings;
 use HTTP::Engine;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 use base qw(
     Class::Scaffold::Base
     Data::Conveyor::Service::Interface
 );
-
 
 sub create_engine {
     my ($self, @args) = @_;
@@ -30,6 +29,5 @@ sub run {
     my $self = shift;
     $self->create_engine(@_)->run;
 }
-
 
 1;

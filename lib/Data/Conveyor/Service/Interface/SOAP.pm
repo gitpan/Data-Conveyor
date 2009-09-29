@@ -5,19 +5,16 @@ package Data::Conveyor::Service::Interface::SOAP;
 use strict;
 use warnings;
 use Error ':try';
+use once;
 
-
-our $VERSION = '0.06';
-
+our $VERSION = '0.07';
 
 use base 'Data::Conveyor::Service::Interface';
-
 
 sub init {
     my $self = shift;
 
-    our $did_generate_methods;
-    if (!$did_generate_methods++) {
+    ONCE {
 
         # Generate handlers for all methods listed in the Service Methods
         # object. They are being generated into this package. If you need
@@ -48,7 +45,7 @@ sub init {
                 }
             }
         }
-    }
+    };
 }
 
 
@@ -331,7 +328,7 @@ Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2008 by the authors.
+Copyright 2004-2009 by the authors.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

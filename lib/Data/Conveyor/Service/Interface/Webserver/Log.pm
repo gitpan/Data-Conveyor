@@ -6,7 +6,7 @@ use Log::Dispatch;
 use Log::Dispatch::File;
 use Log::Dispatch::Screen;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 use base 'Class::Scaffold::Base';
 

@@ -1,6 +1,10 @@
 =pod
 
-=head1 Payload Instructions
+=head1 NAME
+
+Data::Conveyor::Manual::Instructions - About payload instruction objects
+
+=head1 PAYLOAD INSTRUCTIONS
 
 Partial updates to business objects have necessitated instruction objects. The
 parser takes the request (EPP frame or mail) and creates the payload. For

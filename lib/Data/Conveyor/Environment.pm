@@ -11,13 +11,14 @@ use Class::Scaffold::Factory::Type;
 use Class::Value;
 use Data::Conveyor::Control::File; # object() doesn't load the class (?).
 use Hook::Modular;
+use once;
 
 # Bring in Class::Value right now, so $Class::Value::SkipChecks can be set
 # without it being overwritten, since with framework_object and
 # make_obj() Class::Value is loaded only on-demand.
 
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 
 use base 'Class::Scaffold::Environment';
@@ -75,67 +76,65 @@ sub init {
     $self->SUPER::init(@_);
     $self->multiplex_transaction_omit(MUTEX_STORAGE_TYPE() => 1);
 
-    our $did_generate_methods;
-    return if $did_generate_methods++;
+    ONCE {
 
-    # require NEXT;
-    # as long as the patched NEXT.pm is in Data::Inherited - i.e., until such
-    # time as Damian releases the new version, we do:
+        # require NEXT; as long as the patched NEXT.pm is in Data::Inherited -
+        # i.e., until such time as Damian releases the new version, we do:
 
-    require Data::Inherited;
+        require Data::Inherited;
 
-    # generically generate instruction classes that look like:
-    #
-    # package Data::Conveyor::Ticket::Payload::Instruction::value_person_organization;
-    # use base 'Data::Conveyor::Ticket::Payload::Instruction';
-    # __PACKAGE__->mk_framework_object_accessors(
-    #     value_person_organization => 'value'
-    # );
-    # use constant name => 'organization';
-    #
-    # There are other, more specialized instruction classes like 'clear' or
-    # those creating techdata items (which contain several value objects, not
-    # just one). There should be one instruction class for every unit that can
-    # be added, deleted or updated. A person's organization can be changed by
-    # itself, so we have an instruction for that. However, a techdata item can
-    # only be changed as a whole (you can't change a techdata item's
-    # individual field), so we have one instruction for the whole techdata
-    # item.
+        # generically generate instruction classes that look like:
 
-    # make sure the superclass is loaded so we can inherit from it
-    load_class $self->INSTRUCTION_CLASS_BASE(), 1;
+        # package D::C::Ticket::Payload::Instruction::value_person_organization;
+        # use base 'Data::Conveyor::Ticket::Payload::Instruction';
+        # __PACKAGE__->mk_framework_object_accessors(
+        #   value_person_organization => 'value'
+        # );
+        # use constant name => 'organization';
 
-    for my $type ($self->generic_instruction_classes) {
-        # construct instruction class
+        # There are other, more specialized instruction classes like 'clear'
+        # or those creating techdata items - which contain several value
+        # objects, not just one. There should be one instruction class for
+        # every unit that can be added, deleted or updated. A person's
+        # organization can be changed by itself, so we have an instruction for
+        # that. However, a techdata item can only be changed as a whole - you
+        # can't change a techdata item's individual field -, so we have one
+        # instruction for the whole techdata item.
 
-        my $class = $self->INSTRUCTION_CLASS_BASE() . '::' . $type;
-        no strict 'refs';
-        push @{"$class\::ISA"} => $self->INSTRUCTION_CLASS_BASE;
+        # make sure the superclass is loaded so we can inherit from it
+        load_class $self->INSTRUCTION_CLASS_BASE(), 1;
 
-        my $type_method = "$class\::type";
-        $::PTAGS && printf "type\t%s\t%s\n", __FILE__, __LINE__+1;
-        *$type_method = sub { $type };
+        for my $type ($self->generic_instruction_classes) {
+            # construct instruction class
 
-        $::PTAGS && printf "%s\t%s\t%s\n", 'value', __FILE__, __LINE__+3;
+            my $class = $self->INSTRUCTION_CLASS_BASE() . '::' . $type;
+            no strict 'refs';
+            push @{"$class\::ISA"} => $self->INSTRUCTION_CLASS_BASE;
 
-        # the class gets a $VERSION so that load_class() doesn't attempt to
-        # load it, q.v.
-        # We also make an entry in %INC so UNIVERSAL::require is happy.
-        # load_class() and require() could be called for this class in
-        # Data::Comparable.
+            my $type_method = "$class\::type";
+            $::PTAGS && printf "type\t%s\t%s\n", __FILE__, __LINE__+1;
+            *$type_method = sub { $type };
 
-        eval qq!
-            package $class;
-            __PACKAGE__->mk_framework_object_accessors($type => 'value');
-            our \$VERSION = '0.01';
-        !;
+            $::PTAGS && printf "%s\t%s\t%s\n", 'value', __FILE__, __LINE__+3;
 
-        my $file = $class . '.pm';
-        $file =~ s!::!/!g;
+            # the class gets a $VERSION so that load_class() doesn't attempt
+            # to load it, q.v. We also make an entry in %INC so
+            # UNIVERSAL::require is happy. load_class() and require() could
+            # be called for this class in Data::Comparable.
 
-        $INC{$file} = 1;
-        die $@ if $@;
-    }
+            eval qq!
+                package $class;
+                __PACKAGE__->mk_framework_object_accessors($type => 'value');
+                our \$VERSION = '0.01';
+            !;
+
+            my $file = $class . '.pm';
+            $file =~ s!::!/!g;
+
+            $INC{$file} = 1;
+            die $@ if $@;
+        }
+    };
 }
 
 
@@ -297,10 +296,10 @@ sub get_charset_handler_for {
         Class::Scaffold::Factory::Type->get_factory_type_for($object);
 
     # cache the every_hash result for efficiency reasons
-    unless (defined $cache{charset_handler_hash}) {
-        $cache{charset_handler_hash} =
-            $self->every_hash('CHARSET_HANDLER_HASH');
-    }
+    $cache{charset_handler_hash} = $self->every_hash('CHARSET_HANDLER_HASH')
+        unless defined $cache{charset_handler_hash};
+
+    return $cache{charset_handler_hash}{_AUTO} unless defined $object_type;
 
     my $class = $cache{charset_handler_hash}{$object_type} ||
         $cache{charset_handler_hash}{_AUTO};
@@ -310,10 +309,7 @@ sub get_charset_handler_for {
     # Data::Conveyor::Charset::ViaHash a singleton, because there would then
     # be only one in total. We want one per subclass.
 
-    unless (defined $cache{charset_handler}{$class}) {
-        $cache{charset_handler}{$class} = $class->new;
-    }
-    $cache{charset_handler}{$class};
+    $cache{charset_handler}{$class} ||= $class->new;
 }
 
 
@@ -324,13 +320,15 @@ sub get_max_length_for {
     my $object_type =
         Class::Scaffold::Factory::Type->get_factory_type_for($object);
 
+    # cache the every_hash result for efficiency reasons
+    $cache{max_length_hash} = $self->every_hash('MAX_LENGTH_HASH')
+        unless defined $cache{max_length_hash};
+
+    return $cache{max_length_hash}{_AUTO} unless defined $object_type;
+
     return $cache{max_length}{$object_type} if
         defined $cache{max_length}{$object_type};
 
-    # cache the every_hash result for efficiency reasons
-    unless (defined $cache{max_length_hash}) {
-        $cache{max_length_hash} = $self->every_hash('MAX_LENGTH_HASH');
-    }
     $cache{max_length}{$object_type} = $cache{max_length_hash}{$object_type} ||
         $cache{max_length_hash}{_AUTO};
 }
@@ -422,6 +420,7 @@ Class::Scaffold::Factory::Type->register_factory_type(
         'Data::Conveyor::Ticket::Payload::Instruction::Container',
     payload_instruction_factory  =>
         'Data::Conveyor::Ticket::Payload::Instruction::Factory',
+    test_util_loader             => 'Data::Conveyor::Test::UtilLoader',
     ticket_provider              => 'Data::Conveyor::Ticket::Provider',
     ticket_transition            => 'Data::Conveyor::Ticket::Transition',
     transaction                  => 'Data::Conveyor::Ticket::Transaction',
@@ -953,7 +952,7 @@ Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2008 by the authors.
+Copyright 2004-2009 by the authors.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

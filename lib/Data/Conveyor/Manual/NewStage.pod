@@ -1,5 +1,9 @@
 =pod
 
-=head1 How to create a new stage
+=head1 NAME
+
+Data::Conveyor::Manual::NewStage - How to create a new stage
+
+=head1 HOW TO CREATE A NEW STAGE
 
 =cut

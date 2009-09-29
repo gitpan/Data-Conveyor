@@ -7,7 +7,7 @@ use JSON::XS ();
 use Encode ();
 use overload ();
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 use base 'Class::Scaffold::Base';
 

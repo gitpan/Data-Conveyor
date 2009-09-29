@@ -11,10 +11,9 @@ use Error::Hierarchy;
 use Getopt::Long;
 use Pod::Text;
 use IO::Pager;   # not used really, just determines a pager at BEGIN time
+use once;
 
-
-our $VERSION = '0.06';
-
+our $VERSION = '0.07';
 
 # It's ok to inherit from Data::Conveyor::Service::Interface as well; new()
 # will be found in Term::Shell::Enhanced first.
@@ -76,8 +75,7 @@ sub init {
 
     # generate methods for handling generic service commands
 
-    our $did_generate_methods;
-    if (!$did_generate_methods++) {
+    ONCE {
 
         # Generate handlers for all methods listed in the Service Methods
         # object. They are being generated into this package. If you need
@@ -135,7 +133,7 @@ sub init {
                 run  => $meth3,
             };
         }
-    }
+    };
 }
 
 
@@ -1037,7 +1035,7 @@ Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2008 by the authors.
+Copyright 2004-2009 by the authors.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

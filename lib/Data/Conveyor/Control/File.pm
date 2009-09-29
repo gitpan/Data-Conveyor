@@ -1,19 +1,11 @@
 package Data::Conveyor::Control::File;
 
 # $Id: File.pm 13653 2007-10-22 09:11:20Z gr $
-
 use strict;
 use warnings;
-
-
-our $VERSION = '0.06';
-
-
+our $VERSION = '0.07';
 use base 'Data::Conveyor::Control';
-
-
 __PACKAGE__->mk_scalar_accessors(qw(filename));
-
 
 sub read {
     my $self = shift;
@@ -26,7 +18,7 @@ sub read {
     # ignored. If there is no such line, the whole file will be read - this
     # works like the __END__ directive in a perl program.
     #
-    # 
+    #
     #
     # This method is pretty strict; if you misspell a stage or include it more
     # than once, it aborts. Here we feel it is better to err on the cautious
@@ -34,26 +26,21 @@ sub read {
     # it as 'keyword_end'. If we didn't abort on an unknown stage name, we
     # might record an error in the logs but the 'keywords_end' stage would
     # still run.
-
     $self->ignore_ticket_no_clear;
     $self->allowed_stages_clear;
-
-    $self->allowed_stages(
-        map { $_ => 1 } $self->delegate->allowed_dispatcher_stages
-    );
+    $self->allowed_stages(map { $_ => 1 }
+          $self->delegate->allowed_dispatcher_stages);
 
     # It's ok for the file not to be there.
     return unless -e $self->filename;
-
     my ($fh, $error);
     unless (open $fh, '<', $self->filename) {
         $self->log->info("can't open %s: %s", $self->filename, $!);
         return 0;
     }
-
     while (<$fh>) {
         chomp;
-        s/#.*$//;             # comments are being ignored
+        s/#.*$//;    # comments are being ignored
         s/^\s*//;
         s/\s*$//;
         next unless length;
@@ -76,21 +63,14 @@ sub read {
             last;
         }
     }
-
     unless (close $fh) {
         $self->log->info("can't close %s: %s", $self->filename, $!);
         return 0;
     }
-
     return 0 if $error;
-
     1;
 }
-
-
 1;
-
-
 __END__
 
 =head1 NAME
@@ -274,7 +254,7 @@ Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2008 by the authors.
+Copyright 2004-2009 by the authors.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

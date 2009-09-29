@@ -8,7 +8,7 @@ use YAML::Active qw/assert_arrayref array_activate/;
 use YAML;
 
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 
 # FIXME cleanup: this seems to generate an array reference. later on, somebody
@@ -307,7 +307,7 @@ Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2008 by the authors.
+Copyright 2004-2009 by the authors.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

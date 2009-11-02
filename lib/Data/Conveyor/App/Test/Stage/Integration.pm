@@ -8,7 +8,7 @@ use Test::More;
 use Test::Builder;
 
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 
 use base 'Data::Conveyor::App::Test::Stage';
@@ -46,7 +46,7 @@ sub plan_test {
 }
 
 
-sub run_test {
+sub run_subtest {
     my $self = shift;
 
     # We can create the dispatcher only here, not in init(), because there's
@@ -100,24 +100,15 @@ sub run_stage_test {
 
     $self->dispatcher->dispatch($ticket);
 
-    # Did any tests already fail within this run? If we have a lot of
-    # tests, the grep for tests starting with the current test name could
-    # be expensive, so first grep for tests that are not ok - should weed
-    # out a lot.
-
-    my $testname = $self->testname;
-    $self->failed_tests(
-        grep { substr($_->{name}, 0, length($testname)) eq $testname }
-        grep { !$_->{ok} }
-        Test::Builder->new->details
-    );
+    # Did any tests already fail within this run?
+    $self->failed_tests(grep { !$_->{ok} } Test::Builder->new->details);
 }
 
 
 sub check_ticket_stage {
     my $self = shift;
     is($self->ticket->stage, $self->expect->{stage},
-        $self->named_test(sprintf 'stage %s', $self->expect->{stage}));
+        sprintf 'stage %s', $self->expect->{stage});
 }
 
 
@@ -446,7 +437,7 @@ methods and functions:
     clear_runs(), clear_test_def(), clear_testdir(), clear_testname(),
     current_test_def(), current_test_def_clear(), delete_test_def(),
     exists_test_def(), expect(), expect_clear(), keys_test_def(),
-    make_plan(), named_test(), read_test_defs(), run_num(),
+    make_plan(), read_test_defs(), run_num(),
     run_num_clear(), runs(), runs_clear(), should_skip(),
     should_skip_testname(), test_def(), test_def_clear(),
     test_def_delete(), test_def_exists(), test_def_keys(),

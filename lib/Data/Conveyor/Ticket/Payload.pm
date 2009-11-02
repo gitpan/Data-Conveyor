@@ -10,7 +10,7 @@ use strict;
 use Error::Hierarchy::Util 'assert_defined';
 use once;
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 use base qw(
     Class::Scaffold::Storable

@@ -6,7 +6,7 @@ use Error::Hierarchy::Util 'assert_defined';
 use Data::Conveyor::Mutex;
 
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 
 use base 'Class::Scaffold::App::CommandLine';

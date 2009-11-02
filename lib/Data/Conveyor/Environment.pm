@@ -18,7 +18,7 @@ use once;
 # make_obj() Class::Value is loaded only on-demand.
 
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 
 use base 'Class::Scaffold::Environment';
@@ -32,7 +32,7 @@ Class::Scaffold::Environment::gen_class_hash_accessor('STAGE');
 
 __PACKAGE__->mk_object_accessors(
     'Data::Conveyor::Control::File' => 'control',
-    'Class::Scaffold::Environment::Configurator' => {
+    'Property::Lookup' => {
         slot       => 'configurator',
         comp_mthds => [ qw/
             max_tickets_per_dispatcher

@@ -8,7 +8,7 @@ build_requires:
 configure_requires:
   ExtUtils::MakeMaker: 6.42
 distribution_type: module
-generated_by: 'Module::Install version 0.85'
+generated_by: 'Module::Install version 0.91'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -18,6 +18,7 @@ no_index:
   directory:
     - inc
     - t
+    - xt
 requires:
   Class::Null: 0
   Class::Scaffold: 0.08
@@ -32,12 +33,14 @@ requires:
   Error::Hierarchy: 0
   HTTP::Date: 0
   HTTP::Engine: 0
+  HTTP::Engine::FirePHP: 0
   Hash::Flatten: 0
   Hook::Modular: 0
   IO::Pager: 0
   JSON::XS: 0
   Log::Dispatch: 0
   MIME::Types: 0
+  Path::Class::Unicode: 0
   Pod::PlainText: 0
   SOAP::Lite: 0
   String::CamelCase: 0
@@ -54,8 +57,8 @@ requires:
   once: 0
   perl: 5.6.0
 resources:
-  bugtracker: http://search.cpan.org/dist/Data-Conveyor/
+  bugtracker: http://rt.cpan.org/Public/Dist/Display.html?Name=Data-Conveyor
   homepage: http://search.cpan.org/dist/Data-Conveyor/
   license: http://dev.perl.org/licenses/
   repository: git://github.com/hanekomu/data-conveyor.git
-version: 0.07
+version: 0.08

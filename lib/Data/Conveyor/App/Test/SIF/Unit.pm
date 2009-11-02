@@ -1,18 +1,17 @@
 package Data::Conveyor::App::Test::SIF::Unit;
 
-# $Id: Unit.pm 13653 2007-10-22 09:11:20Z gr $
-
 use warnings;
 use strict;
+use Test::More;
 
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 
 use base 'Class::Scaffold::App::Test::YAMLDriven';
 
 
-sub run_test {
+sub run_subtest {
     my $self = shift;
 
     my $test_def = $self->current_test_def->{execute};

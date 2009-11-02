@@ -10,7 +10,7 @@ use strict;
 use warnings;
 use DBI ':sql_types';
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 sub add_lookup_items {
     my ($self, $table_name, $table_prefix, @items) = @_;

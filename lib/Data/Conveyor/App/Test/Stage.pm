@@ -5,7 +5,7 @@ use YAML::Active 'Dump';
 use String::FlexMatch::Test;
 use Test::More;
 use Data::Dumper;
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 use base 'Class::Scaffold::App::Test::YAMLDriven';
 $Data::Dumper::Indent = 1;
 __PACKAGE__->mk_scalar_accessors(
@@ -81,17 +81,17 @@ sub make_stage_object {
 # subclasses can do preparatory things here
 sub before_stage_hook { }
 
-sub run_test {
+sub run_subtest {
     my $self = shift;
 
     # At this point, set any local configuration the test yaml file might have
     # asked for.
-    local %Class::Scaffold::Environment::Configurator::Local::opt = (
-        %Class::Scaffold::Environment::Configurator::Local::opt,
+    local %Property::Lookup::Local::opt = (
+        %Property::Lookup::Local::opt,
         %{ $self->current_test_def->{opt} || {} },
     );
     my $ticket =
-      $self->delegate->make_obj('ticket', ticket_no => $self->ticket_no,);
+      $self->delegate->make_obj('ticket', ticket_no => $self->ticket_no);
     $ticket->open($self->expected_stage);
     $self->before_stage_hook($ticket);
     $self->stage($self->make_stage_object(ticket => $ticket));
@@ -185,11 +185,11 @@ sub check_ticket_rc_status {
     my $self = shift;
     is( $self->ticket->rc,
         $self->expect->{rc} || $self->delegate->RC_OK,
-        $self->named_test('rc')
+        'rc'
     );
     is( $self->ticket->status,
         $self->expect->{status} || $self->delegate->TS_RUNNING,
-        $self->named_test('status')
+        'status'
     );
 }
 
@@ -201,9 +201,8 @@ sub check_ticket_tx {
 
     # Dump as YAML on failure, so we see the stringified values, not the value
     # objects.
-    ok( eq_array_flex(\@tx_status, $self->expect->{tx}),
-        $self->named_test('resulting tx status')
-    ) or print Dump \@tx_status;
+    ok(eq_array_flex(\@tx_status, $self->expect->{tx}), 'resulting tx status')
+        or print Dump \@tx_status;
 }
 
 sub check_ticket_expected_container {
@@ -425,7 +424,7 @@ methods and functions:
     clear_runs(), clear_test_def(), clear_testdir(), clear_testname(),
     current_test_def(), current_test_def_clear(), delete_test_def(),
     exists_test_def(), expect(), expect_clear(), keys_test_def(),
-    make_plan(), named_test(), plan_test(), read_test_defs(), run_num(),
+    make_plan(), plan_test(), read_test_defs(), run_num(),
     run_num_clear(), runs(), runs_clear(), should_skip(),
     should_skip_testname(), test_def(), test_def_clear(),
     test_def_delete(), test_def_exists(), test_def_keys(),

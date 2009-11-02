@@ -8,7 +8,7 @@ use Error::Hierarchy::Test 'throws2_ok';
 use Test::More;
 
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 
 use base 'Data::Conveyor::Test';

@@ -8,7 +8,7 @@ use Error::Hierarchy::Internal::DBI::STH;
 use Error ':try';
 
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 
 use base 'Data::Conveyor::Storage';

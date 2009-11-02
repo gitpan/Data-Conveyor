@@ -13,7 +13,7 @@ use Hash::Flatten;
 use Class::Value::Exception::NotWellFormedValue;
 
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 
 use base 'Class::Scaffold::Storable';

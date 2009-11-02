@@ -6,7 +6,7 @@ use warnings;
 use strict;
 
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 
 use base 'Data::Conveyor::Exception::Ticket';

@@ -3,6 +3,8 @@ include 'Module::AutoInstall';
 
 name 'Data-Conveyor';
 all_from 'lib/Data/Conveyor.pm';
+readme_from_pod;
+readme_markdown_from_pod;
 
 auto_set_homepage;
 auto_set_bugtracker;
@@ -23,11 +25,13 @@ requires 'Hash::Flatten';
 requires 'Hook::Modular';
 requires 'HTTP::Date';
 requires 'HTTP::Engine';
+requires 'HTTP::Engine::FirePHP';
 requires 'IO::Pager';
 requires 'JSON::XS';
 requires 'Log::Dispatch';
 requires 'MIME::Types';
 requires 'once';
+requires 'Path::Class::Unicode';
 requires 'Pod::PlainText';
 requires 'String::CamelCase';
 requires 'String::FlexMatch';

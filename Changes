@@ -1,5 +1,10 @@
 Revision history for Perl extension Data-Conveyor
 
+0.08 Mon 2009.11.02 18:11:40 CET (Marcel Gruenauer <marcel@cpan.org>)
+    - support for Class-Scaffold's subtests
+    - no longer need to call named_test(), but leave it in here for now so
+      (legacy?) subclasses can use it
+
 0.07 Tue Sep 29 16:04:45 MSZ 2009 (Marcel Gruenauer <marcel@cpan.org>)
     - repo maintenance
     - added author requirements; fixed auxiliary files; use once.pm

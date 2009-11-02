@@ -1,27 +1,56 @@
-This is the Perl module Data::Conveyor.
+# NAME
 
-## Installation
+Data::Conveyor - Stage-based conveyor-belt-like ticket handling system
 
-Data::Conveyor installation is straightforward. If your CPAN shell is set up,
-you should just be able to do
+# SYNOPSIS
 
-    % cpan Data::Conveyor
+    Data::Conveyor->new;
 
-Download it, unpack it, then build it as per the usual:
+# DESCRIPTION
 
-    % perl Makefile.PL
-    % make && make test
+None yet. This is an early release; fully functional, but undocumented. The
+next release will have more documentation.
 
-Then install it:
+# METHODS
 
-    % make install
 
-## Documentation
 
-Data::Conveyor documentation is available as in POD. So you can do:
 
-    % perldoc Data::Conveyor
 
-to read the documentation online with your favorite pager.
+Data::Conveyor inherits from .
 
-Marcel Gruenauer
+# BUGS AND LIMITATIONS
+
+No bugs have been reported.
+
+Please report any bugs or feature requests through the web interface at
+<http://rt.cpan.org>.
+
+# INSTALLATION
+
+See perlmodinstall for information and options on installing Perl modules.
+
+# AVAILABILITY
+
+The latest version of this module is available from the Comprehensive Perl
+Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a CPAN
+site near you. Or see <http://www.perl.com/CPAN/authors/id/M/MA/MARCEL/>.
+
+# AUTHORS
+
+Florian Helmberger `<fh@univie.ac.at>`
+
+Achim Adam `<ac@univie.ac.at>`
+
+Mark Hofstetter `<mh@univie.ac.at>`
+
+Heinz Ekker `<ek@univie.ac.at>`
+
+Marcel Gr&uuml;nauer, `<marcel@cpan.org>`
+
+# COPYRIGHT AND LICENSE
+
+Copyright 2004-2009 by the authors.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.

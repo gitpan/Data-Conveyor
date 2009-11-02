@@ -12,7 +12,7 @@ use Data::Conveyor::YAML::Marshall::Payload::Common;
 
 use base 'Class::Scaffold::Test::UtilLoader';
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 1;
 

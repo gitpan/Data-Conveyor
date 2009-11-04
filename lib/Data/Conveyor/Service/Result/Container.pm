@@ -11,7 +11,7 @@ use warnings;
 use YAML;
 
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 
 use base 'Data::Conveyor::Service::Result';

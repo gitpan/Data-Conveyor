@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use Error ':try';
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 use base 'Class::Scaffold::App::CommandLine';
 

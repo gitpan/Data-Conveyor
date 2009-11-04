@@ -1,5 +1,8 @@
 Revision history for Perl extension Data-Conveyor
 
+0.09 Thu 2009.11.05 00:15:44 CET (Marcel Gruenauer <marcel@cpan.org>)
+    - D::C::Ticket::Payload->get_list_for_object_type caches the method name
+
 0.08 Mon 2009.11.02 18:11:40 CET (Marcel Gruenauer <marcel@cpan.org>)
     - support for Class-Scaffold's subtests
     - no longer need to call named_test(), but leave it in here for now so

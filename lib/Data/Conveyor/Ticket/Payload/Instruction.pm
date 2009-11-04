@@ -6,7 +6,7 @@ use strict;
 use Class::Value;
 
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 
 use base 'Class::Scaffold::Storable';

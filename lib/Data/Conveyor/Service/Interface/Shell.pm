@@ -13,7 +13,7 @@ use Pod::Text;
 use IO::Pager;   # not used really, just determines a pager at BEGIN time
 use once;
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 # It's ok to inherit from Data::Conveyor::Service::Interface as well; new()
 # will be found in Term::Shell::Enhanced first.

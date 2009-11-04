@@ -9,7 +9,7 @@ use warnings;
 use Data::Miscellany qw/set_push flex_grep/;
 
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 
 use base 'Class::Scaffold::Exception::Container';

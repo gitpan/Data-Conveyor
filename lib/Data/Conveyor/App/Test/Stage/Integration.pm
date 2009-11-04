@@ -8,7 +8,7 @@ use Test::More;
 use Test::Builder;
 
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 
 use base 'Data::Conveyor::App::Test::Stage';
@@ -145,14 +145,14 @@ sub check_dispatched_ticket {
 
 sub after_ticket_closed {
     my $self = shift;
-    print "# ticket closed\n";
+    note 'ticket closed';
     $self->check_dispatched_ticket;
 }
 
 
 sub after_ticket_finished {
     my $self = shift;
-    print "# ticket finished\n";
+    note 'ticket finished';
     $self->check_dispatched_ticket;
 
     # Remember the stage the ticket should be opened in during the next

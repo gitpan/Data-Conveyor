@@ -5,7 +5,7 @@ use strict;
 use YAML::Marshall 'payload/instructioncontainer';
 use YAML 'Dump';
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 use base 'Class::Scaffold::YAML::Marshall';
 

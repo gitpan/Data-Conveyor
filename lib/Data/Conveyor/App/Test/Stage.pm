@@ -5,7 +5,7 @@ use YAML::Active 'Dump';
 use String::FlexMatch::Test;
 use Test::More;
 use Data::Dumper;
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 use base 'Class::Scaffold::App::Test::YAMLDriven';
 $Data::Dumper::Indent = 1;
 __PACKAGE__->mk_scalar_accessors(

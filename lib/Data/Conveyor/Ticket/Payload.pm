@@ -10,7 +10,7 @@ use strict;
 use Error::Hierarchy::Util 'assert_defined';
 use once;
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 use base qw(
     Class::Scaffold::Storable
@@ -108,7 +108,9 @@ sub get_list_name_for_object_type {
 
 sub get_list_for_object_type {
     my ($self, $object_type) = @_;
-    my $method = $self->get_list_name_for_object_type($object_type);
+    our %cache_list_name_for_object_type;
+    my $method = $cache_list_name_for_object_type{$object_type} ||=
+        $self->get_list_name_for_object_type($object_type);
     $self->$method;
 }
 

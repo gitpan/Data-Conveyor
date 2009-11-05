@@ -8,7 +8,7 @@ use Time::HiRes 'usleep';
 use Data::Conveyor::Lock::Dispatcher;
 
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 
 use base 'Class::Scaffold::App::CommandLine';

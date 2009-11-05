@@ -1,33 +1,18 @@
 package Data::Conveyor::Value::ObjectType;
-
-# $Id: ObjectType.pm 8442 2005-02-17 17:16:09Z gr $
-
 use strict;
 use warnings;
-
-
-our $VERSION = '0.09';
-
-
+our $VERSION = '0.10';
 use base 'Data::Conveyor::Value::Enum';
-
-
-sub get_valid_values_list { $_[0]->delegate->OT }
-
+sub get_valid_values_list { our $cache_values ||= $_[0]->delegate->OT }
 
 sub send_notify_value_invalid {
     my ($self, $value) = @_;
     local $Error::Depth = $Error::Depth + 2;
     $self->exception_container->record(
         'Data::Conveyor::Exception::NoSuchObjectType',
-        object_type => $value,
-    );
+        object_type => $value,);
 }
-
-
 1;
-
-
 __END__
 
 

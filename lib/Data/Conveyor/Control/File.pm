@@ -3,7 +3,7 @@ package Data::Conveyor::Control::File;
 # $Id: File.pm 13653 2007-10-22 09:11:20Z gr $
 use strict;
 use warnings;
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 use base 'Data::Conveyor::Control';
 __PACKAGE__->mk_scalar_accessors(qw(filename));
 

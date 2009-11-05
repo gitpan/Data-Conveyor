@@ -6,7 +6,7 @@ use Test::More;
 use Error::Hierarchy::Util 'load_class';
 
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 
 use base 'Class::Scaffold::Test';

@@ -1,29 +1,17 @@
 package Data::Conveyor::Value::Ticket::RC;
-
-# $Id: RC.pm 9003 2005-05-12 13:33:49Z gr $
-
 use strict;
 use warnings;
-
-
-our $VERSION = '0.09';
-
-
+our $VERSION = '0.10';
 use base 'Data::Conveyor::Value::Enum';
-
-
-sub get_valid_values_list { $_[0]->delegate->RC }
-
+sub get_valid_values_list { our $cache_values ||= $_[0]->delegate->RC }
 
 sub send_notify_value_invalid {
     my ($self, $value) = @_;
     local $Error::Depth = $Error::Depth + 2;
     $self->exception_container->record(
         'Data::Conveyor::Exception::Ticket::NoSuchRC',
-        rc => $value,
-    );
+        rc => $value,);
 }
-
 
 # Apply a new rc to the value object's existing rc. When called by the payload
 # methods this method makes sure that the resulting rc is the worst of all
@@ -45,22 +33,16 @@ sub send_notify_value_invalid {
 # The following simple code relies on the fact that RC_* are encoded as
 # numbers that increase with increasing severity. If that premise doesn't
 # hold anymore, we'll probably have to implement a real ops table.
-
 sub add {
     my ($rc1, $rc2) = @_;
     $rc1 > $rc2 ? $rc1 : $rc2;
 }
 
-
 sub num_cmp {
     my ($rc1, $rc2) = @_;
-    "$rc1" <=> "$rc2"
+    "$rc1" <=> "$rc2";
 }
-
-
 1;
-
-
 __END__
 
 

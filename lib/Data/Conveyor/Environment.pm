@@ -18,7 +18,7 @@ use once;
 # make_obj() Class::Value is loaded only on-demand.
 
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 
 use base 'Class::Scaffold::Environment';

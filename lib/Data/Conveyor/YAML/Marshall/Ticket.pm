@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use YAML::Marshall 'ticket';
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 use base 'Class::Scaffold::YAML::Marshall';
 

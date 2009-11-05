@@ -1,33 +1,18 @@
 package Data::Conveyor::Value::Ticket::Payload::Instruction::Command;
-
-# $Id: Command.pm 11476 2006-05-22 20:50:19Z gr $
-
 use warnings;
 use strict;
-
-
-our $VERSION = '0.09';
-
-
+our $VERSION = '0.10';
 use base 'Data::Conveyor::Value::Enum';
-
-
-sub get_valid_values_list { $_[0]->delegate->IC }
-
+sub get_valid_values_list { our $cache_values ||= $_[0]->delegate->IC }
 
 sub send_notify_value_invalid {
     my ($self, $value) = @_;
     local $Error::Depth = $Error::Depth + 2;
     $self->exception_container->record(
         'Data::Conveyor::Exception::NoSuchInstructionCommand',
-        command => $value,
-    );
+        command => $value,);
 }
-
-
 1;
-
-
 __END__
 
 

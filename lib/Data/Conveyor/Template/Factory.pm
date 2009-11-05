@@ -10,7 +10,7 @@ use Error::Hierarchy::Util 'assert_defined';
 use Class::Scaffold::Exception::Util 'assert_object_type';
 
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 
 use base 'Class::Scaffold::Factory';

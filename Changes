@@ -1,5 +1,8 @@
 Revision history for Perl extension Data-Conveyor
 
+0.10 Thu 2009.11.05 15:47:09 CET (Marcel Gruenauer <marcel@cpan.org>)
+    - performance tuning
+
 0.09 Thu 2009.11.05 00:15:44 CET (Marcel Gruenauer <marcel@cpan.org>)
     - D::C::Ticket::Payload->get_list_for_object_type caches the method name
 

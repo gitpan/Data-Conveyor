@@ -1,29 +1,17 @@
 package Data::Conveyor::Value::Ticket::Status;
-
-# $Id: Status.pm 12010 2006-08-28 14:01:17Z gr $
-
 use strict;
 use warnings;
-
-
-our $VERSION = '0.09';
-
-
+our $VERSION = '0.10';
 use base 'Data::Conveyor::Value::Enum';
-
-
-sub get_valid_values_list { $_[0]->delegate->TS }
-
+sub get_valid_values_list { our $cache_values ||= $_[0]->delegate->TS }
 
 sub send_notify_value_invalid {
     my ($self, $value) = @_;
     local $Error::Depth = $Error::Depth + 2;
     $self->exception_container->record(
         'Data::Conveyor::Exception::Ticket::NoSuchStatus',
-        status => $value,
-    );
+        status => $value,);
 }
-
 
 # Apply a new status to the value object's existing status. When called by the
 # payload methods this method makes sure that the resulting status is the
@@ -45,18 +33,14 @@ sub send_notify_value_invalid {
 # RUN    |  RUN   HOLD    ERR
 # HOLD   | HOLD   HOLD    ERR
 # ERR    |  ERR    ERR    ERR
-
-
 sub add {
     my ($status1, $status2) = @_;
     $status1 > $status2 ? $status1 : $status2;
 }
 
-
 sub num_cmp {
     my ($status1, $status2) = @_;
-
-    my $delegate = Data::Conveyor::Environment->getenv;
+    my $delegate          = Data::Conveyor::Environment->getenv;
     my $get_status_number = sub {
         return 0 if $_[0] eq $delegate->TS_RUNNING;
         return 1 if $_[0] eq $delegate->TS_HOLD;
@@ -64,14 +48,9 @@ sub num_cmp {
         return 2 if $_[0] eq $delegate->TS_ERROR;
         return 0;
     };
-
-    $get_status_number->($status1) <=> $get_status_number->($status2)
+    $get_status_number->($status1) <=> $get_status_number->($status2);
 }
-
-
 1;
-
-
 __END__
 
 

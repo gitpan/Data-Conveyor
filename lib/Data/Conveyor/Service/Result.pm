@@ -7,7 +7,7 @@ use warnings;
 use YAML;
 
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 
 use overload

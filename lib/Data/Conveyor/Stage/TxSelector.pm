@@ -9,7 +9,7 @@ use strict;
 use Error::Hierarchy::Util 'assert_defined';
 
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 
 use base 'Data::Conveyor::Stage::SingleTicket';

@@ -8,7 +8,7 @@ use Test::More;
 use Data::Dumper;
 
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 
 use base 'Data::Conveyor::App::Test::Stage';

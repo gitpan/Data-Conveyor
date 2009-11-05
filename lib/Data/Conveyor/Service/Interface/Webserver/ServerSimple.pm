@@ -3,7 +3,7 @@ package Data::Conveyor::Service::Interface::Webserver::ServerSimple;
 use strict;
 use warnings;
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 use base 'Data::Conveyor::Service::Interface::Webserver';
 

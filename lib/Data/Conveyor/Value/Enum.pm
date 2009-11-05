@@ -6,17 +6,18 @@ use strict;
 use warnings;
 
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 
-# Inherit from Class::Scaffold::Storable because get_valid_values_list is
-# presumably going to ask the delegate or the storage. Need to put
-# Class::Value::Enum first so it can find the more specific comparable() in
-# Class::Value.
+# Inherit from Class::Scaffold::Base because get_valid_values_list is
+# presumably going to ask the delegate. Need to put Class::Value::Enum first
+# so it can find the more specific comparable() in Class::Value. If you need
+# to ask the storage for the list of valid values, your subclass should
+# inherit from Class::Scaffold::Storable instead.
 
 use base qw(
     Class::Value::Enum
-    Class::Scaffold::Storable
+    Class::Scaffold::Base
 );
 
 

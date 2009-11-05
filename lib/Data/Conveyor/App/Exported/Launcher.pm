@@ -9,7 +9,7 @@ use IO::Handle;
 use FindBin '$Bin';
 
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 
 use base 'Exporter';

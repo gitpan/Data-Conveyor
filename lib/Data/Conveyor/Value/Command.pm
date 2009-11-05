@@ -1,33 +1,18 @@
 package Data::Conveyor::Value::Command;
-
-# $Id: Command.pm 8442 2005-02-17 17:16:09Z gr $
-
 use strict;
 use warnings;
-
-
-our $VERSION = '0.09';
-
-
+our $VERSION = '0.10';
 use base 'Data::Conveyor::Value::Enum';
-
-
-sub get_valid_values_list { $_[0]->delegate->CMD }
-
+sub get_valid_values_list { our $cache_values ||= $_[0]->delegate->CMD }
 
 sub send_notify_value_invalid {
     my ($self, $value) = @_;
     local $Error::Depth = $Error::Depth + 2;
     $self->exception_container->record(
         'Data::Conveyor::Exception::NoSuchCommand',
-        command => $value,
-    );
+        command => $value,);
 }
-
-
 1;
-
-
 __END__
 
 

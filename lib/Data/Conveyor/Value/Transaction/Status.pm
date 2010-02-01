@@ -1,7 +1,7 @@
 package Data::Conveyor::Value::Transaction::Status;
 use strict;
 use warnings;
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 use base 'Data::Conveyor::Value::Enum';
 sub get_valid_values_list { our $cache_values ||= $_[0]->delegate->TXS }
 

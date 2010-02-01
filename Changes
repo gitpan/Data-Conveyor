@@ -1,5 +1,9 @@
 Revision history for Perl extension Data-Conveyor
 
+0.11 Mon 2010.02.01 20:41:59 CET (Marcel Gruenauer <marcel@cpan.org>)
+    - support for versioned payload objects
+    - convert to new-style PTAGS handling (see Vim::Tag)
+
 0.10 Thu 2009.11.05 15:47:09 CET (Marcel Gruenauer <marcel@cpan.org>)
     - performance tuning
 

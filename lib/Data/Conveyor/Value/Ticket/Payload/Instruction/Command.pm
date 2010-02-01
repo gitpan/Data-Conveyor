@@ -1,7 +1,7 @@
 package Data::Conveyor::Value::Ticket::Payload::Instruction::Command;
 use warnings;
 use strict;
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 use base 'Data::Conveyor::Value::Enum';
 sub get_valid_values_list { our $cache_values ||= $_[0]->delegate->IC }
 

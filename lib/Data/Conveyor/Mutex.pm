@@ -12,7 +12,7 @@ use Error ':try';
 # across databases.
 
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 
 use base 'Class::Scaffold::Storable';

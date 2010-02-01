@@ -5,7 +5,7 @@ use strict;
 use Test::More;
 
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 
 use base 'Class::Scaffold::App::Test::YAMLDriven';

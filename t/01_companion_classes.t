@@ -5,6 +5,6 @@ use warnings;
 
 use base 'Class::Scaffold::App::Test::Classes';
 
-$ENV{CF_CONF} = 'local' unless defined $ENV{CF_CONF};
+$ENV{CF_CONF} = 'local';
 
 main->new->run_app;

@@ -8,7 +8,7 @@ use YAML::Active qw/assert_arrayref array_activate/;
 use YAML;
 
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 
 # FIXME cleanup: this seems to generate an array reference. later on, somebody

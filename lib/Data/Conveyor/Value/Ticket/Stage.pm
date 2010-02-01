@@ -6,7 +6,7 @@ use strict;
 use warnings;
 
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 
 # we need a delegate and therefore need the proper subclasses

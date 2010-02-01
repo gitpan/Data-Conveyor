@@ -7,7 +7,7 @@ use 5.006;
 # Marker package so sub-distros can use it in their Build.PL's 'requires'
 # section.
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 1;
 

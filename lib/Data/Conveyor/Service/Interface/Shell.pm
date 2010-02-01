@@ -13,7 +13,7 @@ use Pod::Text;
 use IO::Pager;   # not used really, just determines a pager at BEGIN time
 use once;
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 # It's ok to inherit from Data::Conveyor::Service::Interface as well; new()
 # will be found in Term::Shell::Enhanced first.
@@ -91,7 +91,7 @@ sub init {
             # smry_* method
             my $meth1 = sprintf "smry_%s" => $command;
             unless (defined *{$meth1}{CODE}) {
-                $::PTAGS && printf "%s\t%s\t%s\n", $meth1, __FILE__, __LINE__+1;
+                $::PTAGS && $::PTAGS->add_tag($meth1, __FILE__, __LINE__+1);
                 *$meth1 = sub {
                     local $DB::sub = local *__ANON__ =
                         "Data::Conveyor::Service::Interface::Shell::${meth1}"
@@ -104,7 +104,7 @@ sub init {
             # help_* method
             my $meth2 = sprintf "help_%s" => $command;
             unless (defined *{$meth2}{CODE}) {
-                $::PTAGS && printf "%s\t%s\t%s\n", $meth2, __FILE__, __LINE__+1;
+                $::PTAGS && $::PTAGS->add_tag($meth2, __FILE__, __LINE__+1);
                 *$meth2 = sub {
                     local $DB::sub = local *__ANON__ =
                         "Data::Conveyor::Service::Interface::Shell::${meth2}"
@@ -117,7 +117,7 @@ sub init {
             # run_* method
             my $meth3 = sprintf "run_%s" => $command;
             unless (defined *{$meth3}{CODE}) {
-                $::PTAGS && printf "%s\t%s\t%s\n", $meth3, __FILE__, __LINE__+1;
+                $::PTAGS && $::PTAGS->add_tag($meth3, __FILE__, __LINE__+1);
                 *$meth3 = sub {
                     local $DB::sub = local *__ANON__ =
                         "Data::Conveyor::Service::Interface::Shell::${meth3}"

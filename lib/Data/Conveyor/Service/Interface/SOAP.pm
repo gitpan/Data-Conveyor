@@ -7,7 +7,7 @@ use warnings;
 use Error ':try';
 use once;
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 use base 'Data::Conveyor::Service::Interface';
 
@@ -34,7 +34,7 @@ sub init {
 
                 my $meth1 = $method;
                 unless (defined *{$meth1}{CODE}) {
-                    $::PTAGS && printf "%s\t%s\t%s\n", $meth1, __FILE__, __LINE__+1;
+                    $::PTAGS && $::PTAGS->add_tag($meth1, __FILE__, __LINE__+1);
                     *$meth1 = sub {
                         local $DB::sub = local *__ANON__ =
                             "Data::Conveyor::Service::Interface::SOAP::${meth1}"

@@ -7,7 +7,7 @@ use warnings;
 use Date::Calc qw/Today_and_Now Decode_Date_US/;
 
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 
 use base 'Class::Value';

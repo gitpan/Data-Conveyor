@@ -7,7 +7,7 @@ use warnings;
 use charnames ':full';
 
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 
 use base 'Data::Conveyor::Charset';

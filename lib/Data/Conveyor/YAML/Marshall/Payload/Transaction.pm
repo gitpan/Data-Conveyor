@@ -4,7 +4,7 @@ use warnings;
 use strict;
 use YAML::Marshall 'payload/transaction';
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 use base 'Class::Scaffold::YAML::Marshall';
 

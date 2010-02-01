@@ -1,5 +1,7 @@
 =pod
 
+=for ptags package Data::Conveyor::Manual::NewStage;
+
 =head1 NAME
 
 Data::Conveyor::Manual::NewStage - How to create a new stage

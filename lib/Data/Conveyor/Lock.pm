@@ -7,7 +7,7 @@ use strict;
 use Fcntl ':flock';
 
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 
 use constant PREFIX => '.lock.';

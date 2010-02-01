@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use HTTP::Engine;
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 use base qw(
     Class::Scaffold::Base

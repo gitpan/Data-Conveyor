@@ -8,7 +8,7 @@ use Error::Hierarchy::Util 'assert_defined';
 use Class::Scaffold::Exception::Util 'assert_object_type';
 
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 
 use base 'Class::Scaffold::Base';
@@ -48,6 +48,7 @@ sub ticket_serialized_payload {
     my ($self, $payload) = @_;
 
     assert_object_type $payload, 'ticket_payload';
+    $payload->version($self->delegate->PAYLOAD_VERSION);
 
     # Serialize the ticket payload using Storable. The serialized version is
     # stored in the dem_payload table. We need to enable the serialization of
@@ -85,7 +86,9 @@ sub ticket_deserialized_payload {
     require Storable;
     $Storable::Eval = 1;
 
-    Storable::thaw($payload);
+    $payload = Storable::thaw($payload);
+    $payload->upgrade;
+    $payload;
 }
 
 

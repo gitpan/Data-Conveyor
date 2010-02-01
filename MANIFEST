@@ -118,6 +118,7 @@ lib/Data/Conveyor/Template/Factory.pm
 lib/Data/Conveyor/Template/Handler.pm
 lib/Data/Conveyor/Test.pm
 lib/Data/Conveyor/Test/Inherited.pm
+lib/Data/Conveyor/Test/Stage.pm
 lib/Data/Conveyor/Test/Ticket.pm
 lib/Data/Conveyor/Test/UtilLoader.pm
 lib/Data/Conveyor/Ticket.pm

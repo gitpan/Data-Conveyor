@@ -18,7 +18,7 @@ use once;
 # make_obj() Class::Value is loaded only on-demand.
 
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 
 use base 'Class::Scaffold::Environment';
@@ -64,6 +64,7 @@ __PACKAGE__->mk_object_accessors(
 
 
 use constant MUTEX_STORAGE_TYPE => 'mutex_storage';
+use constant PAYLOAD_VERSION => 1;
 
 use constant DEFAULTS => (
     test_mode            => (defined $ENV{TEST_MODE} && $ENV{TEST_MODE} == 1),
@@ -112,16 +113,15 @@ sub init {
             push @{"$class\::ISA"} => $self->INSTRUCTION_CLASS_BASE;
 
             my $type_method = "$class\::type";
-            $::PTAGS && printf "type\t%s\t%s\n", __FILE__, __LINE__+1;
+            $::PTAGS && $::PTAGS->add_tag('type', __FILE__, __LINE__+1);
             *$type_method = sub { $type };
-
-            $::PTAGS && printf "%s\t%s\t%s\n", 'value', __FILE__, __LINE__+3;
 
             # the class gets a $VERSION so that load_class() doesn't attempt
             # to load it, q.v. We also make an entry in %INC so
             # UNIVERSAL::require is happy. load_class() and require() could
             # be called for this class in Data::Comparable.
 
+            $::PTAGS && $::PTAGS->add_tag('value', __FILE__, __LINE__+3);
             eval qq!
                 package $class;
                 __PACKAGE__->mk_framework_object_accessors($type => 'value');
@@ -395,8 +395,12 @@ Class::Scaffold::Factory::Type->register_factory_type(
     monitor                      => 'Data::Conveyor::Monitor',
     mutex                        => 'Data::Conveyor::Mutex',
     payload_common               => 'Data::Conveyor::Ticket::Payload::Common',
-    payload_transaction          => 'Data::Conveyor::Ticket::Payload::Transaction',
+    payload_instruction_container =>
+        'Data::Conveyor::Ticket::Payload::Instruction::Container',
+    payload_instruction_factory  =>
+        'Data::Conveyor::Ticket::Payload::Instruction::Factory',
     payload_lock                 => 'Data::Conveyor::Ticket::Payload::Lock',
+    payload_transaction          => 'Data::Conveyor::Ticket::Payload::Transaction',
     service_interface_shell      => 'Data::Conveyor::Service::Interface::Shell',
     service_interface_soap       => 'Data::Conveyor::Service::Interface::SOAP',
     service_methods              => 'Data::Conveyor::Service::Methods',
@@ -416,10 +420,6 @@ Class::Scaffold::Factory::Type->register_factory_type(
     ticket_dispatcher_test       => 'Data::Conveyor::Ticket::Dispatcher::Test',
     ticket_facets                => 'Data::Conveyor::Ticket::Facets',
     ticket_payload               => 'Data::Conveyor::Ticket::Payload',
-    payload_instruction_container =>
-        'Data::Conveyor::Ticket::Payload::Instruction::Container',
-    payload_instruction_factory  =>
-        'Data::Conveyor::Ticket::Payload::Instruction::Factory',
     test_util_loader             => 'Data::Conveyor::Test::UtilLoader',
     ticket_provider              => 'Data::Conveyor::Ticket::Provider',
     ticket_transition            => 'Data::Conveyor::Ticket::Transition',

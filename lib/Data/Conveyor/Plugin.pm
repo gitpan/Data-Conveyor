@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 
 # For now, just subclass Hook::Modular::Plugin, but this class is useful if we

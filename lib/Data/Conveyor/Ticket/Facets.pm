@@ -7,7 +7,7 @@ use strict;
 use Class::Scaffold::Exception::Util 'assert_object_type';
 
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 
 use base 'Class::Scaffold::Storable';

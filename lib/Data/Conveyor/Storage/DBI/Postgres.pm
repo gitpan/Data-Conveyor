@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 
 # More specific superclass first. For example, Data::Storage defines a null

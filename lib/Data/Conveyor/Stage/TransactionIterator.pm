@@ -10,7 +10,7 @@ use Error::Hierarchy;
 use Error ':try';
 
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 
 use base 'Data::Conveyor::Stage::SingleTicket';

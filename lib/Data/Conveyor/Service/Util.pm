@@ -13,7 +13,7 @@ use Error ':try';
 use Error::Hierarchy::Util 'assert_nonempty_arrayref';
 
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 
 sub svc_check_arguments {

@@ -1,102 +1,79 @@
-package Data::Conveyor::Lock::Dispatcher;
-
-# $Id: Dispatcher.pm 8417 2005-02-16 16:57:57Z gr $
-# this is the lockhandler for reg_dispatch.pl
-
-use warnings;
+use 5.008;
 use strict;
+use warnings;
 
+package Data::Conveyor::Lock::Dispatcher;
+our $VERSION = '1.100870';
+# ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
-our $VERSION = '0.11';
-
-
-use base 'Data::Conveyor::Lock';
-
-
+# this is the lockhandler for reg_dispatch.pl
+use parent 'Data::Conveyor::Lock';
 use constant DEFAULTS => (
     lockname => 'dispatcher',
     maxlocks => 25
 );
 
-
 sub init {
     my $self = shift;
     $self->SUPER::init(+DEFAULTS, @_);
 }
-
-
-
 1;
 
 
 __END__
-
-
+=pod
 
 =head1 NAME
 
-Data::Conveyor::Lock::Dispatcher - stage-based conveyor-belt-like ticket handling system
+Data::Conveyor::Lock::Dispatcher - Stage-based conveyor-belt-like ticket handling system
 
-=head1 SYNOPSIS
+=head1 VERSION
 
-    Data::Conveyor::Lock::Dispatcher->new;
-
-=head1 DESCRIPTION
-
-None yet. This is an early release; fully functional, but undocumented. The
-next release will have more documentation.
+version 1.100870
 
 =head1 METHODS
 
-=over 4
+=head2 init
 
+FIXME
 
+=head1 INSTALLATION
 
-=back
-
-Data::Conveyor::Lock::Dispatcher inherits from L<Data::Conveyor::Lock>.
-
-The superclass L<Data::Conveyor::Lock> defines these methods and functions:
-
-    new(), administrate_locks(), get_lock(), lockfile(), lockname(),
-    lockpath(), lockstate(), maxlocks(), numlocks(), release_lock()
+See perlmodinstall for information and options on installing Perl modules.
 
 =head1 BUGS AND LIMITATIONS
 
 No bugs have been reported.
 
 Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org>.
-
-=head1 INSTALLATION
-
-See perlmodinstall for information and options on installing Perl modules.
+L<http://rt.cpan.org/Public/Dist/Display.html?Name=Data-Conveyor>.
 
 =head1 AVAILABILITY
 
 The latest version of this module is available from the Comprehensive Perl
-Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a CPAN
-site near you. Or see <http://www.perl.com/CPAN/authors/id/M/MA/MARCEL/>.
+Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
+site near you, or see
+L<http://search.cpan.org/dist/Data-Conveyor/>.
+
+The development version lives at
+L<http://github.com/hanekomu/Data-Conveyor/>.
+Instead of sending patches, please fork this project using the standard git
+and github infrastructure.
 
 =head1 AUTHORS
 
-Florian Helmberger C<< <fh@univie.ac.at> >>
-
-Achim Adam C<< <ac@univie.ac.at> >>
-
-Mark Hofstetter C<< <mh@univie.ac.at> >>
-
-Heinz Ekker C<< <ek@univie.ac.at> >>
-
-Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
+  Marcel Gruenauer <marcel@cpan.org>
+  Florian Helmberger <fh@univie.ac.at>
+  Achim Adam <ac@univie.ac.at>
+  Mark Hofstetter <mh@univie.ac.at>
+  Heinz Ekker <ek@univie.ac.at>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2009 by the authors.
+This software is copyright (c) 2004 by Marcel Gruenauer.
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
 

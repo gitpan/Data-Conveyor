@@ -1,12 +1,15 @@
-package Data::Conveyor::App::Test::Stage;
+use 5.008;
 use strict;
 use warnings;
+
+package Data::Conveyor::App::Test::Stage;
+our $VERSION = '1.100870';
+# ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 use YAML::Active 'Dump';
 use String::FlexMatch::Test;
 use Test::More;
 use Data::Dumper;
-our $VERSION = '0.11';
-use base 'Class::Scaffold::App::Test::YAMLDriven';
+use parent 'Class::Scaffold::App::Test::YAMLDriven';
 $Data::Dumper::Indent = 1;
 __PACKAGE__->mk_scalar_accessors(
     qw(
@@ -183,14 +186,9 @@ sub plan_ticket_tx {
 
 sub check_ticket_rc_status {
     my $self = shift;
-    is( $self->ticket->rc,
-        $self->expect->{rc} || $self->delegate->RC_OK,
-        'rc'
-    );
-    is( $self->ticket->status,
-        $self->expect->{status} || $self->delegate->TS_RUNNING,
-        'status'
-    );
+    is($self->ticket->rc, $self->expect->{rc} || $self->delegate->RC_OK, 'rc');
+    is($self->ticket->status,
+        $self->expect->{status} || $self->delegate->TS_RUNNING, 'status');
 }
 
 sub check_ticket_tx {
@@ -202,7 +200,7 @@ sub check_ticket_tx {
     # Dump as YAML on failure, so we see the stringified values, not the value
     # objects.
     ok(eq_array_flex(\@tx_status, $self->expect->{tx}), 'resulting tx status')
-        or print Dump \@tx_status;
+      or print Dump \@tx_status;
 }
 
 sub check_ticket_expected_container {
@@ -305,313 +303,119 @@ sub is_deep_set {
     $got    = [ sort _by_dump @{ $got    || [] } ];
     $expect = [ sort _by_dump @{ $expect || [] } ];
     is_deeply_flex($got, $expect, $test_name)
-      or print
-      YAML::Active::Dump($got,    ForceBlock => 0),
+      or print YAML::Active::Dump($got, ForceBlock => 0),
       YAML::Active::Dump($expect, ForceBlock => 0);
 }
 sub _by_dump { YAML::Active::Dump($a) cmp YAML::Active::Dump($b) }
 1;
+
+
 __END__
-
-
+=pod
 
 =head1 NAME
 
-Data::Conveyor::App::Test::Stage - stage-based conveyor-belt-like ticket handling system
+Data::Conveyor::App::Test::Stage - Stage-based conveyor-belt-like ticket handling system
 
-=head1 SYNOPSIS
+=head1 VERSION
 
-    Data::Conveyor::App::Test::Stage->new;
-
-=head1 DESCRIPTION
-
-None yet. This is an early release; fully functional, but undocumented. The
-next release will have more documentation.
+version 1.100870
 
 =head1 METHODS
 
-=over 4
+=head2 before_stage_hook
 
-=item C<clear_expected_stage_const>
+FIXME
 
-    $obj->clear_expected_stage_const;
+=head2 check_ticket_expected_container
 
-Clears the value.
+FIXME
 
-=item C<clear_stage>
+=head2 check_ticket_rc_status
 
-    $obj->clear_stage;
+FIXME
 
-Clears the value.
+=head2 check_ticket_tx
 
-=item C<clear_ticket>
+FIXME
 
-    $obj->clear_ticket;
+=head2 compare_exceptions
 
-Clears the value.
+FIXME
 
-=item C<clear_ticket_no>
+=head2 expected_stage
 
-    $obj->clear_ticket_no;
+FIXME
 
-Clears the value.
+=head2 gen_tx_item_ref
 
-=item C<expected_stage_const>
+FIXME
 
-    my $value = $obj->expected_stage_const;
-    $obj->expected_stage_const($value);
+=head2 is_deep_set
 
-A basic getter/setter method. If called without an argument, it returns the
-value. If called with a single argument, it sets the value.
+FIXME
 
-=item C<expected_stage_const_clear>
+=head2 make_stage_object
 
-    $obj->expected_stage_const_clear;
+FIXME
 
-Clears the value.
+=head2 make_ticket
 
-=item C<stage>
+FIXME
 
-    my $value = $obj->stage;
-    $obj->stage($value);
+=head2 plan_ticket_expected_container
 
-A basic getter/setter method. If called without an argument, it returns the
-value. If called with a single argument, it sets the value.
+FIXME
 
-=item C<stage_clear>
+=head2 plan_ticket_tx
 
-    $obj->stage_clear;
+FIXME
 
-Clears the value.
+=head2 run_subtest
 
-=item C<ticket>
+FIXME
 
-    my $value = $obj->ticket;
-    $obj->ticket($value);
+=head2 test_expectations
 
-A basic getter/setter method. If called without an argument, it returns the
-value. If called with a single argument, it sets the value.
+FIXME
 
-=item C<ticket_clear>
+=head1 INSTALLATION
 
-    $obj->ticket_clear;
-
-Clears the value.
-
-=item C<ticket_no>
-
-    my $value = $obj->ticket_no;
-    $obj->ticket_no($value);
-
-A basic getter/setter method. If called without an argument, it returns the
-value. If called with a single argument, it sets the value.
-
-=item C<ticket_no_clear>
-
-    $obj->ticket_no_clear;
-
-Clears the value.
-
-=back
-
-Data::Conveyor::App::Test::Stage inherits from
-L<Class::Scaffold::App::Test::YAMLDriven>.
-
-The superclass L<Class::Scaffold::App::Test::YAMLDriven> defines these
-methods and functions:
-
-    app_code(), clear_current_test_def(), clear_expect(), clear_run_num(),
-    clear_runs(), clear_test_def(), clear_testdir(), clear_testname(),
-    current_test_def(), current_test_def_clear(), delete_test_def(),
-    exists_test_def(), expect(), expect_clear(), keys_test_def(),
-    make_plan(), plan_test(), read_test_defs(), run_num(),
-    run_num_clear(), runs(), runs_clear(), should_skip(),
-    should_skip_testname(), test_def(), test_def_clear(),
-    test_def_delete(), test_def_exists(), test_def_keys(),
-    test_def_values(), testdir(), testdir_clear(), testname(),
-    testname_clear(), todo_skip_test(), values_test_def()
-
-The superclass L<Class::Scaffold::App::CommandLine> defines these methods
-and functions:
-
-    app_finish(), app_init(), clear_opt(), delete_opt(), exists_opt(),
-    keys_opt(), opt(), opt_clear(), opt_delete(), opt_exists(), opt_keys(),
-    opt_values(), usage(), values_opt()
-
-The superclass L<Class::Scaffold::App> defines these methods and functions:
-
-    clear_initialized(), initialized(), initialized_clear(),
-    initialized_set(), run_app(), set_initialized()
-
-The superclass L<Class::Scaffold::Storable> defines these methods and
-functions:
-
-    MUNGE_CONSTRUCTOR_ARGS(), clear_storage_info(), clear_storage_type(),
-    delete_storage_info(), exists_storage_info(), id(),
-    keys_storage_info(), storage(), storage_info(), storage_info_clear(),
-    storage_info_delete(), storage_info_exists(), storage_info_keys(),
-    storage_info_values(), storage_type(), storage_type_clear(),
-    values_storage_info()
-
-The superclass L<Class::Scaffold::Base> defines these methods and
-functions:
-
-    new(), FIRST_CONSTRUCTOR_ARGS(), add_autoloaded_package(), init(),
-    log()
-
-The superclass L<Data::Inherited> defines these methods and functions:
-
-    every_hash(), every_list(), flush_every_cache_by_key()
-
-The superclass L<Data::Comparable> defines these methods and functions:
-
-    comparable(), comparable_scalar(), dump_comparable(),
-    prepare_comparable(), yaml_dump_comparable()
-
-The superclass L<Class::Scaffold::Delegate::Mixin> defines these methods
-and functions:
-
-    delegate()
-
-The superclass L<Class::Scaffold::Accessor> defines these methods and
-functions:
-
-    mk_framework_object_accessors(), mk_framework_object_array_accessors(),
-    mk_readonly_accessors()
-
-The superclass L<Class::Accessor::Complex> defines these methods and
-functions:
-
-    mk_abstract_accessors(), mk_array_accessors(), mk_boolean_accessors(),
-    mk_class_array_accessors(), mk_class_hash_accessors(),
-    mk_class_scalar_accessors(), mk_concat_accessors(),
-    mk_forward_accessors(), mk_hash_accessors(), mk_integer_accessors(),
-    mk_new(), mk_object_accessors(), mk_scalar_accessors(),
-    mk_set_accessors(), mk_singleton()
-
-The superclass L<Class::Accessor> defines these methods and functions:
-
-    _carp(), _croak(), _mk_accessors(), accessor_name_for(),
-    best_practice_accessor_name_for(), best_practice_mutator_name_for(),
-    follow_best_practice(), get(), make_accessor(), make_ro_accessor(),
-    make_wo_accessor(), mk_accessors(), mk_ro_accessors(),
-    mk_wo_accessors(), mutator_name_for(), set()
-
-The superclass L<Class::Accessor::Installer> defines these methods and
-functions:
-
-    install_accessor()
-
-The superclass L<Class::Accessor::Constructor> defines these methods and
-functions:
-
-    _make_constructor(), mk_constructor(), mk_constructor_with_dirty(),
-    mk_singleton_constructor()
-
-The superclass L<Class::Accessor::FactoryTyped> defines these methods and
-functions:
-
-    clear_factory_typed_accessors(), clear_factory_typed_array_accessors(),
-    count_factory_typed_accessors(), count_factory_typed_array_accessors(),
-    factory_typed_accessors(), factory_typed_accessors_clear(),
-    factory_typed_accessors_count(), factory_typed_accessors_index(),
-    factory_typed_accessors_pop(), factory_typed_accessors_push(),
-    factory_typed_accessors_set(), factory_typed_accessors_shift(),
-    factory_typed_accessors_splice(), factory_typed_accessors_unshift(),
-    factory_typed_array_accessors(), factory_typed_array_accessors_clear(),
-    factory_typed_array_accessors_count(),
-    factory_typed_array_accessors_index(),
-    factory_typed_array_accessors_pop(),
-    factory_typed_array_accessors_push(),
-    factory_typed_array_accessors_set(),
-    factory_typed_array_accessors_shift(),
-    factory_typed_array_accessors_splice(),
-    factory_typed_array_accessors_unshift(),
-    index_factory_typed_accessors(), index_factory_typed_array_accessors(),
-    mk_factory_typed_accessors(), mk_factory_typed_array_accessors(),
-    pop_factory_typed_accessors(), pop_factory_typed_array_accessors(),
-    push_factory_typed_accessors(), push_factory_typed_array_accessors(),
-    set_factory_typed_accessors(), set_factory_typed_array_accessors(),
-    shift_factory_typed_accessors(), shift_factory_typed_array_accessors(),
-    splice_factory_typed_accessors(),
-    splice_factory_typed_array_accessors(),
-    unshift_factory_typed_accessors(),
-    unshift_factory_typed_array_accessors()
-
-The superclass L<Class::Scaffold::Factory::Type> defines these methods and
-functions:
-
-    factory_log()
-
-The superclass L<Class::Factory::Enhanced> defines these methods and
-functions:
-
-    add_factory_type(), make_object_for_type(), register_factory_type()
-
-The superclass L<Class::Factory> defines these methods and functions:
-
-    factory_error(), get_factory_class(), get_factory_type_for(),
-    get_loaded_classes(), get_loaded_types(), get_my_factory(),
-    get_my_factory_type(), get_registered_class(),
-    get_registered_classes(), get_registered_types(),
-    remove_factory_type(), unregister_factory_type()
-
-The superclass L<Class::Accessor::Constructor::Base> defines these methods
-and functions:
-
-    STORE(), clear_dirty(), clear_hygienic(), clear_unhygienic(),
-    contains_hygienic(), contains_unhygienic(), delete_hygienic(),
-    delete_unhygienic(), dirty(), dirty_clear(), dirty_set(),
-    elements_hygienic(), elements_unhygienic(), hygienic(),
-    hygienic_clear(), hygienic_contains(), hygienic_delete(),
-    hygienic_elements(), hygienic_insert(), hygienic_is_empty(),
-    hygienic_size(), insert_hygienic(), insert_unhygienic(),
-    is_empty_hygienic(), is_empty_unhygienic(), set_dirty(),
-    size_hygienic(), size_unhygienic(), unhygienic(), unhygienic_clear(),
-    unhygienic_contains(), unhygienic_delete(), unhygienic_elements(),
-    unhygienic_insert(), unhygienic_is_empty(), unhygienic_size()
-
-The superclass L<Tie::StdHash> defines these methods and functions:
-
-    CLEAR(), DELETE(), EXISTS(), FETCH(), FIRSTKEY(), NEXTKEY(), SCALAR(),
-    TIEHASH()
+See perlmodinstall for information and options on installing Perl modules.
 
 =head1 BUGS AND LIMITATIONS
 
 No bugs have been reported.
 
 Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org>.
-
-=head1 INSTALLATION
-
-See perlmodinstall for information and options on installing Perl modules.
+L<http://rt.cpan.org/Public/Dist/Display.html?Name=Data-Conveyor>.
 
 =head1 AVAILABILITY
 
 The latest version of this module is available from the Comprehensive Perl
-Archive Network (CPAN). Visit <http://www.perl.com/CPAN/> to find a CPAN
-site near you. Or see <http://www.perl.com/CPAN/authors/id/M/MA/MARCEL/>.
+Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
+site near you, or see
+L<http://search.cpan.org/dist/Data-Conveyor/>.
+
+The development version lives at
+L<http://github.com/hanekomu/Data-Conveyor/>.
+Instead of sending patches, please fork this project using the standard git
+and github infrastructure.
 
 =head1 AUTHORS
 
-Florian Helmberger C<< <fh@univie.ac.at> >>
-
-Achim Adam C<< <ac@univie.ac.at> >>
-
-Mark Hofstetter C<< <mh@univie.ac.at> >>
-
-Heinz Ekker C<< <ek@univie.ac.at> >>
-
-Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
+  Marcel Gruenauer <marcel@cpan.org>
+  Florian Helmberger <fh@univie.ac.at>
+  Achim Adam <ac@univie.ac.at>
+  Mark Hofstetter <mh@univie.ac.at>
+  Heinz Ekker <ek@univie.ac.at>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2004-2009 by the authors.
+This software is copyright (c) 2004 by Marcel Gruenauer.
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
 

@@ -1,0 +1,723 @@
+{
+   "resources" : {
+      "homepage" : "http://search.cpan.org/dist/Data-Conveyor/",
+      "repository" : "http://github.com/hanekomu/Data-Conveyor",
+      "bugtracker" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Data-Conveyor"
+   },
+   "generated_by" : "Dist::Zilla version 1.100711",
+   "meta-spec" : {
+      "version" : 1.4,
+      "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
+   },
+   "version" : "1.100870",
+   "name" : "Data-Conveyor",
+   "author" : [
+      "Marcel Gruenauer <marcel@cpan.org>",
+      "Florian Helmberger <fh@univie.ac.at>",
+      "Achim Adam <ac@univie.ac.at>",
+      "Mark Hofstetter <mh@univie.ac.at>",
+      "Heinz Ekker <ek@univie.ac.at>"
+   ],
+   "license" : "perl",
+   "build_requires" : {},
+   "provides" : {
+      "Data::Conveyor::Service::Interface" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Service/Interface.pm"
+      },
+      "Data::Conveyor::Ticket::Payload::Common" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Payload/Common.pm"
+      },
+      "Data::Conveyor::YAML::Active::Payload" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/YAML/Active/Payload.pm"
+      },
+      "Data::Conveyor::Ticket::Payload" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Payload.pm"
+      },
+      "Data::Conveyor::Charset::ViaHash" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Charset/ViaHash.pm"
+      },
+      "Data::Conveyor::YAML::Active::Payload::Lock" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/YAML/Active/Payload/Lock.pm"
+      },
+      "Data::Conveyor::Service::Result::Scalar" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Service/Result/Scalar.pm"
+      },
+      "Data::Conveyor::Storage::DBI" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Storage/DBI.pm"
+      },
+      "Data::Conveyor::Exception::Ticket::InvalidStage" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Ticket/InvalidStage.pm"
+      },
+      "Data::Conveyor::Storage::Memory" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Storage/Memory.pm"
+      },
+      "Data::Conveyor::Test" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Test.pm"
+      },
+      "Data::Conveyor::Exception::NoSuchObjectType" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/NoSuchObjectType.pm"
+      },
+      "Data::Conveyor::Delegate::Stage" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Delegate/Stage.pm"
+      },
+      "Data::Conveyor::Service::Util" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Service/Util.pm"
+      },
+      "Data::Conveyor::Lock::Dispatcher" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Lock/Dispatcher.pm"
+      },
+      "Data::Conveyor::Ticket::Dispatcher::Test" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Dispatcher/Test.pm"
+      },
+      "Data::Conveyor::Exception::Ticket::NoSuchOrigin" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Ticket/NoSuchOrigin.pm"
+      },
+      "Data::Conveyor::Transaction" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Transaction.pm"
+      },
+      "Data::Conveyor::YAML::Marshall::Payload" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/YAML/Marshall/Payload.pm"
+      },
+      "Data::Conveyor::Exception::Ticket::MissingLock" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Ticket/MissingLock.pm"
+      },
+      "Data::Conveyor::Exception::NoSuchLockType" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/NoSuchLockType.pm"
+      },
+      "Data::Conveyor::Stage::TxSelector" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Stage/TxSelector.pm"
+      },
+      "Data::Conveyor::Template::Handler" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Template/Handler.pm"
+      },
+      "Data::Conveyor::Exception::Transaction::NoSuchNecessity" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Transaction/NoSuchNecessity.pm"
+      },
+      "Data::Conveyor::Service::Result" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Service/Result.pm"
+      },
+      "Data::Conveyor::YAML::Marshall::Payload::InstructionContainer" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/YAML/Marshall/Payload/InstructionContainer.pm"
+      },
+      "Data::Conveyor::Stage::SingleTicket" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Stage/SingleTicket.pm"
+      },
+      "Data::Conveyor::YAML::Active::Payload::Transaction" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/YAML/Active/Payload/Transaction.pm"
+      },
+      "Data::Conveyor::Exception::NoSuchInstructionCommand" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/NoSuchInstructionCommand.pm"
+      },
+      "Data::Conveyor::Mutex" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Mutex.pm"
+      },
+      "Data::Conveyor::TxSelector" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/TxSelector.pm"
+      },
+      "Data::Conveyor::Value::Ticket::Stage" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Value/Ticket/Stage.pm"
+      },
+      "Data::Conveyor::Exception::ObjectLimitExceeded" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/ObjectLimitExceeded.pm"
+      },
+      "Data::Conveyor::App::Test::SIF::Unit" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/App/Test/SIF/Unit.pm"
+      },
+      "Data::Conveyor::YAML::Active::Payload::Instruction::Container" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/YAML/Active/Payload/Instruction/Container.pm"
+      },
+      "Data::Conveyor::Ticket::Payload::Item" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Payload/Item.pm"
+      },
+      "Data::Conveyor::Charset::UTF8" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Charset/UTF8.pm"
+      },
+      "Data::Conveyor::App::Shell" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/App/Shell.pm"
+      },
+      "Data::Conveyor::Ticket::Payload::Common_TEST" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Payload/Common_TEST.pm"
+      },
+      "Data::Conveyor::App::Test::Stage" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/App/Test/Stage.pm"
+      },
+      "Data::Conveyor::Value::Ticket::Origin" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Value/Ticket/Origin.pm"
+      },
+      "Data::Conveyor::Value::Ticket::RC_TEST" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Value/Ticket/RC_TEST.pm"
+      },
+      "Data::Conveyor::Storage" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Storage.pm"
+      },
+      "Data::Conveyor::Control::File" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Control/File.pm"
+      },
+      "Data::Conveyor::Value::Transaction::Necessity" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Value/Transaction/Necessity.pm"
+      },
+      "Data::Conveyor::Exception::Handler" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Handler.pm"
+      },
+      "Data::Conveyor::Ticket::Dispatcher" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Dispatcher.pm"
+      },
+      "Data::Conveyor::Stage" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Stage.pm"
+      },
+      "Data::Conveyor::Value::Ticket::Payload::Instruction::Command" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Value/Ticket/Payload/Instruction/Command.pm"
+      },
+      "Data::Conveyor::Service::Interface::Shell" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Service/Interface/Shell.pm"
+      },
+      "Data::Conveyor::Storage::DBI::Oracle" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Storage/DBI/Oracle.pm"
+      },
+      "Data::Conveyor::Exception::CommandDenied" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/CommandDenied.pm"
+      },
+      "Data::Conveyor::Manual::Instruction" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Manual/Instructions.pod"
+      },
+      "Data::Conveyor::Lock" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Lock.pm"
+      },
+      "Data::Conveyor::Exception::Ticket::NoSuchTicket" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Ticket/NoSuchTicket.pm"
+      },
+      "Data::Conveyor::Plugin" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Plugin.pm"
+      },
+      "Data::Conveyor::Value::Command" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Value/Command.pm"
+      },
+      "Data::Conveyor::Ticket::Payload::Instruction::Factory" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Payload/Instruction/Factory.pm"
+      },
+      "Data::Conveyor::App::Webserver" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/App/Webserver.pm"
+      },
+      "Data::Conveyor::Exception::Container" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Container.pm"
+      },
+      "Data::Conveyor" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor.pm"
+      },
+      "Data::Conveyor::Charset::ViaHash::ASCIILinefeed" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Charset/ViaHash/ASCIILinefeed.pm"
+      },
+      "Data::Conveyor::Value::Enum" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Value/Enum.pm"
+      },
+      "Data::Conveyor::Charset::ViaHash::ASCIIPunctuation" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Charset/ViaHash/ASCIIPunctuation.pm"
+      },
+      "Data::Conveyor::Exception::Ticket::NoSuchStatus" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Ticket/NoSuchStatus.pm"
+      },
+      "Data::Conveyor::Service::Result::Tabular_TEST" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Service/Result/Tabular_TEST.pm"
+      },
+      "Data::Conveyor::Service::Result::Container" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Service/Result/Container.pm"
+      },
+      "Data::Conveyor::Service::Interface::Script" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Service/Interface/Script.pm"
+      },
+      "Data::Conveyor::Charset::ASCII" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Charset/ASCII.pm"
+      },
+      "Data::Conveyor::Test::Stage" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Test/Stage.pm"
+      },
+      "Data::Conveyor::Manual::NewStage" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Manual/NewStage.pod"
+      },
+      "Data::Conveyor::Ticket::Provider" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Provider.pm"
+      },
+      "Data::Conveyor::Ticket::Payload::Transaction" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Payload/Transaction.pm"
+      },
+      "Data::Conveyor::App::Dispatch" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/App/Dispatch.pm"
+      },
+      "Data::Conveyor::Charset::ViaHash::LatinSmallLetters" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Charset/ViaHash/LatinSmallLetters.pm"
+      },
+      "Data::Conveyor::Value::Transaction::Status" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Value/Transaction/Status.pm"
+      },
+      "Data::Conveyor::Value::LockType" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Value/LockType.pm"
+      },
+      "Data::Conveyor::Service" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Service.pm"
+      },
+      "Data::Conveyor::YAML::Active::Payload::Common" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/YAML/Active/Payload/Common.pm"
+      },
+      "Data::Conveyor::Template::Factory" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Template/Factory.pm"
+      },
+      "Data::Conveyor::Storage::DBI::Core::Setup" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Storage/DBI/Core/Setup.pm"
+      },
+      "Data::Conveyor::Ticket::Lock" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Lock.pm"
+      },
+      "Data::Conveyor::Storage::DBI::Mock" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Storage/DBI/Mock.pm"
+      },
+      "Data::Conveyor::Exception::Ticket::HandleNotFound" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Ticket/HandleNotFound.pm"
+      },
+      "Data::Conveyor::Monitor" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Monitor.pm"
+      },
+      "Data::Conveyor::Exception::NoSuchCommand" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/NoSuchCommand.pm"
+      },
+      "Data::Conveyor::YAML::Marshall::TicketNumber" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/YAML/Marshall/TicketNumber.pm"
+      },
+      "Data::Conveyor::Charset::ViaHash::Digits" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Charset/ViaHash/Digits.pm"
+      },
+      "Data::Conveyor::App::Exported::Launcher" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/App/Exported/Launcher.pm"
+      },
+      "Data::Conveyor::Service::Interface::SOAP" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Service/Interface/SOAP.pm"
+      },
+      "Data::Conveyor::YAML::Active::MakeWholeTicketBlock" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/YAML/Active/MakeWholeTicketBlock.pm"
+      },
+      "Data::Conveyor::Exception::Internal::NoSuchTemplateHandler" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Internal/NoSuchTemplateHandler.pm"
+      },
+      "Data::Conveyor::Exception::Ticket" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Ticket.pm"
+      },
+      "Data::Conveyor::Test::Ticket" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Test/Ticket.pm"
+      },
+      "Data::Conveyor::Exception::Ticket::NoSuchId" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Ticket/NoSuchId.pm"
+      },
+      "Data::Conveyor::Storage::Null" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Storage/Null.pm"
+      },
+      "Data::Conveyor::Stage_TEST" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Stage_TEST.pm"
+      },
+      "Data::Conveyor::YAML::Marshall::Payload::Lock" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/YAML/Marshall/Payload/Lock.pm"
+      },
+      "Data::Conveyor::Temp002" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Service/Result/Tabular_TEST.pm"
+      },
+      "Data::Conveyor::Stage::TransactionIterator" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Stage/TransactionIterator.pm"
+      },
+      "Data::Conveyor::Value::Ticket::Status" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Value/Ticket/Status.pm"
+      },
+      "Data::Conveyor::Exception::Ticket::GenFailed" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Ticket/GenFailed.pm"
+      },
+      "Data::Conveyor::Test::UtilLoader" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Test/UtilLoader.pm"
+      },
+      "Data::Conveyor::Ticket::Payload::Instruction" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Payload/Instruction.pm"
+      },
+      "Data::Conveyor::YAML::Marshall::Payload::Transaction" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/YAML/Marshall/Payload/Transaction.pm"
+      },
+      "Data::Conveyor::Exception::Ticket::NoSuchRC" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Ticket/NoSuchRC.pm"
+      },
+      "Data::Conveyor::App::Mutex" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/App/Mutex.pm"
+      },
+      "Data::Conveyor::Value::ObjectType" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Value/ObjectType.pm"
+      },
+      "Data::Conveyor::Ticket::Transition" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Transition.pm"
+      },
+      "Data::Conveyor::Value::Transaction::Type" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Value/Transaction/Type.pm"
+      },
+      "Data::Conveyor::Value::Ticket::Number" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Value/Ticket/Number.pm"
+      },
+      "Data::Conveyor::App::Test::Stage::Integration" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/App/Test/Stage/Integration.pm"
+      },
+      "Data::Conveyor::Exception::Transaction::NoSuchType" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Transaction/NoSuchType.pm"
+      },
+      "Data::Conveyor::Ticket::Facets" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Facets.pm"
+      },
+      "Data::Conveyor::Ticket::Payload::Lock" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Payload/Lock.pm"
+      },
+      "Data::Conveyor::Value::Ticket::RC" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Value/Ticket/RC.pm"
+      },
+      "Data::Conveyor::YAML::Active::CurrentDateYYYYMMDD" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/YAML/Active/CurrentDateYYYYMMDD.pm"
+      },
+      "Data::Conveyor::Environment" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Environment.pm"
+      },
+      "Data::Conveyor::YAML::Marshall::Payload::Common" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/YAML/Marshall/Payload/Common.pm"
+      },
+      "Data::Conveyor::Environment_TEST" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Environment_TEST.pm"
+      },
+      "Data::Conveyor::Ticket::Payload::Instruction::Container_TEST" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Payload/Instruction/Container_TEST.pm"
+      },
+      "Data::Conveyor::YAML::Active::WriteTicket" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/YAML/Active/WriteTicket.pm"
+      },
+      "Data::Conveyor::Control" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Control.pm"
+      },
+      "Data::Conveyor::YAML::Active::Tx" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/YAML/Active/Tx.pm"
+      },
+      "Data::Conveyor::Ticket::Transaction" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Transaction.pm"
+      },
+      "Data::Conveyor::YAML::Marshall::Ticket" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/YAML/Marshall/Ticket.pm"
+      },
+      "Data::Conveyor::Ticket::Payload::Instruction::Clear" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Payload/Instruction/Clear.pm"
+      },
+      "Data::Conveyor::Storage::DBI::Postgres" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Storage/DBI/Postgres.pm"
+      },
+      "Data::Conveyor::Ticket" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket.pm"
+      },
+      "Data::Conveyor::YAML::Active::Payload::Item" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/YAML/Active/Payload/Item.pm"
+      },
+      "Data::Conveyor::Charset" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Charset.pm"
+      },
+      "Data::Conveyor::Value::Ticket::Type" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Value/Ticket/Type.pm"
+      },
+      "Data::Conveyor::Exception::Ticket::NoSuchType" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Ticket/NoSuchType.pm"
+      },
+      "Data::Conveyor::App::Test::Stage::TxSelector" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/App/Test/Stage/TxSelector.pm"
+      },
+      "Data::Conveyor::Temp001" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Service/Result/Tabular_TEST.pm"
+      },
+      "Data::Conveyor::Storage::DBI::SQLite" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Storage/DBI/SQLite.pm"
+      },
+      "Data::Conveyor::Ticket::Payload::BusinessObject" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Payload/BusinessObject.pm"
+      },
+      "Data::Conveyor::Exception::ServiceMethodHelp" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/ServiceMethodHelp.pm"
+      },
+      "Data::Conveyor::Service::Methods" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Service/Methods.pm"
+      },
+      "Data::Conveyor::Value::Ticket::Status_TEST" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Value/Ticket/Status_TEST.pm"
+      },
+      "Data::Conveyor::YAML::Active::GenTempTicketNo" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/YAML/Active/GenTempTicketNo.pm"
+      },
+      "Data::Conveyor::Test::Inherited" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Test/Inherited.pm"
+      },
+      "Data::Conveyor::Exception" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception.pm"
+      },
+      "Data::Conveyor::Ticket::Payload::Instruction::Container" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Payload/Instruction/Container.pm"
+      },
+      "Data::Conveyor::Service::Result::Tabular" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Service/Result/Tabular.pm"
+      },
+      "Data::Conveyor::Exception::Transaction" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Transaction.pm"
+      },
+      "Data::Conveyor::Exception::Template" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Template.pm"
+      },
+      "Data::Conveyor::Exception::Transaction::NoSuchStatus" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Exception/Transaction/NoSuchStatus.pm"
+      },
+      "Data::Conveyor::Charset::ViaHash::LatinSmallLetters_TEST" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Charset/ViaHash/LatinSmallLetters_TEST.pm"
+      },
+      "Data::Conveyor::Charset::ViaHash::LatinCapitalLetters" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Charset/ViaHash/LatinCapitalLetters.pm"
+      },
+      "Data::Conveyor::Ticket::Processor::Conveyor" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Ticket/Processor/Conveyor.pm"
+      },
+      "Data::Conveyor::Transaction::Factory" : {
+         "version" : "1.100870",
+         "file" : "lib/Data/Conveyor/Transaction/Factory.pm"
+      }
+   },
+   "requires" : {
+      "Class::Scaffold::Base" : "0",
+      "Text::Table" : "0",
+      "YAML" : "0",
+      "Pod::Text" : "0",
+      "Class::Scaffold::Test::UtilLoader" : "0",
+      "Class::Scaffold::Factory::Type" : "0",
+      "Storable" : "0",
+      "Class::Scaffold::YAML::Active::Hash" : "0",
+      "Error::Hierarchy" : "0",
+      "YAML::Active" : "0",
+      "DBI" : "0",
+      "English" : "0",
+      "Class::Scaffold::App::CommandLine" : "0",
+      "charnames" : "0",
+      "Class::Value::Exception::Base" : "0",
+      "Date::Calc" : "0",
+      "Data::Storage::DBI::Oracle" : "0",
+      "Class::Scaffold::Util" : "0",
+      "String::FlexMatch::Test" : "0",
+      "Error::Hierarchy::Internal::DBI::STH" : "0",
+      "Data::Storage::DBI::Mock" : "0",
+      "Class::Value::String" : "0",
+      "Compress::Zlib" : "0",
+      "Error::Hierarchy::Util" : "0",
+      "IO::Handle" : "0",
+      "Data::Storage::Null" : "0",
+      "Class::Scaffold::HierarchicalDirty" : "0",
+      "Class::Scaffold::Exception::Business" : "0",
+      "Error" : "0",
+      "File::Find" : "0",
+      "Hook::Modular" : "0",
+      "Class::Scaffold::Storable" : "0",
+      "constant" : "0",
+      "IO::Pager" : "0",
+      "Class::Scaffold::Accessor" : "0",
+      "Exporter" : "0",
+      "Class::Scaffold::ConstantImporter" : "0",
+      "Carp" : "0",
+      "perl" : "5.008",
+      "Error::Hierarchy::Internal" : "0",
+      "Class::Scaffold::Environment" : "0",
+      "Hook::Modular::Plugin" : "0",
+      "Data::Miscellany" : "0",
+      "Class::Scaffold::Factory" : "0",
+      "Class::Value::Enum" : "0",
+      "Term::Shell::Enhanced" : "0",
+      "Data::Storage::Memory" : "0",
+      "Hash::Flatten" : "0",
+      "Test::Builder" : "0",
+      "Class::Scaffold::Test" : "0",
+      "Data::Inherited" : "0",
+      "Error::Hierarchy::Test" : "0",
+      "Class::Scaffold::YAML::Marshall" : "0",
+      "Data::Storage::DBI::SQLite" : "0",
+      "once" : "0",
+      "Getopt::Long" : "0",
+      "parent" : "0",
+      "Test::Class" : "0",
+      "Data::Container" : "0",
+      "Data::Dumper" : "0",
+      "overload" : "0",
+      "Class::Scaffold::Log" : "0",
+      "Class::Scaffold::App::Test::YAMLDriven" : "0",
+      "Test::More" : "0.88",
+      "File::Temp" : "0",
+      "Class::Scaffold::Exception::Util" : "0",
+      "Scalar::Util" : "0",
+      "FindBin" : "0",
+      "Class::Scaffold::Delegate::Mixin" : "0",
+      "Fcntl" : "0",
+      "Class::Scaffold::Exception::Container" : "0",
+      "Class::Value" : "0",
+      "Class::Scaffold::Test::Inherited" : "0",
+      "Class::Scaffold::App::Test::Classes" : "0",
+      "Error::Hierarchy::Internal::CustomMessage" : "0",
+      "Class::Accessor::Complex" : "0",
+      "Class::Scaffold::Exception" : "0",
+      "Time::HiRes" : "0",
+      "YAML::Marshall" : "0",
+      "Data::Storage::DBI::Postgres" : "0",
+      "Class::Value::Exception::NotWellFormedValue" : "0",
+      "Class::Scaffold::YAML::Active" : "0",
+      "Sys::Hostname" : "0"
+   },
+   "abstract" : "Stage-based conveyor-belt-like ticket handling system",
+   "configure_requires" : {
+      "ExtUtils::MakeMaker" : "6.11"
+   }
+}
+

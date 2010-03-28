@@ -1,5 +1,8 @@
 Revision history for Perl extension Data-Conveyor
 
+1.100870  2010-03-28 12:03:22 Europe/Vienna
+    - converted the distribution to Dist::Zilla-style
+
 0.11 Mon 2010.02.01 20:41:59 CET (Marcel Gruenauer <marcel@cpan.org>)
     - support for versioned payload objects
     - convert to new-style PTAGS handling (see Vim::Tag)
@@ -23,7 +26,8 @@ Revision history for Perl extension Data-Conveyor
     - remove stray warn() debug calls
     - D::C::Storage::DBI: added cached_statement()
     - Merge branch 'master' of git@github.com:hanekomu/data-conveyor
-    - C::S::Environment: get_max_length_for can now handle cases where there's no object type
+    - C::S::Environment: get_max_length_for can now handle cases where there's
+      no object type
 
 0.06 Mon Jul  6 13:31:02 CEST 2009 (Marcel Gruenauer <marcel@cpan.org>)
      - added HTTP::Engine-based webserver

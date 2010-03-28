@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use base 'Class::Scaffold::App::Test::Classes';
+use parent 'Class::Scaffold::App::Test::Classes';
 
 $ENV{CF_CONF} = 'local';
 

@@ -1,70 +1,119 @@
-use inc::Module::Install;
-include 'Module::AutoInstall';
 
-name 'Data-Conveyor';
-all_from 'lib/Data/Conveyor.pm';
-readme_from_pod;
-readme_markdown_from_pod;
+use strict;
+use warnings;
 
-auto_set_homepage;
-auto_set_bugtracker;
-auto_set_repository;
+ BEGIN { require 5.008; } 
 
-requires 'Class::Scaffold' => '0.08';
-requires 'Class::Null';
-requires 'Data::Container';
-requires 'Data::Storage';
-requires 'Data::Comparable';
-requires 'Data::Inherited';
-requires 'Data::Miscellany';
-requires 'Date::Calc';
-requires 'DBI';
-requires 'Encode';
-requires 'Error::Hierarchy';
-requires 'Hash::Flatten';
-requires 'Hook::Modular';
-requires 'HTTP::Date';
-requires 'HTTP::Engine';
-requires 'HTTP::Engine::FirePHP';
-requires 'IO::Pager';
-requires 'JSON::XS';
-requires 'Log::Dispatch';
-requires 'MIME::Types';
-requires 'once';
-requires 'Path::Class::Unicode';
-requires 'Pod::PlainText';
-requires 'String::CamelCase';
-requires 'String::FlexMatch';
-requires 'SOAP::Lite';
-requires 'Term::Shell::Enhanced';
-requires 'Test::Differences';
-requires 'Test::More';
-requires 'Test::utf8';
-requires 'Text::Table';
-requires 'Time::HiRes';
-requires 'URI::Escape';
-requires 'YAML';
-requires 'YAML::Active';
+use ExtUtils::MakeMaker 6.11;
 
-test_requires 'Test::More' => '0.70';
-extra_tests;
 
-author_requires 'ShipIt';
-author_requires 'ShipIt::Step::DistClean';
-author_requires 'ShipIt::Step::DistTestExtra';
-author_requires 'ShipIt::Step::Manifest';
-author_requires 'ShipIt::Step::Twitter';
-author_requires 'Test::Compile';
-author_requires 'Test::Perl::Critic';
-author_requires 'Test::Pod';
-author_requires 'Test::Spelling';
-author_requires 'Pod::Wordlist::hanekomu';
-author_requires 'Test::Pod::Coverage';
-# author_requires 'Test::Kwalitee';   # Attempt to free unreferenced scalar
-author_requires 'Test::YAML::Meta';
-author_requires 'Test::Portability::Files';
-author_requires 'Test::Synopsis';
 
-auto_install;
-auto_include;
-WriteAll;
+my %WriteMakefileArgs = (
+                       'test' => {
+                                   'TESTS' => 't/*.t'
+                                 },
+                       'NAME' => 'Data::Conveyor',
+                       'DISTNAME' => 'Data-Conveyor',
+                       'CONFIGURE_REQUIRES' => {
+                                                 'ExtUtils::MakeMaker' => '6.11'
+                                               },
+                       'AUTHOR' => 'Marcel Gruenauer <marcel@cpan.org>, Florian Helmberger <fh@univie.ac.at>, Achim Adam <ac@univie.ac.at>, Mark Hofstetter <mh@univie.ac.at>, Heinz Ekker <ek@univie.ac.at>',
+                       'BUILD_REQUIRES' => {},
+                       'ABSTRACT' => 'Stage-based conveyor-belt-like ticket handling system',
+                       'EXE_FILES' => [],
+                       'VERSION' => '1.100870',
+                       'PREREQ_PM' => {
+                                        'Class::Scaffold::Base' => '0',
+                                        'Text::Table' => '0',
+                                        'YAML' => '0',
+                                        'Pod::Text' => '0',
+                                        'Class::Scaffold::Test::UtilLoader' => '0',
+                                        'Class::Scaffold::Factory::Type' => '0',
+                                        'Storable' => '0',
+                                        'Class::Scaffold::YAML::Active::Hash' => '0',
+                                        'Error::Hierarchy' => '0',
+                                        'YAML::Active' => '0',
+                                        'DBI' => '0',
+                                        'English' => '0',
+                                        'Class::Scaffold::App::CommandLine' => '0',
+                                        'charnames' => '0',
+                                        'Class::Value::Exception::Base' => '0',
+                                        'Date::Calc' => '0',
+                                        'Data::Storage::DBI::Oracle' => '0',
+                                        'Class::Scaffold::Util' => '0',
+                                        'String::FlexMatch::Test' => '0',
+                                        'Error::Hierarchy::Internal::DBI::STH' => '0',
+                                        'Data::Storage::DBI::Mock' => '0',
+                                        'Class::Value::String' => '0',
+                                        'Compress::Zlib' => '0',
+                                        'Error::Hierarchy::Util' => '0',
+                                        'IO::Handle' => '0',
+                                        'Data::Storage::Null' => '0',
+                                        'Class::Scaffold::HierarchicalDirty' => '0',
+                                        'Class::Scaffold::Exception::Business' => '0',
+                                        'Error' => '0',
+                                        'File::Find' => '0',
+                                        'Hook::Modular' => '0',
+                                        'Class::Scaffold::Storable' => '0',
+                                        'constant' => '0',
+                                        'IO::Pager' => '0',
+                                        'Class::Scaffold::Accessor' => '0',
+                                        'Exporter' => '0',
+                                        'Class::Scaffold::ConstantImporter' => '0',
+                                        'Carp' => '0',
+                                        'Error::Hierarchy::Internal' => '0',
+                                        'Class::Scaffold::Environment' => '0',
+                                        'Hook::Modular::Plugin' => '0',
+                                        'Data::Miscellany' => '0',
+                                        'Class::Scaffold::Factory' => '0',
+                                        'Class::Value::Enum' => '0',
+                                        'Term::Shell::Enhanced' => '0',
+                                        'Data::Storage::Memory' => '0',
+                                        'Hash::Flatten' => '0',
+                                        'Test::Builder' => '0',
+                                        'Class::Scaffold::Test' => '0',
+                                        'Data::Inherited' => '0',
+                                        'Error::Hierarchy::Test' => '0',
+                                        'Class::Scaffold::YAML::Marshall' => '0',
+                                        'Data::Storage::DBI::SQLite' => '0',
+                                        'once' => '0',
+                                        'Getopt::Long' => '0',
+                                        'parent' => '0',
+                                        'Test::Class' => '0',
+                                        'Data::Container' => '0',
+                                        'Data::Dumper' => '0',
+                                        'overload' => '0',
+                                        'Class::Scaffold::Log' => '0',
+                                        'Class::Scaffold::App::Test::YAMLDriven' => '0',
+                                        'Test::More' => '0.88',
+                                        'File::Temp' => '0',
+                                        'Class::Scaffold::Exception::Util' => '0',
+                                        'Scalar::Util' => '0',
+                                        'FindBin' => '0',
+                                        'Class::Scaffold::Delegate::Mixin' => '0',
+                                        'Fcntl' => '0',
+                                        'Class::Scaffold::Exception::Container' => '0',
+                                        'Class::Value' => '0',
+                                        'Class::Scaffold::Test::Inherited' => '0',
+                                        'Class::Scaffold::App::Test::Classes' => '0',
+                                        'Error::Hierarchy::Internal::CustomMessage' => '0',
+                                        'Class::Accessor::Complex' => '0',
+                                        'Class::Scaffold::Exception' => '0',
+                                        'Time::HiRes' => '0',
+                                        'YAML::Marshall' => '0',
+                                        'Data::Storage::DBI::Postgres' => '0',
+                                        'Class::Value::Exception::NotWellFormedValue' => '0',
+                                        'Class::Scaffold::YAML::Active' => '0',
+                                        'Sys::Hostname' => '0'
+                                      },
+                       'LICENSE' => 'perl'
+                     );
+
+
+delete $WriteMakefileArgs{LICENSE}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.31) };
+
+WriteMakefile(%WriteMakefileArgs);
+
+
+

@@ -1,9 +1,10 @@
-This is the Perl module Data::Conveyor.
+
+This is the Perl distribution Data-Conveyor.
 
 ## Installation
 
-Data::Conveyor installation is straightforward. If your CPAN shell is set up,
-you should just be able to do
+Data-Conveyor installation is straightforward.
+If your CPAN shell is set up, you should just be able to do
 
     % cpan Data::Conveyor
 
@@ -18,10 +19,9 @@ Then install it:
 
 ## Documentation
 
-Data::Conveyor documentation is available as in POD. So you can do:
+Data-Conveyor documentation is available as in POD.
+So you can do:
 
     % perldoc Data::Conveyor
 
-to read the documentation online with your favorite pager.
-
-Marcel Gruenauer
+to read the documentation with your favorite pager.

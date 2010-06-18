@@ -3,7 +3,9 @@ use strict;
 use warnings;
 
 package Data::Conveyor::Value::Ticket::Number;
-our $VERSION = '1.100870';
+BEGIN {
+  $Data::Conveyor::Value::Ticket::Number::VERSION = '1.101690';
+}
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
 use Date::Calc qw/Today_and_Now Decode_Date_US/;
@@ -42,7 +44,7 @@ Data::Conveyor::Value::Ticket::Number - Stage-based conveyor-belt-like ticket ha
 
 =head1 VERSION
 
-version 1.100870
+version 1.101690
 
 =head1 METHODS
 
@@ -67,7 +69,7 @@ See perlmodinstall for information and options on installing Perl modules.
 No bugs have been reported.
 
 Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org/Public/Dist/Display.html?Name=Data-Conveyor>.
+L<http://rt.cpan.org>.
 
 =head1 AVAILABILITY
 

@@ -3,9 +3,11 @@ use strict;
 use warnings;
 
 package Data::Conveyor::Monitor;
-our $VERSION = '1.100870';
-# ABSTRACT: Stage-based conveyor-belt-like ticket handling system
+BEGIN {
+  $Data::Conveyor::Monitor::VERSION = '1.101690';
+}
 
+# ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 use parent 'Class::Scaffold::Storable';
 
 sub sort_by_stage_order {
@@ -33,8 +35,8 @@ sub sif_top {
     my $result = $self->delegate->make_obj('service_result_container');
     my @activity =
         $opt{all}
-      ? $self->storage->get_activity
-      : $self->storage->get_activity_running;
+      ? $self->get_activity
+      : $self->get_activity_running;
     $result->result_push(
         $self->delegate->make_obj('service_result_tabular')->set_from_rows(
             fields => [qw/count stage status rc oticket ochanged/],
@@ -44,11 +46,26 @@ sub sif_top {
     $result->result_push(
         $self->delegate->make_obj(
             'service_result_scalar',
-            result => sprintf("%d open regtransfers\n",
-                $self->storage->count_open_regtransfers)
+            result =>
+              sprintf("%d open regtransfers\n", $self->count_open_regtransfers)
         )
     );
     $result;
+}
+
+sub get_activity {
+    my $self = shift;
+    $self->storage->get_activity;
+}
+
+sub get_activity_running {
+    my $self = shift;
+    $self->storage->get_activity_running;
+}
+
+sub count_open_regtransfers {
+    my $self = shift;
+    $self->storage->count_open_regtransfers;
 }
 1;
 
@@ -62,7 +79,7 @@ Data::Conveyor::Monitor - Stage-based conveyor-belt-like ticket handling system
 
 =head1 VERSION
 
-version 1.100870
+version 1.101690
 
 =head1 METHODS
 
@@ -71,6 +88,18 @@ version 1.100870
 FIXME
 
 =head2 sort_by_stage_order
+
+FIXME
+
+=head2 count_open_regtransfers
+
+FIXME
+
+=head2 get_activity
+
+FIXME
+
+=head2 get_activity_running
 
 FIXME
 
@@ -83,7 +112,7 @@ See perlmodinstall for information and options on installing Perl modules.
 No bugs have been reported.
 
 Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org/Public/Dist/Display.html?Name=Data-Conveyor>.
+L<http://rt.cpan.org>.
 
 =head1 AVAILABILITY
 

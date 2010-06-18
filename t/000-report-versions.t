@@ -1,7 +1,7 @@
 #!perl
 use warnings;
 use strict;
-use Test::More 0.88;
+use Test::More 0.94;
 
 # Include a cut-down version of YAML::Tiny so we don't introduce unnecessary
 # dependencies ourselves.
@@ -397,13 +397,24 @@ BEGIN {
     # Skip modules that either don't want to be loaded directly, such as
     # Module::Install, or that mess with the test count, such as the Test::*
     # modules listed here.
+    #
+    # Moose::Role conflicts if Moose is loaded as well, but Moose::Role is in
+    # the Moose distribution and it's certain that someone who uses
+    # Moose::Role also uses Moose somewhere, so if we disallow Moose::Role,
+    # we'll still get the relevant version number.
+
     my %skip = map { $_ => 1 } qw(
       App::FatPacker
       Class::Accessor::Classy
+      Devel::Cover
       Module::Install
-      Test::YAML::Meta
+      Moose::Role
+      POE::Loop::Tk
+      Template::Test
+      Test::Kwalitee
       Test::Pod::Coverage
       Test::Portability::Files
+      Test::YAML::Meta
     );
 
     my $Test = Test::Builder->new;

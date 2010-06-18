@@ -2,7 +2,7 @@ NAME
     Data::Conveyor - Stage-based conveyor-belt-like ticket handling system
 
 VERSION
-    version 1.100870
+    version 1.101690
 
 INSTALLATION
     See perlmodinstall for information and options on installing Perl
@@ -12,7 +12,7 @@ BUGS AND LIMITATIONS
     No bugs have been reported.
 
     Please report any bugs or feature requests through the web interface at
-    <http://rt.cpan.org/Public/Dist/Display.html?Name=Data-Conveyor>.
+    <http://rt.cpan.org>.
 
 AVAILABILITY
     The latest version of this module is available from the Comprehensive

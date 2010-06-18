@@ -3,7 +3,9 @@ use strict;
 use warnings;
 
 package Data::Conveyor::Ticket::Dispatcher::Test;
-our $VERSION = '1.100870';
+BEGIN {
+  $Data::Conveyor::Ticket::Dispatcher::Test::VERSION = '1.101690';
+}
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
 use parent 'Data::Conveyor::Ticket::Dispatcher';
@@ -39,7 +41,7 @@ Data::Conveyor::Ticket::Dispatcher::Test - Stage-based conveyor-belt-like ticket
 
 =head1 VERSION
 
-version 1.100870
+version 1.101690
 
 =head1 METHODS
 
@@ -64,7 +66,7 @@ See perlmodinstall for information and options on installing Perl modules.
 No bugs have been reported.
 
 Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org/Public/Dist/Display.html?Name=Data-Conveyor>.
+L<http://rt.cpan.org>.
 
 =head1 AVAILABILITY
 

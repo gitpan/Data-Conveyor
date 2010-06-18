@@ -3,7 +3,9 @@ use strict;
 use warnings;
 
 package Data::Conveyor::Ticket::Payload::Instruction::Container;
-our $VERSION = '1.100870';
+BEGIN {
+  $Data::Conveyor::Ticket::Payload::Instruction::Container::VERSION = '1.101690';
+}
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
 # ptags: DCTPIC
@@ -11,6 +13,10 @@ use parent qw(
   Data::Container
   Class::Scaffold::Storable
 );
+
+# Override stringification to return an unblessed copy of the object's hash
+# because our items don't stringify well.
+sub stringify { +{%{$_[0]}} }
 
 sub check {
     my ($self, $exception_container, $ticket) = @_;
@@ -53,7 +59,7 @@ Data::Conveyor::Ticket::Payload::Instruction::Container - Stage-based conveyor-b
 
 =head1 VERSION
 
-version 1.100870
+version 1.101690
 
 =head1 METHODS
 
@@ -82,7 +88,7 @@ See perlmodinstall for information and options on installing Perl modules.
 No bugs have been reported.
 
 Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org/Public/Dist/Display.html?Name=Data-Conveyor>.
+L<http://rt.cpan.org>.
 
 =head1 AVAILABILITY
 

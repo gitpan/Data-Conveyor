@@ -3,7 +3,9 @@ use strict;
 use warnings;
 
 package Data::Conveyor::Service::Result::Tabular_TEST;
-our $VERSION = '1.100870';
+BEGIN {
+  $Data::Conveyor::Service::Result::Tabular_TEST::VERSION = '1.101690';
+}
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
 use Error::Hierarchy::Test 'throws2_ok';
@@ -91,7 +93,9 @@ sub test_list_of_objects_input_no_baz {
 }
 
 package Data::Conveyor::Temp001;
-our $VERSION = '1.100870';
+BEGIN {
+  $Data::Conveyor::Temp001::VERSION = '1.101690';
+}
 use parent 'Class::Accessor::Complex';
 __PACKAGE__->mk_new->mk_scalar_accessors(qw(row));
 sub foo { sprintf 'row%dfoo', $_[0]->row }
@@ -99,7 +103,9 @@ sub bar { sprintf 'row%dbar', $_[0]->row }
 sub baz { sprintf 'row%dbaz', $_[0]->row }
 
 package Data::Conveyor::Temp002;
-our $VERSION = '1.100870';
+BEGIN {
+  $Data::Conveyor::Temp002::VERSION = '1.101690';
+}
 use parent 'Class::Accessor::Complex';
 __PACKAGE__->mk_new->mk_scalar_accessors(qw(row));
 sub foo { sprintf 'row%dfoo', $_[0]->row }
@@ -118,7 +124,7 @@ Data::Conveyor::Service::Result::Tabular_TEST - Stage-based conveyor-belt-like t
 
 =head1 VERSION
 
-version 1.100870
+version 1.101690
 
 =head1 METHODS
 
@@ -143,7 +149,7 @@ See perlmodinstall for information and options on installing Perl modules.
 No bugs have been reported.
 
 Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org/Public/Dist/Display.html?Name=Data-Conveyor>.
+L<http://rt.cpan.org>.
 
 =head1 AVAILABILITY
 

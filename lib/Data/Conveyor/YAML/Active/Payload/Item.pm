@@ -3,7 +3,9 @@ use strict;
 use warnings;
 
 package Data::Conveyor::YAML::Active::Payload::Item;
-our $VERSION = '1.100870';
+BEGIN {
+  $Data::Conveyor::YAML::Active::Payload::Item::VERSION = '1.101690';
+}
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
 use parent 'Class::Scaffold::YAML::Active::Hash';
@@ -64,7 +66,7 @@ Data::Conveyor::YAML::Active::Payload::Item - Stage-based conveyor-belt-like tic
 
 =head1 VERSION
 
-version 1.100870
+version 1.101690
 
 =head1 METHODS
 
@@ -101,7 +103,7 @@ See perlmodinstall for information and options on installing Perl modules.
 No bugs have been reported.
 
 Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org/Public/Dist/Display.html?Name=Data-Conveyor>.
+L<http://rt.cpan.org>.
 
 =head1 AVAILABILITY
 

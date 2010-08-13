@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Test::Stage;
 BEGIN {
-  $Data::Conveyor::Test::Stage::VERSION = '1.101690';
+  $Data::Conveyor::Test::Stage::VERSION = '1.102250';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 use Test::More;
@@ -151,13 +151,9 @@ sub status_is {
 __END__
 =pod
 
-=head1 NAME
-
-Data::Conveyor::Test::Stage - Stage-based conveyor-belt-like ticket handling system
-
 =head1 VERSION
 
-version 1.101690
+version 1.102250
 
 =head1 METHODS
 
@@ -230,11 +226,29 @@ and github infrastructure.
 
 =head1 AUTHORS
 
-  Marcel Gruenauer <marcel@cpan.org>
-  Florian Helmberger <fh@univie.ac.at>
-  Achim Adam <ac@univie.ac.at>
-  Mark Hofstetter <mh@univie.ac.at>
-  Heinz Ekker <ek@univie.ac.at>
+=over 4
+
+=item *
+
+Marcel Gruenauer <marcel@cpan.org>
+
+=item *
+
+Florian Helmberger <fh@univie.ac.at>
+
+=item *
+
+Achim Adam <ac@univie.ac.at>
+
+=item *
+
+Mark Hofstetter <mh@univie.ac.at>
+
+=item *
+
+Heinz Ekker <ek@univie.ac.at>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 

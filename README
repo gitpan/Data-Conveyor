@@ -1,8 +1,5 @@
-NAME
-    Data::Conveyor - Stage-based conveyor-belt-like ticket handling system
-
 VERSION
-    version 1.101690
+    version 1.102250
 
 INSTALLATION
     See perlmodinstall for information and options on installing Perl
@@ -25,11 +22,15 @@ AVAILABILITY
     infrastructure.
 
 AUTHORS
-      Marcel Gruenauer <marcel@cpan.org>
-      Florian Helmberger <fh@univie.ac.at>
-      Achim Adam <ac@univie.ac.at>
-      Mark Hofstetter <mh@univie.ac.at>
-      Heinz Ekker <ek@univie.ac.at>
+    *   Marcel Gruenauer <marcel@cpan.org>
+
+    *   Florian Helmberger <fh@univie.ac.at>
+
+    *   Achim Adam <ac@univie.ac.at>
+
+    *   Mark Hofstetter <mh@univie.ac.at>
+
+    *   Heinz Ekker <ek@univie.ac.at>
 
 COPYRIGHT AND LICENSE
     This software is copyright (c) 2004 by Marcel Gruenauer.

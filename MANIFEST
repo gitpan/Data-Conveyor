@@ -91,7 +91,7 @@ lib/Data/Conveyor/Storage/DBI.pm
 lib/Data/Conveyor/Storage/DBI/Core/Setup.pm
 lib/Data/Conveyor/Storage/DBI/Mock.pm
 lib/Data/Conveyor/Storage/DBI/Oracle.pm
-lib/Data/Conveyor/Storage/DBI/Postgres.pm
+lib/Data/Conveyor/Storage/DBI/Pg.pm
 lib/Data/Conveyor/Storage/DBI/SQLite.pm
 lib/Data/Conveyor/Storage/Memory.pm
 lib/Data/Conveyor/Storage/Null.pm
@@ -171,6 +171,7 @@ t/release-distmeta.t
 t/release-has-version.t
 t/release-kwalitee.t
 t/release-minimum-version.t
+t/release-no-tabs.t
 t/release-pod-coverage.t
 t/release-pod-spell.t
 t/release-pod-syntax.t

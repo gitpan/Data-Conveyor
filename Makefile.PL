@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
- BEGIN { require 5.008; } 
+BEGIN { require 5.008; }
 
 use ExtUtils::MakeMaker 6.31;
 
@@ -65,7 +65,7 @@ my %WriteMakefileArgs = (
     'Data::Miscellany' => '0',
     'Data::Storage::DBI::Mock' => '0',
     'Data::Storage::DBI::Oracle' => '0',
-    'Data::Storage::DBI::Postgres' => '0',
+    'Data::Storage::DBI::Pg' => '0',
     'Data::Storage::DBI::SQLite' => '0',
     'Data::Storage::Memory' => '0',
     'Data::Storage::Null' => '0',
@@ -105,7 +105,7 @@ my %WriteMakefileArgs = (
     'overload' => '0',
     'parent' => '0'
   },
-  'VERSION' => '1.101690',
+  'VERSION' => '1.102250',
   'test' => {
     'TESTS' => 't/*.t'
   }

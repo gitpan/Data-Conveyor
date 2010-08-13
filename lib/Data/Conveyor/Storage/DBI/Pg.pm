@@ -2,9 +2,9 @@ use 5.008;
 use strict;
 use warnings;
 
-package Data::Conveyor::Storage::DBI::Postgres;
+package Data::Conveyor::Storage::DBI::Pg;
 BEGIN {
-  $Data::Conveyor::Storage::DBI::Postgres::VERSION = '1.101690';
+  $Data::Conveyor::Storage::DBI::Pg::VERSION = '1.102250';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -12,7 +12,7 @@ BEGIN {
 # log, but we want to use Class::Scaffold::Base's settings.
 use parent qw(
   Data::Conveyor::Storage::DBI
-  Data::Storage::DBI::Postgres
+  Data::Storage::DBI::Pg
 );
 1;
 
@@ -20,13 +20,9 @@ use parent qw(
 __END__
 =pod
 
-=head1 NAME
-
-Data::Conveyor::Storage::DBI::Postgres - Stage-based conveyor-belt-like ticket handling system
-
 =head1 VERSION
 
-version 1.101690
+version 1.102250
 
 =head1 INSTALLATION
 
@@ -53,11 +49,29 @@ and github infrastructure.
 
 =head1 AUTHORS
 
-  Marcel Gruenauer <marcel@cpan.org>
-  Florian Helmberger <fh@univie.ac.at>
-  Achim Adam <ac@univie.ac.at>
-  Mark Hofstetter <mh@univie.ac.at>
-  Heinz Ekker <ek@univie.ac.at>
+=over 4
+
+=item *
+
+Marcel Gruenauer <marcel@cpan.org>
+
+=item *
+
+Florian Helmberger <fh@univie.ac.at>
+
+=item *
+
+Achim Adam <ac@univie.ac.at>
+
+=item *
+
+Mark Hofstetter <mh@univie.ac.at>
+
+=item *
+
+Heinz Ekker <ek@univie.ac.at>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 

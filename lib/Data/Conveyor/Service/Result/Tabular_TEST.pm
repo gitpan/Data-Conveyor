@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Service::Result::Tabular_TEST;
 BEGIN {
-  $Data::Conveyor::Service::Result::Tabular_TEST::VERSION = '1.101690';
+  $Data::Conveyor::Service::Result::Tabular_TEST::VERSION = '1.102250';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -94,7 +94,7 @@ sub test_list_of_objects_input_no_baz {
 
 package Data::Conveyor::Temp001;
 BEGIN {
-  $Data::Conveyor::Temp001::VERSION = '1.101690';
+  $Data::Conveyor::Temp001::VERSION = '1.102250';
 }
 use parent 'Class::Accessor::Complex';
 __PACKAGE__->mk_new->mk_scalar_accessors(qw(row));
@@ -104,7 +104,7 @@ sub baz { sprintf 'row%dbaz', $_[0]->row }
 
 package Data::Conveyor::Temp002;
 BEGIN {
-  $Data::Conveyor::Temp002::VERSION = '1.101690';
+  $Data::Conveyor::Temp002::VERSION = '1.102250';
 }
 use parent 'Class::Accessor::Complex';
 __PACKAGE__->mk_new->mk_scalar_accessors(qw(row));
@@ -118,13 +118,9 @@ sub bar { sprintf 'row%dbar', $_[0]->row }
 __END__
 =pod
 
-=head1 NAME
-
-Data::Conveyor::Service::Result::Tabular_TEST - Stage-based conveyor-belt-like ticket handling system
-
 =head1 VERSION
 
-version 1.101690
+version 1.102250
 
 =head1 METHODS
 
@@ -165,11 +161,29 @@ and github infrastructure.
 
 =head1 AUTHORS
 
-  Marcel Gruenauer <marcel@cpan.org>
-  Florian Helmberger <fh@univie.ac.at>
-  Achim Adam <ac@univie.ac.at>
-  Mark Hofstetter <mh@univie.ac.at>
-  Heinz Ekker <ek@univie.ac.at>
+=over 4
+
+=item *
+
+Marcel Gruenauer <marcel@cpan.org>
+
+=item *
+
+Florian Helmberger <fh@univie.ac.at>
+
+=item *
+
+Achim Adam <ac@univie.ac.at>
+
+=item *
+
+Mark Hofstetter <mh@univie.ac.at>
+
+=item *
+
+Heinz Ekker <ek@univie.ac.at>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 

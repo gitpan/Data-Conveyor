@@ -1,5 +1,7 @@
 Revision history for Perl extension Data-Conveyor
 
+1.102250  2010-08-13 14:46:36 Europe/Vienna
+
 1.101690  2010-06-18 12:52:52 Europe/Vienna
     - D::C::Monitor: added get_activity(), get_activity_running,
       count_open_regtransfers() so we don't have to go directly to the storage.

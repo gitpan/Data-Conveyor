@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Value::Ticket::Stage;
 BEGIN {
-  $Data::Conveyor::Value::Ticket::Stage::VERSION = '1.102250';
+  $Data::Conveyor::Value::Ticket::Stage::VERSION = '1.103010';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -98,9 +98,13 @@ sub is_end    { $_[0]->position eq $_[0]->pos_name_end }
 __END__
 =pod
 
+=head1 NAME
+
+Data::Conveyor::Value::Ticket::Stage - Stage-based conveyor-belt-like ticket handling system
+
 =head1 VERSION
 
-version 1.102250
+version 1.103010
 
 =head1 METHODS
 
@@ -181,19 +185,18 @@ See perlmodinstall for information and options on installing Perl modules.
 No bugs have been reported.
 
 Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org>.
+L<http://rt.cpan.org/Public/Dist/Display.html?Name=Data-Conveyor>.
 
 =head1 AVAILABILITY
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
-site near you, or see
-L<http://search.cpan.org/dist/Data-Conveyor/>.
+site near you, or see L<http://search.cpan.org/dist/Data-Conveyor/>.
 
-The development version lives at
-L<http://github.com/hanekomu/Data-Conveyor/>.
-Instead of sending patches, please fork this project using the standard git
-and github infrastructure.
+The development version lives at L<http://github.com/hanekomu/Data-Conveyor>
+and may be cloned from L<git://github.com/hanekomu/Data-Conveyor>.
+Instead of sending patches, please fork this project using the standard
+git and github infrastructure.
 
 =head1 AUTHORS
 

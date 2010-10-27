@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Environment;
 BEGIN {
-  $Data::Conveyor::Environment::VERSION = '1.102250';
+  $Data::Conveyor::Environment::VERSION = '1.103010';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -45,7 +45,6 @@ __PACKAGE__->mk_object_accessors(
               default_object_limit
               control_filename
               ticket_provider_clause
-              modular_config
               storage_init_location
               )
         ]
@@ -142,7 +141,7 @@ const CTX => (
     CTX_AFTER  => 'after',
 );
 
-# ticket types (see Data::Conveyor::Value::Ticket::Type)
+# ticket types
 const TT => ();
 
 # ticket status
@@ -190,7 +189,7 @@ const RC => (
     RC_INTERNAL_ERROR => 8,
 );
 
-# ticket origins (see Data::Conveyor::Value::Ticket::Origin)
+# ticket origins
 const OR => (
     OR_TEST => 'tst',
     OR_SIF  => 'sif',
@@ -337,21 +336,10 @@ Class::Scaffold::Factory::Type->register_factory_type(
     ticket_transition      => 'Data::Conveyor::Ticket::Transition',
     transaction            => 'Data::Conveyor::Ticket::Transaction',
     transaction_factory    => 'Data::Conveyor::Transaction::Factory',
-    value_command          => 'Data::Conveyor::Value::Command',
     value_lock_type        => 'Data::Conveyor::Value::LockType',
-    value_object_type      => 'Data::Conveyor::Value::ObjectType',
-    value_ticket_number    => 'Data::Conveyor::Value::Ticket::Number',
-    value_ticket_origin    => 'Data::Conveyor::Value::Ticket::Origin',
     value_ticket_rc        => 'Data::Conveyor::Value::Ticket::RC',
-    value_payload_instruction_command =>
-      'Data::Conveyor::Value::Ticket::Payload::Instruction::Command',
     value_ticket_stage  => 'Data::Conveyor::Value::Ticket::Stage',
     value_ticket_status => 'Data::Conveyor::Value::Ticket::Status',
-    value_ticket_type   => 'Data::Conveyor::Value::Ticket::Type',
-    value_transaction_necessity =>
-      'Data::Conveyor::Value::Transaction::Necessity',
-    value_transaction_status => 'Data::Conveyor::Value::Transaction::Status',
-    value_transaction_type   => 'Data::Conveyor::Value::Transaction::Type',
     stage_delegate           => 'Data::Conveyor::Delegate::Stage',
 );
 use constant DELEGATE_ACCESSORS => qw(
@@ -422,23 +410,19 @@ sub allowed_dispatcher_stages {
     $self->delegate->stages;
 }
 
-# ----------------------------------------------------------------------
-# plugins
-sub plugin_handler {
-    my $self = shift;
-    $self->{plugin_handler} ||=
-      Hook::Modular->new(
-        config => defined $self->modular_config ? $self->modular_config : {});
-}
 1;
 
 
 __END__
 =pod
 
+=head1 NAME
+
+Data::Conveyor::Environment - Stage-based conveyor-belt-like ticket handling system
+
 =head1 VERSION
 
-version 1.102250
+version 1.103010
 
 =head1 METHODS
 
@@ -507,19 +491,18 @@ See perlmodinstall for information and options on installing Perl modules.
 No bugs have been reported.
 
 Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org>.
+L<http://rt.cpan.org/Public/Dist/Display.html?Name=Data-Conveyor>.
 
 =head1 AVAILABILITY
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
-site near you, or see
-L<http://search.cpan.org/dist/Data-Conveyor/>.
+site near you, or see L<http://search.cpan.org/dist/Data-Conveyor/>.
 
-The development version lives at
-L<http://github.com/hanekomu/Data-Conveyor/>.
-Instead of sending patches, please fork this project using the standard git
-and github infrastructure.
+The development version lives at L<http://github.com/hanekomu/Data-Conveyor>
+and may be cloned from L<git://github.com/hanekomu/Data-Conveyor>.
+Instead of sending patches, please fork this project using the standard
+git and github infrastructure.
 
 =head1 AUTHORS
 

@@ -83,7 +83,6 @@ my %WriteMakefileArgs = (
     'Getopt::Long' => '0',
     'Hash::Flatten' => '0',
     'Hook::Modular' => '0',
-    'Hook::Modular::Plugin' => '0',
     'IO::Handle' => '0',
     'IO::Pager' => '0',
     'Pod::Text' => '0',
@@ -105,7 +104,7 @@ my %WriteMakefileArgs = (
     'overload' => '0',
     'parent' => '0'
   },
-  'VERSION' => '1.102250',
+  'VERSION' => '1.103010',
   'test' => {
     'TESTS' => 't/*.t'
   }

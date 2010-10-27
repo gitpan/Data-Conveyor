@@ -1,5 +1,9 @@
 Revision history for Perl extension Data-Conveyor
 
+1.103010  2010-10-28 00:44:55 Europe/Vienna
+    - fixed POD
+    - removed plugin mechanism. Plugins based on Moose roles are superior.
+
 1.102250  2010-08-13 14:46:36 Europe/Vienna
 
 1.101690  2010-06-18 12:52:52 Europe/Vienna

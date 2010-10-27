@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Stage::TransactionIterator;
 BEGIN {
-  $Data::Conveyor::Stage::TransactionIterator::VERSION = '1.102250';
+  $Data::Conveyor::Stage::TransactionIterator::VERSION = '1.103010';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -39,10 +39,6 @@ sub main {
     # Skip the rest of the stage run if we're marked as done. this might
     # happen if very basic things didn't work out.
     return if $self->done;
-    $self->delegate->plugin_handler->run_hook(
-        $self->ticket->stage->name . '.start',
-        { stage => $self },
-    );
     my @extra_tx;
     our $factory ||= $self->delegate->make_obj('transaction_factory');
     my $factory_method = $self->factory_method;
@@ -55,15 +51,6 @@ sub main {
                 stage  => $self,
             );
             $transaction_handler->run;
-            $self->delegate->plugin_handler->run_hook(
-                sprintf('%s.%s.%s',
-                    $self->ticket->stage->name,
-                    $payload_tx->transaction->object_type,
-                    $payload_tx->transaction->command),
-                {   transaction_handler => $transaction_handler,
-                    stage               => $self,
-                }
-            );
 
             # The transaction handler will accumulate exceptions in the
             # exception container of the payload item pointed to by the
@@ -100,10 +87,6 @@ sub main {
         };
     }
     $self->ticket->payload->add_transaction($_) for @extra_tx;
-    $self->delegate->plugin_handler->run_hook(
-        $self->ticket->stage->name . '.end',
-        { stage => $self },
-    );
 }
 1;
 
@@ -111,9 +94,13 @@ sub main {
 __END__
 =pod
 
+=head1 NAME
+
+Data::Conveyor::Stage::TransactionIterator - Stage-based conveyor-belt-like ticket handling system
+
 =head1 VERSION
 
-version 1.102250
+version 1.103010
 
 =head1 METHODS
 
@@ -138,19 +125,18 @@ See perlmodinstall for information and options on installing Perl modules.
 No bugs have been reported.
 
 Please report any bugs or feature requests through the web interface at
-L<http://rt.cpan.org>.
+L<http://rt.cpan.org/Public/Dist/Display.html?Name=Data-Conveyor>.
 
 =head1 AVAILABILITY
 
 The latest version of this module is available from the Comprehensive Perl
 Archive Network (CPAN). Visit L<http://www.perl.com/CPAN/> to find a CPAN
-site near you, or see
-L<http://search.cpan.org/dist/Data-Conveyor/>.
+site near you, or see L<http://search.cpan.org/dist/Data-Conveyor/>.
 
-The development version lives at
-L<http://github.com/hanekomu/Data-Conveyor/>.
-Instead of sending patches, please fork this project using the standard git
-and github infrastructure.
+The development version lives at L<http://github.com/hanekomu/Data-Conveyor>
+and may be cloned from L<git://github.com/hanekomu/Data-Conveyor>.
+Instead of sending patches, please fork this project using the standard
+git and github infrastructure.
 
 =head1 AUTHORS
 

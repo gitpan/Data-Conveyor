@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Charset::ViaHash::ASCIIPunctuation;
 BEGIN {
-  $Data::Conveyor::Charset::ViaHash::ASCIIPunctuation::VERSION = '1.103010';
+  $Data::Conveyor::Charset::ViaHash::ASCIIPunctuation::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -63,7 +63,7 @@ Data::Conveyor::Charset::ViaHash::ASCIIPunctuation - Stage-based conveyor-belt-l
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 INSTALLATION
 

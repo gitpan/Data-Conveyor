@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::YAML::Marshall::Payload::InstructionContainer;
 BEGIN {
-  $Data::Conveyor::YAML::Marshall::Payload::InstructionContainer::VERSION = '1.103010';
+  $Data::Conveyor::YAML::Marshall::Payload::InstructionContainer::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 use YAML::Marshall 'payload/instructioncontainer';
@@ -35,6 +35,8 @@ sub yaml_load {
     # - a-value_person_email_address: &EMAIL fh@univie.ac.at
     # - a-value_person_fax_number: &FAX1 '+4311234566'
     # - a-value_person_fax_number: &FAX2 '+431242342343'
+    # - clear: 1
+    # - foo: 1
     for my $spec (@$node) {
         unless (ref $spec eq 'HASH' && scalar(keys %$spec) == 1) {
             throw Error::Hierarchy::Internal::CustomMessage(custom_message =>
@@ -42,26 +44,22 @@ sub yaml_load {
                   . Dump($spec));
         }
         my ($key, $value) = %$spec;
-        if ($key eq 'clear') {
+        if ($key =~ /^([a-z])-(.*)/) {
+            my ($abbrev_command, $type) = ($1, $2);
+            my $command = $self->word_complete($abbrev_command, $self->delegate->IC)
+              or throw Error::Hierarchy::Internal::CustomMessage(custom_message =>
+                  "can't determine instruction command from [$abbrev_command]");
             $instruction_container->items_push(
-                $instruction_factory->gen_instruction('clear'));
-            next;
+                $instruction_factory->gen_instruction(
+                    $type,
+                    command => $command,
+                    value   => $value,
+                )
+            );
+        } else {
+            $instruction_container->items_push(
+                $instruction_factory->gen_instruction($key, value => $value));
         }
-        unless ($key =~ /^([a-z])-(.*)/) {
-            throw Error::Hierarchy::Internal::CustomMessage(
-                custom_message => "can't parse instruction key [$key]");
-        }
-        my ($abbrev_command, $type) = ($1, $2);
-        my $command = $self->word_complete($abbrev_command, $self->delegate->IC)
-          or throw Error::Hierarchy::Internal::CustomMessage(custom_message =>
-              "can't determine instruction command from [$abbrev_command]");
-        $instruction_container->items_push(
-            $instruction_factory->gen_instruction(
-                $type,
-                command => $command,
-                value   => $value,
-            )
-        );
     }
     $instruction_container;
 }
@@ -84,7 +82,7 @@ Data::Conveyor::YAML::Marshall::Payload::InstructionContainer - Stage-based conv
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 METHODS
 

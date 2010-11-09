@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::App::Test::SIF::Unit;
 BEGIN {
-  $Data::Conveyor::App::Test::SIF::Unit::VERSION = '1.103010';
+  $Data::Conveyor::App::Test::SIF::Unit::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 use Test::More;
@@ -35,7 +35,7 @@ Data::Conveyor::App::Test::SIF::Unit - Stage-based conveyor-belt-like ticket han
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 METHODS
 

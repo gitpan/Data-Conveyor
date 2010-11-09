@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::App::Test::Stage;
 BEGIN {
-  $Data::Conveyor::App::Test::Stage::VERSION = '1.103010';
+  $Data::Conveyor::App::Test::Stage::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 use YAML::Active 'Dump';
@@ -321,7 +321,7 @@ Data::Conveyor::App::Test::Stage - Stage-based conveyor-belt-like ticket handlin
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 METHODS
 

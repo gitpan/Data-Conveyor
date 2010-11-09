@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Stage::TxSelector;
 BEGIN {
-  $Data::Conveyor::Stage::TxSelector::VERSION = '1.103010';
+  $Data::Conveyor::Stage::TxSelector::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -90,7 +90,7 @@ Data::Conveyor::Stage::TxSelector - Stage-based conveyor-belt-like ticket handli
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 METHODS
 

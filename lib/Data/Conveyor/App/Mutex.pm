@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::App::Mutex;
 BEGIN {
-  $Data::Conveyor::App::Mutex::VERSION = '1.103010';
+  $Data::Conveyor::App::Mutex::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 use Error::Hierarchy::Util 'assert_defined';
@@ -46,7 +46,7 @@ Data::Conveyor::App::Mutex - Stage-based conveyor-belt-like ticket handling syst
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 INSTALLATION
 

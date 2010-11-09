@@ -2,7 +2,7 @@ NAME
     Data::Conveyor - Stage-based conveyor-belt-like ticket handling system
 
 VERSION
-    version 1.103010
+    version 1.103130
 
 INSTALLATION
     See perlmodinstall for information and options on installing Perl

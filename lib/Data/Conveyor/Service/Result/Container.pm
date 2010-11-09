@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Service::Result::Container;
 BEGIN {
-  $Data::Conveyor::Service::Result::Container::VERSION = '1.103010';
+  $Data::Conveyor::Service::Result::Container::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -49,7 +49,7 @@ Data::Conveyor::Service::Result::Container - Stage-based conveyor-belt-like tick
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 METHODS
 

@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Exception::Ticket::InvalidStage;
 BEGIN {
-  $Data::Conveyor::Exception::Ticket::InvalidStage::VERSION = '1.103010';
+  $Data::Conveyor::Exception::Ticket::InvalidStage::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -24,7 +24,7 @@ Data::Conveyor::Exception::Ticket::InvalidStage - Stage-based conveyor-belt-like
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 INSTALLATION
 

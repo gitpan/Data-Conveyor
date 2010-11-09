@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Exception::ObjectLimitExceeded;
 BEGIN {
-  $Data::Conveyor::Exception::ObjectLimitExceeded::VERSION = '1.103010';
+  $Data::Conveyor::Exception::ObjectLimitExceeded::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -25,7 +25,7 @@ Data::Conveyor::Exception::ObjectLimitExceeded - Stage-based conveyor-belt-like 
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 INSTALLATION
 

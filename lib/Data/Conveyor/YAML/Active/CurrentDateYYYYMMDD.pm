@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::YAML::Active::CurrentDateYYYYMMDD;
 BEGIN {
-  $Data::Conveyor::YAML::Active::CurrentDateYYYYMMDD::VERSION = '1.103010';
+  $Data::Conveyor::YAML::Active::CurrentDateYYYYMMDD::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -34,7 +34,7 @@ Data::Conveyor::YAML::Active::CurrentDateYYYYMMDD - Stage-based conveyor-belt-li
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 METHODS
 

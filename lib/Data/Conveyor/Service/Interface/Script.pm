@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Service::Interface::Script;
 BEGIN {
-  $Data::Conveyor::Service::Interface::Script::VERSION = '1.103010';
+  $Data::Conveyor::Service::Interface::Script::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -21,7 +21,7 @@ Data::Conveyor::Service::Interface::Script - Stage-based conveyor-belt-like tick
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 INSTALLATION
 

@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::App::Shell;
 BEGIN {
-  $Data::Conveyor::App::Shell::VERSION = '1.103010';
+  $Data::Conveyor::App::Shell::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 use parent 'Class::Scaffold::App::CommandLine';
@@ -38,7 +38,7 @@ Data::Conveyor::App::Shell - Stage-based conveyor-belt-like ticket handling syst
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 METHODS
 

@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Service::Result::Tabular_TEST;
 BEGIN {
-  $Data::Conveyor::Service::Result::Tabular_TEST::VERSION = '1.103010';
+  $Data::Conveyor::Service::Result::Tabular_TEST::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -94,7 +94,7 @@ sub test_list_of_objects_input_no_baz {
 
 package Data::Conveyor::Temp001;
 BEGIN {
-  $Data::Conveyor::Temp001::VERSION = '1.103010';
+  $Data::Conveyor::Temp001::VERSION = '1.103130';
 }
 use parent 'Class::Accessor::Complex';
 __PACKAGE__->mk_new->mk_scalar_accessors(qw(row));
@@ -104,7 +104,7 @@ sub baz { sprintf 'row%dbaz', $_[0]->row }
 
 package Data::Conveyor::Temp002;
 BEGIN {
-  $Data::Conveyor::Temp002::VERSION = '1.103010';
+  $Data::Conveyor::Temp002::VERSION = '1.103130';
 }
 use parent 'Class::Accessor::Complex';
 __PACKAGE__->mk_new->mk_scalar_accessors(qw(row));
@@ -124,7 +124,7 @@ Data::Conveyor::Service::Result::Tabular_TEST - Stage-based conveyor-belt-like t
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 METHODS
 

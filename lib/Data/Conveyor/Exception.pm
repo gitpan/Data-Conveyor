@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Exception;
 BEGIN {
-  $Data::Conveyor::Exception::VERSION = '1.103010';
+  $Data::Conveyor::Exception::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 use parent 'Class::Scaffold::Exception';
@@ -21,7 +21,7 @@ Data::Conveyor::Exception - Stage-based conveyor-belt-like ticket handling syste
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 INSTALLATION
 

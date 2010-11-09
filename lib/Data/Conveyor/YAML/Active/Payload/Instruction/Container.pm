@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::YAML::Active::Payload::Instruction::Container;
 BEGIN {
-  $Data::Conveyor::YAML::Active::Payload::Instruction::Container::VERSION = '1.103010';
+  $Data::Conveyor::YAML::Active::Payload::Instruction::Container::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -108,7 +108,7 @@ Data::Conveyor::YAML::Active::Payload::Instruction::Container - Stage-based conv
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 METHODS
 

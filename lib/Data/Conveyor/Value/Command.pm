@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Value::Command;
 BEGIN {
-  $Data::Conveyor::Value::Command::VERSION = '1.103010';
+  $Data::Conveyor::Value::Command::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 use parent 'Data::Conveyor::Value::Enum';
@@ -29,7 +29,7 @@ Data::Conveyor::Value::Command - Stage-based conveyor-belt-like ticket handling 
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 METHODS
 

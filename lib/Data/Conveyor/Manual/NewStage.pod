@@ -15,7 +15,7 @@ Data::Conveyor::Manual::NewStage - How to create a new stage
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 HOW TO CREATE A NEW STAGE
 

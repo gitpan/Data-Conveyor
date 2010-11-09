@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Stage::TransactionIterator;
 BEGIN {
-  $Data::Conveyor::Stage::TransactionIterator::VERSION = '1.103010';
+  $Data::Conveyor::Stage::TransactionIterator::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -100,7 +100,7 @@ Data::Conveyor::Stage::TransactionIterator - Stage-based conveyor-belt-like tick
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 METHODS
 

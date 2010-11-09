@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Service::Result::Tabular;
 BEGIN {
-  $Data::Conveyor::Service::Result::Tabular::VERSION = '1.103010';
+  $Data::Conveyor::Service::Result::Tabular::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -82,7 +82,7 @@ Data::Conveyor::Service::Result::Tabular - Stage-based conveyor-belt-like ticket
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 METHODS
 

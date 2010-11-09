@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::YAML::Marshall::Payload::Common;
 BEGIN {
-  $Data::Conveyor::YAML::Marshall::Payload::Common::VERSION = '1.103010';
+  $Data::Conveyor::YAML::Marshall::Payload::Common::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 use YAML::Marshall 'payload/common';
@@ -31,7 +31,7 @@ Data::Conveyor::YAML::Marshall::Payload::Common - Stage-based conveyor-belt-like
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 METHODS
 

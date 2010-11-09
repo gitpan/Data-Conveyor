@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::YAML::Active::WriteTicket;
 BEGIN {
-  $Data::Conveyor::YAML::Active::WriteTicket::VERSION = '1.103010';
+  $Data::Conveyor::YAML::Active::WriteTicket::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -35,7 +35,7 @@ Data::Conveyor::YAML::Active::WriteTicket - Stage-based conveyor-belt-like ticke
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 METHODS
 

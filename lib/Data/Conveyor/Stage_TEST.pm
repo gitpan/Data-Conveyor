@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Stage_TEST;
 BEGIN {
-  $Data::Conveyor::Stage_TEST::VERSION = '1.103010';
+  $Data::Conveyor::Stage_TEST::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -29,7 +29,7 @@ Data::Conveyor::Stage_TEST - Stage-based conveyor-belt-like ticket handling syst
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 INSTALLATION
 

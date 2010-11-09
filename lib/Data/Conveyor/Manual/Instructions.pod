@@ -15,7 +15,7 @@ Data::Conveyor::Manual::Instruction - About payload instruction objects
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 PAYLOAD INSTRUCTIONS
 

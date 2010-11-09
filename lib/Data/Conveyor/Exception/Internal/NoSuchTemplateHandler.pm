@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Exception::Internal::NoSuchTemplateHandler;
 BEGIN {
-  $Data::Conveyor::Exception::Internal::NoSuchTemplateHandler::VERSION = '1.103010';
+  $Data::Conveyor::Exception::Internal::NoSuchTemplateHandler::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -37,7 +37,7 @@ Data::Conveyor::Exception::Internal::NoSuchTemplateHandler - Stage-based conveyo
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 INSTALLATION
 

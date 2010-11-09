@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Test::UtilLoader;
 BEGIN {
-  $Data::Conveyor::Test::UtilLoader::VERSION = '1.103010';
+  $Data::Conveyor::Test::UtilLoader::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 use Data::Conveyor::YAML::Marshall::Ticket;
@@ -27,7 +27,7 @@ Data::Conveyor::Test::UtilLoader - Stage-based conveyor-belt-like ticket handlin
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 INSTALLATION
 

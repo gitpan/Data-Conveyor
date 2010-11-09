@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Storage::DBI::SQLite;
 BEGIN {
-  $Data::Conveyor::Storage::DBI::SQLite::VERSION = '1.103010';
+  $Data::Conveyor::Storage::DBI::SQLite::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -29,7 +29,7 @@ Data::Conveyor::Storage::DBI::SQLite - Stage-based conveyor-belt-like ticket han
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 METHODS
 

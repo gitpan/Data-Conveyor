@@ -4,7 +4,7 @@ use warnings;
 
 package Data::Conveyor::Service::Interface::SOAP;
 BEGIN {
-  $Data::Conveyor::Service::Interface::SOAP::VERSION = '1.103010';
+  $Data::Conveyor::Service::Interface::SOAP::VERSION = '1.103130';
 }
 # ABSTRACT: Stage-based conveyor-belt-like ticket handling system
 
@@ -131,7 +131,7 @@ Data::Conveyor::Service::Interface::SOAP - Stage-based conveyor-belt-like ticket
 
 =head1 VERSION
 
-version 1.103010
+version 1.103130
 
 =head1 METHODS
 

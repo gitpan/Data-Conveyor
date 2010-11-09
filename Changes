@@ -1,5 +1,10 @@
 Revision history for Perl extension Data-Conveyor
 
+1.103130  2010-11-09 13:41:33 Europe/Vienna
+    - D::C::YAML::Marshall::Payload::InstructionContainer: be more flexible in
+      generating instructions - anything the instruction factory can generate
+      is ok
+
 1.103010  2010-10-28 00:44:55 Europe/Vienna
     - fixed POD
     - removed plugin mechanism. Plugins based on Moose roles are superior.
